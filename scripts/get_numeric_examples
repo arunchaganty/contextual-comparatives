@@ -20,8 +20,9 @@ function extract_pattern() {
   outfile=$2;
 
   pgsql "COPY (
-    SELECT id, gloss, words, pos_tags, ner_tags, dependencies_conll FROM sentence WHERE gloss ~* E'$pattern' LIMIT 10000
-      ) TO STDOUT WITH DELIMITER E'\t';" |\
+    SELECT id, doc_id, sentence_index, gloss, words, lemmas, pos_tags, ner_tags, doc_char_begin, doc_char_end, dependencies_conll
+      FROM sentence WHERE gloss ~* E'$pattern' LIMIT 10000
+      ) TO STDOUT DELIMITER E'\t';" |\
   sed 's#\\n# #g' > $outfile;
 }
 

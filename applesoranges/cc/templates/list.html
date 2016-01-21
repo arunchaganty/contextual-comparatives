@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="col-md-12">
+<h1>Numeric mentions</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th style="width:5%;">ID</th> 
+    <th style="width:15%;">Value</th> 
+    <th style="width:45%;">Sentence</th> 
+    <th style="width:35%;">Candidates</th> 
+  </thead>
+{% for mention, candidates in mc %}
+  <tr>
+    <td id='id-{{mention.id}}'>{{mention.id}} </td>
+    <td id='value-{{mention.id}}'>{{mention.unit}} {{mention.value}}</td>
+    <td id='sentence-{{mention.id}}'>{{mention.sentence.gloss}}</td>
+    <td id='candidates-{{mention.id}}'>
+      <ul>
+        {% for multiplier, candidate in candidates %}
+        <li><b>{{multiplier}}</b> times the {{candidate.relation}} {{candidate.name}}</li>
+        {% endfor %}
+      </ul>
+    </td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+
+{% endblock %}
