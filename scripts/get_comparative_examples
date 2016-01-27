@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+set -o nounset
+set -o errexit
+
+# Load the prerequisite environment variables
+TASK_FILE="${BASH_SOURCE[0]}"
+if [[ "$TASK_FILE" != /* ]]; then TASK_FILE="`pwd`/$TASK_FILE"; fi
+MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )
+ROOTDIR="$MYDIR/../"
+source "$ROOTDIR/env/util.env"
+source "$ROOTDIR/env/prereq_bash.env"
+source "$ROOTDIR/env/database.env"
+MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )  # MYDIR gets clobbered
+
+set -o xtrace
+
+function extract_pattern() {
+  pattern=$1;
+  outfile=$2;
+
+  pgsql "COPY (
+    SELECT id, doc_id, sentence_index, gloss, words, lemmas, pos_tags, ner_tags, doc_char_begin, doc_char_end, dependencies_conll
+      FROM sentence WHERE gloss ~* E'$pattern' LIMIT 10000
+      ) TO STDOUT DELIMITER E'\t';" |\
+  sed 's#\\n# #g' >> $outfile;
+}
+
+function extract_pattern_gloss() {
+  pattern=$1;
+  outfile=$2;
+
+  pgsql "COPY (
+    SELECT id, gloss
+      FROM sentence WHERE gloss ~* E'$pattern' LIMIT 10000
+      ) TO STDOUT DELIMITER E'\t';" |\
+  sed 's#\\n# #g' >> $outfile;
+}
+
+# length: (milli|centi||kilo|)(metre|meter)
+# (mile)|(yard)|(foot)|(feet)|(inch)
+
+# area measures: square X, sq x.
+# volume measures: cubic | gallons | litres 
+
+# time measures: SI second, minute, hour, day, week, month, year, 
+# weight: gram, kilogram, ...
+
+# costs: $1000
+extract_pattern_gloss '[[:<:]]costs (nearly )?as much as[[:>:]]' data/comparatives/money.tsv
+extract_pattern_gloss '[[:<:]]costs (nearly )?((twice)|(thrice)|(.* times)) as much as[[:>:]]' data/comparatives/money.tsv
+extract_pattern_gloss '[[:<:]]would pay for[[:>:]]' data/comparatives/money.tsv
+# length measures: miles, kilometers, kilometre, metre, meters,
+#extract_pattern '[[:<:]][[:<:]][0-9]+ ((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(mile)|(mi.?))s?[[:>:]]' examples/length.tsv
+# area measures: (sq) miles, kilometers, kilometre, metre, meters, acres
+# TODO: acres, hectacres
+#extract_pattern '[[:<:]][0-9]+ ((square)|(sq.?)) ((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(mile)|(mi.?))s?[[:>:]]' examples/area.tsv
+
+# Done
+wait  # Very important: wait for the jobs to actually finish...
+set -o errexit
+msg "DONE loading data"
+msg "DONE with `basename $0`"
+
