@@ -1,0 +1,52 @@
+digraph units {
+  // Fundamental units: time, space, (energy).
+  time;
+  length;
+  area;
+  volume;       // have interconversions.
+  calories;
+
+  // abstract units:
+  money;
+
+  // countable objects
+  person;
+  car;
+  cat; // hierarchy with pets?
+  dog;
+  coffee;
+  food;
+  living;
+  barrels;
+  tweets;
+  guns;
+
+  // fluid?
+  gasoline; // measured in volume.
+  soda;
+  milk;
+  loans;
+  building-cost;
+
+  money -- person;
+  time -- length;
+  time -- money;
+  time -- volume;
+  cal -- time;
+  cal -- food;
+  cal -- fuel;
+
+  person -- cat [label="ownership"];
+  person -- dog [label="ownership"];
+  person -- car [label="ownership"];
+  coffee -> person [label="consumption"]; 
+  food -> person [label="consumption"]; 
+  living -> person [label="consumption"]; 
+  coffee -- money;
+  car -- money;
+  fuel -- car;
+  food -- money;
+  living -- money;
+  website-views -- person;
+  user -- person;
+}
