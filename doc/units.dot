@@ -1,32 +1,42 @@
 digraph units {
   // Fundamental units: time, space, (energy).
-  time;
-  length;
-  area;
-  volume;       // have interconversions.
-  calories;
+  // Note: excluding uncommon units like current, kelvin, moles and
+  // candela (https://www.unc.edu/~rowlett/units/sifundam.html).
 
-  // abstract units:
-  money;
+  time;     // average lifetime of people, pets, trees, time between significant events.
+  length;   // distance between places, distance of fields, length of dollar notes, books, hair, cellphone, bacteria. 
+  area;     // area of countries, states, cities, average book, car, house.
+  volume;   // size of building, bottles, houses, rooms
+
+  // unit-conversions
+  time -- time;     // seconds, minutes, hours, days, months, years.
+  length -- length; // (m|c|k)meters, inches, feet, yards, miles.
+  area -- area;     // sq. length, minutes, hours, days, months, years.
+  volume -- volume; // litres, gallons
+
+  // Derived (but useful) units.
+  // calories; // energy consumption of food, house, heating, cars, servers, lighting a population, city.
 
   // countable objects
-  person;
-  car;
-  cat; // hierarchy with pets?
-  dog;
-  coffee;
-  food;
-  living;
-  barrels;
-  tweets;
-  guns;
+  person; // populations, organization sizes, family sizes, team sizes, people who died in 
+  car;    // populations, production.
+  dog;    // popluations
+  guns;   // populations, purchases
+
+  // consumable goods (meassured wrt time).
+  coffee -- time;   // consumption, production
+  coffee -- money;  // cost
+  food -- time;     // consumption, production
+  food -- money;    // cost.
+  living -- time -- person;  // cost 
+  barrels -- time; // production / yr
+  tweets -- time; // 
 
   // fluid?
-  gasoline; // measured in volume.
-  soda;
-  milk;
-  loans;
-  building-cost;
+  money;      // cost of buildings, bugdets, gdps, salaries, education, 
+  gasoline;   // measured in volume.
+  soda;       // measured in cans, volume.
+  milk;       // measured in bottles, volume.
 
   money -- person;
   time -- length;
