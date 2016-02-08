@@ -1,62 +1,50 @@
 digraph units {
-  // Fundamental units: time, space, (energy).
-  // Note: excluding uncommon units like current, kelvin, moles and
-  // candela (https://www.unc.edu/~rowlett/units/sifundam.html).
+ money -> USD;
 
-  time;     // average lifetime of people, pets, trees, time between significant events.
-  length;   // distance between places, distance of fields, length of dollar notes, books, hair, cellphone, bacteria. 
-  area;     // area of countries, states, cities, average book, car, house.
-  volume;   // size of building, bottles, houses, rooms
+ volume -> gallon;
 
-  // unit-conversions
-  time -- time;     // seconds, minutes, hours, days, months, years.
-  length -- length; // (m|c|k)meters, inches, feet, yards, miles.
-  area -- area;     // sq. length, minutes, hours, days, months, years.
-  volume -- volume; // litres, gallons
+ time -> week;
+ time -> year;
+ time -> day;
+ time -> millisecond;
+ time -> minute;
+ time -> hour;
+ time -> year;
 
-  // Derived (but useful) units.
-  // calories; // energy consumption of food, house, heating, cars, servers, lighting a population, city.
+ mass -> pound;
 
-  // countable objects
-  person; // populations, organization sizes, family sizes, team sizes, people who died in 
-  car;    // populations, production.
-  dog;    // popluations
-  guns;   // populations, purchases
+ volume -> barrel;
+ volume -> gallon;
+ volume -> liter;
+ volume -> meter meter meter;
 
-  // consumable goods (meassured wrt time).
-  coffee -- time;   // consumption, production
-  coffee -- money;  // cost
-  food -- time;     // consumption, production
-  food -- money;    // cost.
-  living -- time -- person;  // cost 
-  barrels -- time; // production / yr
-  tweets -- time; // 
+ length -> centimeter;
+ length -> feet;
+ length -> inch;
+ length -> kilometer;
+ length -> meter;
+ length -> mile;
 
-  // fluid?
-  money;      // cost of buildings, bugdets, gdps, salaries, education, 
-  gasoline;   // measured in volume.
-  soda;       // measured in cans, volume.
-  milk;       // measured in bottles, volume.
+ area -> feet feet;
+ area -> inch inch;
+ area -> millimeter millimeter;
 
-  money -- person;
-  time -- length;
-  time -- money;
-  time -- volume;
-  cal -- time;
-  cal -- food;
-  cal -- fuel;
+ car
+ dog
+ gun
+ person
+ tweet
 
-  person -- cat [label="ownership"];
-  person -- dog [label="ownership"];
-  person -- car [label="ownership"];
-  coffee -> person [label="consumption"]; 
-  food -> person [label="consumption"]; 
-  living -> person [label="consumption"]; 
-  coffee -- money;
-  car -- money;
-  fuel -- car;
-  food -- money;
-  living -- money;
-  website-views -- person;
-  user -- person;
+ money -> volume;
+ money -> time;
+ volume -> time;
+ dog -> time;
+ volume -> time;
+ volume -> person;
+ gun -> time;
+
+ length -> volume
+
+ tweet -> time
+ mass -> person;
 }
