@@ -101,11 +101,60 @@ number of employees in the retail industry, is, 15790e3, person
 number of employees in the economy, is, 156e6, person
 number of employees on Medicare, is, 49e6, person
 number of employees on Medicare in California, is, 5e6, person
-number of people earning less than USD 10 a day in the US, is,
-number of people earning about USD 40000 a year in the US, is,
-number of people earning about USD 100000 a year in the US, is,
-number of people on Medicaid, is,
-number of people in poverty, is,
-average family size, is,
+number of people in poverty, is, 39.8e6, person
+average household size, is, 2.54, person
+
+#  car
+number of cars registered, is, 256e6, car
+number of cars produced in 2011, is, 2.9e6, car
+number of cars in the world, is, 1e9, car
+number of cars registered in California, is, 31e6, car
 
 
+# dog
+number of dogs in US, is, 78e6, dog
+number of dogs in shelters, is, 3.9e6, dog per year
+
+# gun
+number of guns in the US, is, 310e6, gun
+number of guns produced in the us, is, 5.5e6, gun per year
+
+# consumable goods
+coffee consumption, is, 22.1, gallon per person per year
+coffee, costs, 3, USD
+average cost of food, is, 80, USD per week
+average food wasted every year, is, 133e6, pound
+
+# oil
+oil produced by the US, is, 13.9e6, barrel per day  
+oil produced by the world, is, 80e6, barrel per day  
+
+# tweets
+tweets tweeted, is, 500e6, tweet per day
+
+# money
+a meal, costs, 12, USD
+a smartphone, costs, 500, USD
+a laptop, costs, 700, USD
+a new car, costs, 33.5e3, USD
+a used car, costs, 15.9e3, USD
+average cost of a house in the US, is, 188900, USD
+average cost of a house in California, is, 440e3, USD
+average cost of a house in the Bay Area, is, 1.14e6, USD
+
+The Cosmopolitan in Las Vegas, cost, 4.16e6, USD
+One World Trade Center in New York, cost, 3.80e6, USD
+Bellagio in Las Vegas, cost, 2.29e6, USD
+Trump Taj Mahal in Atlantic City, cost, 1.93e6, USD
+
+the GDP of the US, is, 16.7e9, USD
+the GDP of California, is, 1.9e9, USD
+
+average gas mileage, is, 25.4, mile per gallon
+highway speed, is, 65, mile per hour
+speed of a baseball pitch speed, is, 105, mile per hour
+walking speed, is, 3.1, mile per hour
+
+average cost of gas, is, 2.6, USD per gallon
+median income, is, 51.9e3, USD per year
+people, weigh, 185, pound per person
