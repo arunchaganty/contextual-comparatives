@@ -1,160 +1,99 @@
-# time
-time taken to blink, is, 100, millisecond
-lunch, takes, 30, minute
-a basketball game, takes, 60, minute
-a soccer game, takes, 90, minute
-a football game, takes, 190, minute
-graduating college, takes, 4, year
-people, live for, 79, year
-dog, live for, 12, year
-tree, live for, 12, year
-# length
-width of hair, 100, micrometer
-size of a pea, is, 0.7, centimeter
-length of a pen, is, 17, centimeter
-width of a dollar bill, is, 2.61, inch
-length of a dollar bill, is, 6.14, inch
-length of a guitar, is, 3 feet
-width of a car, is, 71.4, inch
-height of a person, is, 5.8, feet
-length of a car, is, 4.7, meter
-height of a tree, is, 10, feet
-a storey, is, 10, feet
-width of a basketball court, is, 50, feet
-length of a basketball court, is, 94, feet
-length of a football field, is, 300, feet
-length of a city block, is 360, feet
-distance from Stanford to Mountain View, 5.5, mile
-distance from Stanford to San Francisco, 37, mile
-length of a track field, is, 402, meter
-height of Mount Everest, is, 29029, feet
-distance from San Francisco to Los Angeles CA, is, 380, mile
-distance from San Francisco to Boulder CO, is, 1246, mile
-distance from San Francisco to Dallas TX, is, 1733, mile
-distance from San Francisco to New York NY, is, 2906, mile
-distance from San Francisco to New York NY, is, 2906, mile
-distance from San Francisco to Beijing, is, 5901, mile
-diameter of the earth, is, 7917, mile
-distance of orbit for a satellite, is, 36000, kilometer
-distance from Earth to Moon, is, 238900, mile
-# area
-area of a pinhead, is, 2, millimeter millimeter
-area of a penny, is, 290, millimeter millimeter
-area of a stamp, is, 500, millimeter millimeter
-area of a dollar bill, is, 16, inch inch
-area of a paper sheet, is, 62370, millimeter millimeter
-average area of a bedroom, is, 170, feet feet
-area of a office desk, 2, meter meter
-area of a volleyball court, 162, meter meter
-area of a tennis court, 261, meter meter
-area of a football field, 5400, meter meter
-area of a city block, 22074, meter meter
-area of San Francisco, 46, mile mile
-area of New York, 304, mile mile
-area of Santa Clara, 1304, mile mile
-area of Los Angeles, 4850, mile mile
-area of California, 163696, mile mile
-area of Texas, 268820, mile mile
-area of United States, 3.806e6, mile mile
-area of Russia, 6.602e6, mile mile
-area of the oceans, 360e6, kilometer kilometer
-area of the Earth, 196.2e6, mile mile
-# volume
-volume of a grain of sand, is, 6.2e-11, meter meter meter
-volume of a grain of rice, is, 2e-8, meter meter meter
-volume of a pea, is, 2e-7, meter meter meter
-water bottle, is, 1, liter
-beer keg, is, 31, gallon
-volume of a fridge, is, 1, meter meter meter
-volume of a subway car, is, 1.5e2, meter, meter, meter
-volume of a swimming pool, is, 2.5e3, meter, meter, meter
-volume of a shipping container, is, 33.1e3, meter, meter, meter
-volume of maple syrup produced by Quebec in a year, is, 1.6e4, meter, meter, meter
-volume of crude oil carried by a ship, is, 6.5e5, meter, meter, meter
-volume of crude oil consumed in a year, is, 5e9, meter, meter, meter
-volume of Lake Erie, is, 4.8e11, meter, meter, meter
-volume of all the oceans on Earth, is, 1.3e18, meter, meter, meter
-volume of Earth, is, 1.08e22, meter, meter, meter
-
-# person
-population of Stanford, is, 16136, person
-population of San Francisco, is, 837422, person
-population of New York, is, 8.4e6, person
-population of California, is, 38.8e6, person
-population of Texas, is, 26.96e6, person
-population of United States, is, 319e6, person
-population of Asia, is, 4.43e9, person
-population of the world, is, 7.4e9, person
-average number of employees in a grocery store, is, 72, person
-number of employees at Yelp, is, 300, person
-number of employees at Google, is, 57000, person
-number of employees at Microsoft, is, 99000, person
-number of employees at McKinsey, is, 17000, person
-number of employees in the oil industry, is, 183e3, person
-number of employees in the construction industry, is, 6500e3, person
-number of employees in the education industry, is, 22270e3, person
-number of employees in the financial industry, is, 8164e3, person
-number of employees in the mining industry, is, 789e3, person
-number of employees in the manufacturing industry, is, 12311e3, person
-number of employees in the services industry, is, 19990e3, person
-number of employees in the retail industry, is, 15790e3, person
-number of employees in the economy, is, 156e6, person
-number of employees on Medicare, is, 49e6, person
-number of employees on Medicare in California, is, 5e6, person
-number of people in poverty, is, 39.8e6, person
-average household size, is, 2.54, person
-
-#  car
-number of cars registered, is, 256e6, car
-number of cars produced in 2011, is, 2.9e6, car
-number of cars in the world, is, 1e9, car
-number of cars registered in California, is, 31e6, car
-
-
-# dog
-number of dogs in US, is, 78e6, dog
-number of dogs in shelters, is, 3.9e6, dog per year
-
-# gun
-number of guns in the US, is, 310e6, gun
-number of guns produced in the us, is, 5.5e6, gun per year
-
-# consumable goods
-coffee consumption, is, 22.1, gallon per person per year
-coffee, costs, 3, USD
-average cost of food, is, 80, USD per week
-average food wasted every year, is, 133e6, pound
-
-# oil
-oil produced by the US, is, 13.9e6, barrel per day  
-oil produced by the world, is, 80e6, barrel per day  
-
-# tweets
-tweets tweeted, is, 500e6, tweet per day
-
-# money
-a meal, costs, 12, USD
-a smartphone, costs, 500, USD
-a laptop, costs, 700, USD
-a new car, costs, 33.5e3, USD
-a used car, costs, 15.9e3, USD
-average cost of a house in the US, is, 188900, USD
-average cost of a house in California, is, 440e3, USD
-average cost of a house in the Bay Area, is, 1.14e6, USD
-
-The Cosmopolitan in Las Vegas, cost, 4.16e6, USD
-One World Trade Center in New York, cost, 3.80e6, USD
-Bellagio in Las Vegas, cost, 2.29e6, USD
-Trump Taj Mahal in Atlantic City, cost, 1.93e6, USD
-
-the GDP of the US, is, 16.7e9, USD
-the GDP of California, is, 1.9e9, USD
-
-average gas mileage, is, 25.4, mile per gallon
-highway speed, is, 65, mile per hour
-speed of a baseball pitch speed, is, 105, mile per hour
-walking speed, is, 3.1, mile per hour
-
-average cost of gas, is, 2.6, USD per gallon
-median income, is, 51.9e3, USD per year
-people, weigh, 185, pound per person
+0	time taken to blink	is	100	millisecond
+0	lunch	takes	30	minute
+0	a basketball game	takes	60	minute
+0	a soccer game	takes	90	minute
+0	a football game	takes	190	minute
+0	graduating college	takes	4	year
+0	people	live for	79	year
+0	dog	live for	12	year
+0	tree	live for	12	year
+0	width of hair	is	100	micrometer
+0	size of a pea	is	0.7	centimeter
+0	length of a pen	is	17	centimeter
+0	width of a dollar bill	is	2.61	inch
+0	length of a dollar bill	is	6.14	inch
+0	length of a guitar	is	3	feet
+0	width of a car	is	71.4	inch
+0	height of a person	is	5.8	feet
+0	length of a car	is	4.7	meter
+0	height of a tree	is	10	feet
+0	a storey	is	10	feet
+0	width of a basketball court	is	50	feet
+0	length of a basketball court	is	94	feet
+0	length of a football field	is	300	feet
+0	length of a city block	is	360	feet
+0	distance from Stanford to Mountain View	is	5.5	mile
+0	distance from Stanford to San Francisco	is	37	mile
+0	length of a track field	is	402	meter
+0	height of Mount Everest	is	29029	feet
+0	distance from San Francisco to Los Angeles CA	is	380	mile
+0	distance from San Francisco to Boulder CO	is	1246	mile
+0	distance from San Francisco to Dallas TX	is	1733	mile
+0	distance from San Francisco to New York NY	is	2906	mile
+0	distance from San Francisco to New York NY	is	2906	mile
+0	distance from San Francisco to Beijing	is	5901	mile
+0	diameter of the earth	is	7917	mile
+0	distance of orbit for a satellite	is	36000	kilometer
+0	distance from Earth to Moon	is	238900	mile
+0	population of Stanford	is	16136	person
+0	population of San Francisco	is	837422	person
+0	population of New York	is	8.4e6	person
+0	population of California	is	38.8e6	person
+0	population of Texas	is	26.96e6	person
+0	population of United States	is	319e6	person
+0	population of Asia	is	4.43e9	person
+0	population of the world	is	7.4e9	person
+0	average number of employees in a grocery store	is	72	person
+0	number of employees at Yelp	is	300	person
+0	number of employees at Google	is	57000	person
+0	number of employees at Microsoft	is	99000	person
+0	number of employees at McKinsey	is	17000	person
+0	number of employees in the oil industry	is	183e3	person
+0	number of employees in the construction industry	is	6500e3	person
+0	number of employees in the education industry	is	22270e3	person
+0	number of employees in the financial industry	is	8164e3	person
+0	number of employees in the mining industry	is	789e3	person
+0	number of employees in the manufacturing industry	is	12311e3	person
+0	number of employees in the services industry	is	19990e3	person
+0	number of employees in the retail industry	is	15790e3	person
+0	number of employees in the economy	is	156e6	person
+0	number of employees on Medicare	is	49e6	person
+0	number of employees on Medicare in California	is	5e6	person
+0	number of people in poverty	is	39.8e6	person
+0	average household size	is	2.54	person
+0	number of cars registered	is	256e6	car
+0	number of cars produced in 2011	is	2.9e6	car
+0	number of cars in the world	is	1e9	car
+0	number of cars registered in California	is	31e6	car
+0	number of dogs in US	is	78e6	dog
+0	number of dogs in shelters	is	3.9e6	dog per year
+0	number of guns in the US	is	310e6	gun
+0	number of guns produced in the us	is	5.5e6	gun per year
+0	coffee consumption	is	22.1	gallon per person per year
+0	coffee	costs	3	USD
+0	average cost of food	is	80	USD per week
+0	average food wasted every year	is	133e6	pound
+0	oil produced by the US	is	13.9e6	barrel per day  
+0	oil produced by the world	is	80e6	barrel per day  
+0	tweets tweeted	is	500e6	tweet per day
+0	a meal	costs	12	USD
+0	a smartphone	costs	500	USD
+0	a laptop	costs	700	USD
+0	a new car	costs	33.5e3	USD
+0	a used car	costs	15.9e3	USD
+0	average cost of a house in the US	is	188900	USD
+0	average cost of a house in California	is	440e3	USD
+0	average cost of a house in the Bay Area	is	1.14e6	USD
+0	The Cosmopolitan in Las Vegas	cost	4.16e6	USD
+0	One World Trade Center in New York	cost	3.80e6	USD
+0	Bellagio in Las Vegas	cost	2.29e6	USD
+0	Trump Taj Mahal in Atlantic City	cost	1.93e6	USD
+0	the GDP of the US	is	16.7e9	USD
+0	the GDP of California	is	1.9e9	USD
+0	average gas mileage	is	25.4	mile per gallon
+0	highway speed	is	65	mile per hour
+0	speed of a baseball pitch speed	is	105	mile per hour
+0	walking speed	is	3.1	mile per hour
+0	average cost of gas	is	2.6	USD per gallon
+0	median income	is	51.9e3	USD per year
+0	people	weigh	185	pound per person

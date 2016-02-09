@@ -1,33 +1,31 @@
 digraph units {
- money -> USD;
+ money -> USD [color=red];
 
- volume -> gallon;
+ time -> millisecond [color=red];
+ time -> second [color=red];
+ time -> minute [color=red];
+ time -> hour [color=red];
+ time -> day [color=red];
+ time -> week [color=red];
+ time -> year [color=red];
 
- time -> week;
- time -> year;
- time -> day;
- time -> millisecond;
- time -> minute;
- time -> hour;
- time -> year;
+ mass -> pound [color=red];
 
- mass -> pound;
+ volume -> barrel [color=red];
+ volume -> gallon [color=red];
+ volume -> liter [color=red];
+ volume -> meter meter meter [color=red];
 
- volume -> barrel;
- volume -> gallon;
- volume -> liter;
- volume -> meter meter meter;
+ length -> centimeter [color=red];
+ length -> feet [color=red];
+ length -> inch [color=red];
+ length -> kilometer [color=red];
+ length -> meter [color=red];
+ length -> mile [color=red];
 
- length -> centimeter;
- length -> feet;
- length -> inch;
- length -> kilometer;
- length -> meter;
- length -> mile;
-
- area -> feet feet;
- area -> inch inch;
- area -> millimeter millimeter;
+ area -> millimeter millimeter [color=red];
+ area -> inch inch [color=red];
+ area -> feet feet [color=red];
 
  car
  dog
