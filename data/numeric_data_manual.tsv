@@ -84,10 +84,10 @@
 0	average cost of a house in the US	is	188900	USD
 0	average cost of a house in California	is	440e3	USD
 0	average cost of a house in the Bay Area	is	1.14e6	USD
-0	The Cosmopolitan in Las Vegas	cost	4.16e6	USD
-0	One World Trade Center in New York	cost	3.80e6	USD
-0	Bellagio in Las Vegas	cost	2.29e6	USD
-0	Trump Taj Mahal in Atlantic City	cost	1.93e6	USD
+0	The Cosmopolitan in Las Vegas	cost	4.16e9	USD
+0	One World Trade Center in New York	cost	3.80e9	USD
+0	Bellagio in Las Vegas	cost	2.29e9	USD
+0	Trump Taj Mahal in Atlantic City	cost	1.93e9	USD
 0	the GDP of the US	is	16.7e9	USD
 0	the GDP of California	is	1.9e9	USD
 0	average gas mileage	is	25.4	mile per gallon
@@ -97,3 +97,9 @@
 0	average cost of gas	is	2.6	USD per gallon
 0	median income	is	51.9e3	USD per year
 0	people	weigh	185	pound per person
+0	an hour	is	1	hour
+0	a minute	is	1	minute
+0	a person	is	1	person
+0	a day	is	1	day
+0	a week	is	1	week
+0	a car	is	1	car
