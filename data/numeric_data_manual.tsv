@@ -61,6 +61,14 @@
 0	number of employees on Medicare in California	is	5e6	person
 0	number of people in poverty	is	39.8e6	person
 0	average household size	is	2.54	person
+0	global birth rate	is	353000	person per day
+0	global death rate	is	5.53e6	person per year
+0	birth rate in the US	is	4.160e6	person per year
+0	death rate in the US	is	2.56e6	person per year
+0	people killed during Iraq war	is	500e6	person
+0	people killed during the September 11th attack	is	2997	person
+0	people killed during world war II	is	60e6	person
+0	people killed by gun violence in 2016	is	1498	person
 0	number of cars registered	is	256e6	car
 0	number of cars produced in 2011	is	2.9e6	car
 0	number of cars in the world	is	1e9	car
@@ -69,10 +77,18 @@
 0	number of dogs in shelters	is	3.9e6	dog per year
 0	number of guns in the US	is	310e6	gun
 0	number of guns produced in the us	is	5.5e6	gun per year
+0	average number of guns owned by a gun owner	is	4.4	gun
+0	gun ownership	is	1.7	gun per person
 0	coffee consumption	is	22.1	gallon per person per year
 0	coffee	costs	3	USD
 0	average cost of food	is	80	USD per week
 0	average food wasted every year	is	133e6	pound
+0	weight of a toaster	is	1	kg
+0	weight of a laptop	is	5	pound
+0	weight of an elephant	is	6e3	pound
+0	olympic weight lifting record	is	263	kg
+0	marijuana in a joint	is	1	gram
+0	weight of a car	is	4000	pound
 0	oil produced by the US	is	13.9e6	barrel per day  
 0	oil produced by the world	is	80e6	barrel per day  
 0	tweets tweeted	is	500e6	tweet per day
@@ -88,8 +104,8 @@
 0	One World Trade Center in New York	cost	3.80e9	USD
 0	Bellagio in Las Vegas	cost	2.29e9	USD
 0	Trump Taj Mahal in Atlantic City	cost	1.93e9	USD
-0	the GDP of the US	is	16.7e9	USD
-0	the GDP of California	is	1.9e9	USD
+0	the GDP of the US	is	16.7e12	USD
+0	the GDP of California	is	1.9e12	USD
 0	average gas mileage	is	25.4	mile per gallon
 0	highway speed	is	65	mile per hour
 0	speed of a baseball pitch speed	is	105	mile per hour

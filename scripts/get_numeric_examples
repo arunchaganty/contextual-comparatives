@@ -9,7 +9,7 @@ if [[ "$TASK_FILE" != /* ]]; then TASK_FILE="`pwd`/$TASK_FILE"; fi
 MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )
 ROOTDIR="$MYDIR/../"
 source "$ROOTDIR/env/util.env"
-source "$ROOTDIR/env/prereq_bash.env"
+#source "$ROOTDIR/env/prereq_bash.env"
 source "$ROOTDIR/env/database.env"
 MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )  # MYDIR gets clobbered
 
@@ -35,13 +35,45 @@ function extract_pattern() {
 # time measures: SI second, minute, hour, day, week, month, year, 
 # weight: gram, kilogram, ...
 
-# costs: $1000
-extract_pattern '\\$[0-9]+(\\.[0-9]+)?[[:>:]]' examples/money.tsv
+# money
+#extract_pattern '\\$[0-9]+(,[0-9]+)?(\\.[0-9]+)?[[:>:]]' examples/money.tsv
+NUMBER='([0-9]+(,[0-9]+)?(\\.[0-9]+)?)'
+MULTIPLIER='(hundred)|(thousand)|(million)|(billion)|(trillion)'
+MONEY='(USD)|(US\$)|(\$)'
+TIME='((millisecond)|(second)|(minute)|(hour)|(day)|(week)|(day)|(year))s'
+WEIGHT='((gram)|(kilogram)|(ounce)|(pound)|(ton)|(gm)|(kg)|(oz)|(lb)).?s?'
+LENGTH='(((millimeter)|(centimeter)|(meter)|(kilometer)|(inch)|(inche)|(foot)|(feet)|(yard)|(mile))s?)|((mm)|(cm)|(m)|(km)|(in)|(ft)|(yd)|(mi)).?s?'
+AREAMOD='(square)|(sq.?)'
+AREAEXT='(hectacre)|(acre)|(ha.)|(ac.)'
+VOLUMEMOD='(cubic)|(cu.?)'
+VOLUMEEXT='(gallon)|(ga.?)|(liter)|(li.?)|(barrel)|(quart)|(qt.?)'
+PEOPLE='(people)|(person)'
+CAR='cars?'
+GUN='guns?'
+
+# time measures: millisecond, second, minute, hour, day, week, year
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$TIME[[:>:]]" examples/time.tsv
+
+# weight measures: grams, pounds, ton, kilograms 
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$WEIGHT[[:>:]]" examples/weight.tsv
+
 # length measures: miles, kilometers, kilometre, metre, meters,
-extract_pattern '[[:<:]][[:<:]][0-9]+ ((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(mile)|(mi.?))s?[[:>:]]' examples/length.tsv
-# area measures: (sq) miles, kilometers, kilometre, metre, meters, acres
-# TODO: acres, hectacres
-extract_pattern '[[:<:]][0-9]+ ((square)|(sq.?)) ((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(mile)|(mi.?))s?[[:>:]]' examples/area.tsv
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$LENGTH[[:>:]]" examples/length.tsv
+
+# area measures: square centimeters, square inch, square foot, square mile
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($AREAMOD $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
+
+# volume measures: gallons, liters
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)? ?$AREA[[:>:]]" examples/area.tsv
+#extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((gallon)|(barrel)|(quart)|(((cu.?)|(cubic)) ?((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(feet)|(foot)|(inch)|(inche))s?))[[:>:]]' examples/volume.tsv
+
+# speed measures: feet per second?
+
+
+# entity measures cars, dogs, guns, people, tweets
+# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((car))s?[[:>:]]' examples/cars.tsv
+# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((gun))s?[[:>:]]' examples/guns.tsv
+# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((person)|(people))s?[[:>:]]' examples/people.tsv
 
 # Done
 wait  # Very important: wait for the jobs to actually finish...

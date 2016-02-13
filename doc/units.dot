@@ -11,11 +11,6 @@ digraph units {
 
  mass -> pound [color=red];
 
- volume -> barrel [color=red];
- volume -> gallon [color=red];
- volume -> liter [color=red];
- volume -> meter meter meter [color=red];
-
  length -> centimeter [color=red];
  length -> feet [color=red];
  length -> inch [color=red];
@@ -26,6 +21,11 @@ digraph units {
  area -> millimeter millimeter [color=red];
  area -> inch inch [color=red];
  area -> feet feet [color=red];
+
+ volume -> barrel [color=red];
+ volume -> gallon [color=red];
+ volume -> liter [color=red];
+ volume -> meter meter meter [color=red];
 
  car
  dog
