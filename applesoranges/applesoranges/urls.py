@@ -18,7 +18,7 @@ from django.contrib import admin, staticfiles
 from . import settings
 
 urlpatterns = [
-    url(r'^view/', include('cc.urls')),
+    url(r'^cc/', include('cc.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
 

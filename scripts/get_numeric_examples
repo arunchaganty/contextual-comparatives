@@ -64,8 +64,7 @@ extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$LENGTH[[:>:]]" examples
 extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($AREAMOD $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
 
 # volume measures: gallons, liters
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)? ?$AREA[[:>:]]" examples/area.tsv
-#extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((gallon)|(barrel)|(quart)|(((cu.?)|(cubic)) ?((((milli)|(m)|(centi)|(c)|()|(kilo)|(k))((m.?)|(meter)|(metre)))|(feet)|(foot)|(inch)|(inche))s?))[[:>:]]' examples/volume.tsv
+extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($VOLUMEMOD $LENGTH)|($VOLUMEEXT))[[:>:]]" examples/volume.tsv
 
 # speed measures: feet per second?
 

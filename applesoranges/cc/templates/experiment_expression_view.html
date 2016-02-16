@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-header">
+<h1>Describe a combination of statements in English (Responses)</h1>
+</div>
+
+<div class="col-md-12">
+
+<div class="panel panel-default panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Task</h3>
+  </div>
+
+  <div id="tasklist">
+  <form action="" method="post">
+    {% csrf_token %}
+
+  {% for expr in exprs %}
+  <div id="task-{{forloop.counter0}}" class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Part {{forloop.counter}}</h4>
+    </div>
+
+    <!-- Consider the following combination of statements and describe their combination. -->
+    <blockquote>
+      {{expr.get_prompt | safe }}
+    </blockquote>
+    <table class="table table-striped">
+      <thead>
+        <th>Mark</th>
+        <th>Worker Id</th>
+        <th>Worker Time</th>
+        <th>Description</th>
+      {% for resp in expr.numericexpressionresponse_set.all %}
+      <tr>
+        <td><input type="checkbox" name="{{resp.assignment_id}}" {% if not resp.approval %}checked{% endif %}></td>
+        <td>{{resp.worker_id}}</td>
+        <td>{{resp.worker_time}}</td>
+        <td>{{resp.description}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+  {% endfor %}
+
+  <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+  </form>
+  </div>
+
+</div>
+
+</div>
+
+{% endblock %}
+

@@ -1,112 +1,112 @@
-761\t"Planck area"\tis\t2.6e-70\tsqmeter
-762\t"Area of a lipid bilayer, per molecule"\tis\t5.0e-19\tsqmeter
-763\t"Surface area of the 20 standard amino acids"\tis\t1.39642e-18\tsqmeter
-764\t"Globular proteins : solvent-accessible surface area of a typical globular protein, having a typical molecular weight of ~35000 daltons, quite variable"\tis\t1.0e-16\tsqmeter
-765\t"Cross-sectional area of a nuclear pore complex in vertebrates"\tis\t1.7e-14\tsqmeter
-766\t"Surface area of an E. coli bacterium"\tis\t6.0e-12\tsqmeter
-767\t"Surface area of a red blood cell"\tis\t1.0e-10\tsqmeter
-768\t"Range of common LCD screen pixel sizes"\tis\t2.56905e-08\tsqmeter
-769\t"Area of a dot printed using 300 dots per inch resolution"\tis\t7.0e-09\tsqmeter
-770\t"Cross-sectional area of a straight human hair that is 100 um in diameter"\tis\t8.0e-09\tsqmeter
-771\t"Size of a pixel on a typical modern computer display"\tis\t5.5e-08\tsqmeter
-772\t"Cross-sectional area of a mechanical pencil lead, 0.5-0.7 mm in diameter"\tis\t2.82843e-07\tsqmeter
-773\t"Area of a human fovea"\tis\t1.414e-06\tsqmeter
-774\t"Area of the head of a pin"\tis\t2.0e-06\tsqmeter
-775\t"Area of a 6-8 mm hole punched in a piece of paper by a hole punch"\tis\t3.873e-05\tsqmeter
-776\t"Area of one side of a U.S. penny"\tis\t0.00029\tsqmeter
-777\t"Area of a typical postage stamp"\tis\t0.0005\tsqmeter
-778\t"Area of a human retina"\tis\t0.0011\tsqmeter
-779\t"Area of the face of a credit card"\tis\t0.0046\tsqmeter
-780\t"Largest side of a cigarette box"\tis\t0.0048\tsqmeter
-781\t"Index card, 3 × 5 inches"\tis\t0.01\tsqmeter
-782\t"American letter paper, 11 × 8.5 inches, ""A"" size"\tis\t0.06\tsqmeter
-783\t"International A4 paper, 210 × 297 mm"\tis\t0.0625\tsqmeter
-784\t"1 square foot"\tis\t0.093\tsqmeter
-785\t"International A3 paper, 297 × 420 mm"\tis\t0.125\tsqmeter
-786\t"Surface area of a basketball, diameter 24 cm"\tis\t0.18\tsqmeter
-787\t"International A2 paper, 420 × 594 mm"\tis\t0.25\tsqmeter
-788\t"International A1 paper, 594 × 841 mm"\tis\t0.5\tsqmeter
-789\t"International A0 paper, 841 × 1189 mm"\tis\t1.0\tsqmeter
-790\t"A number commonly used as the average body surface area of a human"\tis\t1.73\tsqmeter
-791\t"Area of the top of an office desk"\tis\t2.82842712474619\tsqmeter
-792\t"A parking space"\tis\t14.142135623731\tsqmeter
-793\t"Approximate surface area of a human lung"\tis\t70.0\tsqmeter
-794\t"One are, a"\tis\t100.0\tsqmeter
-795\t"Size of a volleyball court, 18 × 9 metres"\tis\t162.0\tsqmeter
-796\t"Floor area of a median suburban three-bedroom house in the US in 2010: 2,169 sq ft, 201.5 m 2"\tis\t202.0\tsqmeter
-797\t"Size of a tennis court"\tis\t261.0\tsqmeter
-798\t"Surface area of the water in an Olympic-size swimming pool"\tis\t1250.0\tsqmeter
-799\t"1 acre"\tis\t4047.0\tsqmeter
-800\t"Size of an American football field"\tis\t5400.0\tsqmeter
-801\t"Size of a typical football/US soccer field"\tis\t7140.0\tsqmeter
-802\t"1 hectare, ha"\tis\t10000.0\tsqmeter
-803\t"Base of the Great Pyramid of Giza"\tis\t53000.0\tsqmeter
-804\t"Irish National Botanic Gardens"\tis\t190000.0\tsqmeter
-805\t"Vatican City"\tis\t440000.0\tsqmeter
-806\t"Total floor area of the Pentagon"\tis\t600000.0\tsqmeter
-807\t"Monaco, country ranked 192nd by area"\tis\t2000000.0\tsqmeter
-808\t"1 square mile"\tis\t2590000.0\tsqmeter
-809\t"City of London, not all of modern London"\tis\t2900000.0\tsqmeter
-810\t"Manhattan Island, land area"\tis\t59500000.0\tsqmeter
-811\t"San Marino"\tis\t61000000.0\tsqmeter
-812\t"Paris, inner city only"\tis\t105000000.0\tsqmeter
-813\t"Walt Disney World"\tis\t120000000.0\tsqmeter
-814\t"Taipei City"\tis\t272000000.0\tsqmeter
-815\tToronto\tis\t630000000.0\tsqmeter
-816\t"Hong Kong"\tis\t1100000000.0\tsqmeter
-817\t"Los Angeles, California, USA, city"\tis\t1290000000.0\tsqmeter
-818\t"Surface area of a typical neutron star"\tis\t1800000000.0\tsqmeter
-819\t"Jacksonville, Florida; largest city in the Continental US"\tis\t1962000000.0\tsqmeter
-820\tTokyo\tis\t2188000000.0\tsqmeter
-821\tBali\tis\t5700000000.0\tsqmeter
-822\t"Community of Madrid, Spain"\tis\t8028000000.0\tsqmeter
-823\tJamaica\tis\t11000000000.0\tsqmeter
-824\t"Lake Victoria"\tis\t68870000000.0\tsqmeter
-825\tAustria\tis\t84000000000.0\tsqmeter
-826\tIceland\tis\t100000000000.0\tsqmeter
-827\t"Jiuquan in China;, largest city in the world"\tis\t167996000000.0\tsqmeter
-828\tItaly\tis\t300000000000.0\tsqmeter
-829\tSpain\tis\t510000000000.0\tsqmeter
-830\tTurkey\tis\t780000000000.0\tsqmeter
-831\t"Egypt, country ranked 29th by area"\tis\t1000000000000.0\tsqmeter
-832\t"Sakha Republic in Russia, largest subnational governing body"\tis\t3100000000000.0\tsqmeter
-833\t"Australia, country ranked 6th by area"\tis\t7740000000000.0\tsqmeter
-834\t"Largest extent of the Roman Empire"\tis\t9000000000000.0\tsqmeter
-835\t"Canada, including water"\tis\t10000000000000.0\tsqmeter
-836\tAntarctica\tis\t14000000000000.0\tsqmeter
-837\t"Arable land worldwide"\tis\t14000000000000.0\tsqmeter
-838\t"Russia, country ranked 1st by area"\tis\t17000000000000.0\tsqmeter
-839\tAfrica\tis\t30000000000000.0\tsqmeter
-840\t"Largest extent of the British Empire"\tis\t36000000000000.0\tsqmeter
-841\t"Surface area of the Moon"\tis\t38000000000000.0\tsqmeter
-842\t"Atlantic Ocean"\tis\t77000000000000.0\tsqmeter
-843\t"Surface area of Mars"\tis\t144000000000000.0\tsqmeter
-844\t"Land area of Earth"\tis\t150000000000000.0\tsqmeter
-845\t"Pacific Ocean"\tis\t156000000000000.0\tsqmeter
-846\t"Water area of Earth"\tis\t360000000000000.0\tsqmeter
-847\t"Total surface area of Earth"\tis\t510000000000000.0\tsqmeter
-848\t"Surface area of the white dwarf, Van Maanen's star"\tis\t1.0e+15\tsqmeter
-849\tNeptune\tis\t7.6e+15\tsqmeter
-850\tSaturn\tis\t4.3e+16\tsqmeter
-851\tJupiter\tis\t6.1e+16\tsqmeter
-852\t"Surface area of the Brown Dwarf star CT Chamaeleontis."\tis\t3.4641e+17\tsqmeter
-853\t"Area swept by the Moon's orbit of Earth"\tis\t4.6e+17\tsqmeter
-854\t"Surface area of the Sun"\tis\t6.1e+18\tsqmeter
-855\t"Surface area of the star Vega"\tis\t3.0e+19\tsqmeter
-856\t"Surface area of the star Albireo A"\tis\t1.5e+21\tsqmeter
-857\t"Area swept by Mercury's orbit around the Sun"\tis\t1.1e+22\tsqmeter
-858\t"Area swept by Venus' orbit around the Sun"\tis\t3.7e+22\tsqmeter
-859\t"Area swept by Earth's orbit around the Sun"\tis\t7.1e+22\tsqmeter
-860\t"Area swept by Mars' orbit around the Sun"\tis\t1.6e+23\tsqmeter
-861\t"Surface area of a sphere with a radius of 1 AU"\tis\t2.81e+23\tsqmeter
-862\t"Area swept by Jupiter's orbit around the Sun"\tis\t1.9e+24\tsqmeter
-863\t"Area swept by Saturn's orbit around the Sun"\tis\t6.4e+24\tsqmeter
-864\t"Surface area of the red supergiant star Betelgeuse"\tis\t8.5e+24\tsqmeter
-865\t"Surface area of the largest known star, the Hypergiant VY Canis Majoris"\tis\t2.4e+25\tsqmeter
-866\t"Area swept by Uranus' orbit around the Sun"\tis\t2.6e+25\tsqmeter
-867\t"Area swept by Neptune's orbit around the Sun"\tis\t6.4e+25\tsqmeter
-868\t"Area swept by Pluto's orbit around the Sun"\tis\t1.1e+26\tsqmeter
-869\t"Roughly the surface area of an Oort Cloud"\tis\t2.0e+32\tsqmeter
-870\t"Roughly the surface area of a Bok globule"\tis\t3.0e+32\tsqmeter
-871\t"Roughly the surface area of The Bubble"\tis\t3.0e+34\tsqmeter
-872\t"Roughly the area of Milky Way's galactic disk"\tis\t7.0e+41\tsqmeter
+761	"Planck area"	is	2.6e-70	sqmeter
+762	"Area of a lipid bilayer, per molecule"	is	5.0e-19	sqmeter
+763	"Surface area of the 20 standard amino acids"	is	1.39642e-18	sqmeter
+764	"Globular proteins : solvent-accessible surface area of a typical globular protein, having a typical molecular weight of ~35000 daltons, quite variable"	is	1.0e-16	sqmeter
+765	"Cross-sectional area of a nuclear pore complex in vertebrates"	is	1.7e-14	sqmeter
+766	"Surface area of an E. coli bacterium"	is	6.0e-12	sqmeter
+767	"Surface area of a red blood cell"	is	1.0e-10	sqmeter
+768	"Range of common LCD screen pixel sizes"	is	2.56905e-08	sqmeter
+769	"Area of a dot printed using 300 dots per inch resolution"	is	7.0e-09	sqmeter
+770	"Cross-sectional area of a straight human hair that is 100 um in diameter"	is	8.0e-09	sqmeter
+771	"Size of a pixel on a typical modern computer display"	is	5.5e-08	sqmeter
+772	"Cross-sectional area of a mechanical pencil lead, 0.5-0.7 mm in diameter"	is	2.82843e-07	sqmeter
+773	"Area of a human fovea"	is	1.414e-06	sqmeter
+774	"Area of the head of a pin"	is	2.0e-06	sqmeter
+775	"Area of a 6-8 mm hole punched in a piece of paper by a hole punch"	is	3.873e-05	sqmeter
+776	"Area of one side of a U.S. penny"	is	0.00029	sqmeter
+777	"Area of a typical postage stamp"	is	0.0005	sqmeter
+778	"Area of a human retina"	is	0.0011	sqmeter
+779	"Area of the face of a credit card"	is	0.0046	sqmeter
+780	"Largest side of a cigarette box"	is	0.0048	sqmeter
+781	"Index card, 3 × 5 inches"	is	0.01	sqmeter
+782	"American letter paper, 11 × 8.5 inches, ""A"" size"	is	0.06	sqmeter
+783	"International A4 paper, 210 × 297 mm"	is	0.0625	sqmeter
+784	"1 square foot"	is	0.093	sqmeter
+785	"International A3 paper, 297 × 420 mm"	is	0.125	sqmeter
+786	"Surface area of a basketball, diameter 24 cm"	is	0.18	sqmeter
+787	"International A2 paper, 420 × 594 mm"	is	0.25	sqmeter
+788	"International A1 paper, 594 × 841 mm"	is	0.5	sqmeter
+789	"International A0 paper, 841 × 1189 mm"	is	1.0	sqmeter
+790	"A number commonly used as the average body surface area of a human"	is	1.73	sqmeter
+791	"Area of the top of an office desk"	is	2.82842712474619	sqmeter
+792	"A parking space"	is	14.142135623731	sqmeter
+793	"Approximate surface area of a human lung"	is	70.0	sqmeter
+794	"One are, a"	is	100.0	sqmeter
+795	"Size of a volleyball court, 18 × 9 metres"	is	162.0	sqmeter
+796	"Floor area of a median suburban three-bedroom house in the US in 2010: 2,169 sq ft, 201.5 m 2"	is	202.0	sqmeter
+797	"Size of a tennis court"	is	261.0	sqmeter
+798	"Surface area of the water in an Olympic-size swimming pool"	is	1250.0	sqmeter
+799	"1 acre"	is	4047.0	sqmeter
+800	"Size of an American football field"	is	5400.0	sqmeter
+801	"Size of a typical football/US soccer field"	is	7140.0	sqmeter
+802	"1 hectare, ha"	is	10000.0	sqmeter
+803	"Base of the Great Pyramid of Giza"	is	53000.0	sqmeter
+804	"Irish National Botanic Gardens"	is	190000.0	sqmeter
+805	"Vatican City"	is	440000.0	sqmeter
+806	"Total floor area of the Pentagon"	is	600000.0	sqmeter
+807	"Monaco, country ranked 192nd by area"	is	2000000.0	sqmeter
+808	"1 square mile"	is	2590000.0	sqmeter
+809	"City of London, not all of modern London"	is	2900000.0	sqmeter
+810	"Manhattan Island, land area"	is	59500000.0	sqmeter
+811	"San Marino"	is	61000000.0	sqmeter
+812	"Paris, inner city only"	is	105000000.0	sqmeter
+813	"Walt Disney World"	is	120000000.0	sqmeter
+814	"Taipei City"	is	272000000.0	sqmeter
+815	Toronto	is	630000000.0	sqmeter
+816	"Hong Kong"	is	1100000000.0	sqmeter
+817	"Los Angeles, California, USA, city"	is	1290000000.0	sqmeter
+818	"Surface area of a typical neutron star"	is	1800000000.0	sqmeter
+819	"Jacksonville, Florida; largest city in the Continental US"	is	1962000000.0	sqmeter
+820	Tokyo	is	2188000000.0	sqmeter
+821	Bali	is	5700000000.0	sqmeter
+822	"Community of Madrid, Spain"	is	8028000000.0	sqmeter
+823	Jamaica	is	11000000000.0	sqmeter
+824	"Lake Victoria"	is	68870000000.0	sqmeter
+825	Austria	is	84000000000.0	sqmeter
+826	Iceland	is	100000000000.0	sqmeter
+827	"Jiuquan in China;, largest city in the world"	is	167996000000.0	sqmeter
+828	Italy	is	300000000000.0	sqmeter
+829	Spain	is	510000000000.0	sqmeter
+830	Turkey	is	780000000000.0	sqmeter
+831	"Egypt, country ranked 29th by area"	is	1000000000000.0	sqmeter
+832	"Sakha Republic in Russia, largest subnational governing body"	is	3100000000000.0	sqmeter
+833	"Australia, country ranked 6th by area"	is	7740000000000.0	sqmeter
+834	"Largest extent of the Roman Empire"	is	9000000000000.0	sqmeter
+835	"Canada, including water"	is	10000000000000.0	sqmeter
+836	Antarctica	is	14000000000000.0	sqmeter
+837	"Arable land worldwide"	is	14000000000000.0	sqmeter
+838	"Russia, country ranked 1st by area"	is	17000000000000.0	sqmeter
+839	Africa	is	30000000000000.0	sqmeter
+840	"Largest extent of the British Empire"	is	36000000000000.0	sqmeter
+841	"Surface area of the Moon"	is	38000000000000.0	sqmeter
+842	"Atlantic Ocean"	is	77000000000000.0	sqmeter
+843	"Surface area of Mars"	is	144000000000000.0	sqmeter
+844	"Land area of Earth"	is	150000000000000.0	sqmeter
+845	"Pacific Ocean"	is	156000000000000.0	sqmeter
+846	"Water area of Earth"	is	360000000000000.0	sqmeter
+847	"Total surface area of Earth"	is	510000000000000.0	sqmeter
+848	"Surface area of the white dwarf, Van Maanen's star"	is	1.0e+15	sqmeter
+849	Neptune	is	7.6e+15	sqmeter
+850	Saturn	is	4.3e+16	sqmeter
+851	Jupiter	is	6.1e+16	sqmeter
+852	"Surface area of the Brown Dwarf star CT Chamaeleontis."	is	3.4641e+17	sqmeter
+853	"Area swept by the Moon's orbit of Earth"	is	4.6e+17	sqmeter
+854	"Surface area of the Sun"	is	6.1e+18	sqmeter
+855	"Surface area of the star Vega"	is	3.0e+19	sqmeter
+856	"Surface area of the star Albireo A"	is	1.5e+21	sqmeter
+857	"Area swept by Mercury's orbit around the Sun"	is	1.1e+22	sqmeter
+858	"Area swept by Venus' orbit around the Sun"	is	3.7e+22	sqmeter
+859	"Area swept by Earth's orbit around the Sun"	is	7.1e+22	sqmeter
+860	"Area swept by Mars' orbit around the Sun"	is	1.6e+23	sqmeter
+861	"Surface area of a sphere with a radius of 1 AU"	is	2.81e+23	sqmeter
+862	"Area swept by Jupiter's orbit around the Sun"	is	1.9e+24	sqmeter
+863	"Area swept by Saturn's orbit around the Sun"	is	6.4e+24	sqmeter
+864	"Surface area of the red supergiant star Betelgeuse"	is	8.5e+24	sqmeter
+865	"Surface area of the largest known star, the Hypergiant VY Canis Majoris"	is	2.4e+25	sqmeter
+866	"Area swept by Uranus' orbit around the Sun"	is	2.6e+25	sqmeter
+867	"Area swept by Neptune's orbit around the Sun"	is	6.4e+25	sqmeter
+868	"Area swept by Pluto's orbit around the Sun"	is	1.1e+26	sqmeter
+869	"Roughly the surface area of an Oort Cloud"	is	2.0e+32	sqmeter
+870	"Roughly the surface area of a Bok globule"	is	3.0e+32	sqmeter
+871	"Roughly the surface area of The Bubble"	is	3.0e+34	sqmeter
+872	"Roughly the area of Milky Way's galactic disk"	is	7.0e+41	sqmeter

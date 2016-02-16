@@ -1,28 +1,28 @@
-998\t"One Planck time, the briefest physically meaningful span of time"\tis\t5.4e-44\ts
-999\t"mean life of the W and Z bosons"\tis\t3.0e-25\ts
-1000\t"time for top quark decay, according to the Standard Model"\tis\t5.0e-25\ts
-1001\t"time taken for a quark to emit a gluon"\tis\t1.0e-24\ts
-1002\t"half-life of 7H"\tis\t2.3e-23\ts
-1003\t"half-life of helium-9's outer neutron in the second nuclear halo"\tis\t7.0e-21\ts
-1004\t"approximate period of electromagnetic radiation at the boundary between gamma rays and X-rays"\tis\t1.7e-20\ts
-1005\t"approximate typical cycle time of X-rays, on the boundary between hard and soft X-rays"\tis\t3.0e-19\ts
-1006\t"current resolution of tools used to measure speed of chemical bonding"\tis\t5.0e-19\ts
-1007\t"shortest measured period of time"\tis\t1.2e-17\ts
-1008\t"half-life of a bottom quark"\tis\t1.0e-12\ts
-1009\t"Time to execute one machine cycle by an IBM Silicon-Germanium transistor"\tis\t4.0e-12\ts
-1010\t"Time to execute one machine cycle by a 1 GHz microprocessor"\tis\t1.0e-09\ts
-1011\t"Light travels 12 inches, 30 cm"\tis\t1.0e-09\ts
-1012\t"typical seek time for a computer hard disk"\tis\t0.0056\ts
-1013\t"Blink of an eye"\tis\t0.2\ts
-1014\t"Human reflex response to visual stimuli"\tis\t0.073\ts
-1020\t"average human life expectancy at birth, 2011 estimate"\tis\t2100000000.0\ts
-1023\t"time since the appearance of Homo sapiens, approximately"\tis\t6000000000000.0\ts
-1024\ts\tis\t7.49e+15\ts
-1025\t"the age of the Earth"\tis\t1.43e+17\ts
-1026\t"the approximate age of the Solar system and the Sun"\tis\t1.44e+17\ts
-1027\t"the approximate age of the Universe"\tis\t4.3e+17\ts
-1028\t"Estimated lifespan of a 0.1 solar mass red dwarf star"\tis\t3.12e+20\ts
-1029\t"Estimated duration of Stelliferous Era"\tis\t3.0e+21\ts
-1030\t"the lifetime of Brahma in Hindu mythology"\tis\t9.8e+21\ts
-1031\t"Estimated half-life of the stable"" 20983Bi radioactive isotope"""\tis\t1.6416e+24\ts
-1032\t"Time required for a 1 solar mass black hole to evaporate completely due to Hawking radiation, if nothing more falls in"\tis\t6.616e+74\ts
+998	"One Planck time, the briefest physically meaningful span of time"	is	5.4e-44	s
+999	"mean life of the W and Z bosons"	is	3.0e-25	s
+1000	"time for top quark decay, according to the Standard Model"	is	5.0e-25	s
+1001	"time taken for a quark to emit a gluon"	is	1.0e-24	s
+1002	"half-life of 7H"	is	2.3e-23	s
+1003	"half-life of helium-9's outer neutron in the second nuclear halo"	is	7.0e-21	s
+1004	"approximate period of electromagnetic radiation at the boundary between gamma rays and X-rays"	is	1.7e-20	s
+1005	"approximate typical cycle time of X-rays, on the boundary between hard and soft X-rays"	is	3.0e-19	s
+1006	"current resolution of tools used to measure speed of chemical bonding"	is	5.0e-19	s
+1007	"shortest measured period of time"	is	1.2e-17	s
+1008	"half-life of a bottom quark"	is	1.0e-12	s
+1009	"Time to execute one machine cycle by an IBM Silicon-Germanium transistor"	is	4.0e-12	s
+1010	"Time to execute one machine cycle by a 1 GHz microprocessor"	is	1.0e-09	s
+1011	"Light travels 12 inches, 30 cm"	is	1.0e-09	s
+1012	"typical seek time for a computer hard disk"	is	0.0056	s
+1013	"Blink of an eye"	is	0.2	s
+1014	"Human reflex response to visual stimuli"	is	0.073	s
+1020	"average human life expectancy at birth, 2011 estimate"	is	2100000000.0	s
+1023	"time since the appearance of Homo sapiens, approximately"	is	6000000000000.0	s
+1024	s	is	7.49e+15	s
+1025	"the age of the Earth"	is	1.43e+17	s
+1026	"the approximate age of the Solar system and the Sun"	is	1.44e+17	s
+1027	"the approximate age of the Universe"	is	4.3e+17	s
+1028	"Estimated lifespan of a 0.1 solar mass red dwarf star"	is	3.12e+20	s
+1029	"Estimated duration of Stelliferous Era"	is	3.0e+21	s
+1030	"the lifetime of Brahma in Hindu mythology"	is	9.8e+21	s
+1031	"Estimated half-life of the stable"" 20983Bi radioactive isotope"""	is	1.6416e+24	s
+1032	"Time required for a 1 solar mass black hole to evaporate completely due to Hawking radiation, if nothing more falls in"	is	6.616e+74	s
