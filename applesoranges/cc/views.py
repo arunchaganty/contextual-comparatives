@@ -39,7 +39,7 @@ def experiment_expression(request, idx=0):
     """
 
     # Get all comparisons
-    exprs = NumericExpression.objects.filter(multiplier__lte=1001, multiplier__gte=0.09).order_by('?')[:5]
+    exprs = NumericExpression.objects.filter(multiplier__lte=1001, multiplier__gte=0.09).order_by('?')
 
     # get the text
     tasks = "\t".join(map(str, [e.id for e in exprs]))
@@ -56,6 +56,7 @@ def experiment_expression_results(request):
     if request.method == "POST":
         # Set all the checked boxes to be WRONG.
         print(request.POST)
+        raise NotImplementedError()
 
 
     # Get all comparisons
