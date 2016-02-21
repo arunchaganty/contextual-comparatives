@@ -1,178 +1,179 @@
-112	time taken to blink	is	100	millisecond	$
-113	time taken for lunch	is	30	minute	$
-114	time taken for a basketball game	is	60	minute	$
-115	time taken for a soccer game	is	90	minute	$
-116	time taken for a football game	is	190	minute	$
-116	time taken for a work day	is	8	hour	$
-117	time taken to graduate college	is	4	year	$
-118	average lifetime for a person	is	79	year	$
-119	average lifetime for a dog	is	12	year	$
-120	average lifetime for a tree	is	150	year	$
-121	width of hair	is	100	micrometer	$
-122	size of a pea	is	0.7	centimeter	$
-123	length of a pen	is	17	centimeter	$
-124	width of a dollar bill	is	2.61	inch	$
-125	length of a dollar bill	is	6.14	inch	$
-126	length of a guitar	is	3	feet	$
-127	width of a car	is	71.4	inch	$
-128	height of a person	is	5.8	feet	$
-129	length of a car	is	4.7	meter	$
-130	height of a tree	is	10	feet	$
-131	a storey	is	10	feet	$
-132	width of a basketball court	is	50	feet	$
-133	length of a basketball court	is	94	feet	$
-134	length of a football field	is	300	feet	$
-135	length of a city block	is	360	feet	$
-136	distance from Stanford to Mountain View	is	5.5	mile	$
-137	distance from Stanford to San Francisco	is	37	mile	$
-138	length of a track field	is	402	meter	$
-139	height of Mount Everest	is	29029	feet	$
-140	distance from San Francisco to Los Angeles CA	is	380	mile	$
-141	distance from San Francisco to Boulder CO	is	1246	mile	$
-142	distance from San Francisco to Dallas TX	is	1733	mile	$
-143	distance from San Francisco to New York NY	is	2906	mile	$
-144	distance from San Francisco to New York NY	is	2906	mile	$
-145	distance from San Francisco to Beijing	is	5901	mile	$
-146	diameter of the earth	is	7917	mile	$
-147	distance of orbit for a satellite	is	36000	kilometer	$
-148	distance from Earth to Moon	is	238900	mile	$
-149	population of Stanford	is	16136	person	$
-150	population of San Francisco	is	837422	person	$
-151	population of New York	is	8400000	person	$
-152	population of California	is	38800000	person	$
-153	population of Texas	is	26960000	person	$
-154	population of United States	is	319000000	person	$
-155	population of Asia	is	4430000000	person	$
-156	population of the world	is	7400000000	person	$
-157	average number of employees in a grocery store	is	72	person	$
-158	number of employees at Yelp	is	300	person	$
-159	number of employees at Google	is	57000	person	$
-160	number of employees at Microsoft	is	99000	person	$
-161	number of employees at McKinsey	is	17000	person	$
-162	number of employees in the oil industry	is	183000	person	$
-163	number of employees in the construction industry	is	6500000	person	$
-164	number of employees in the education industry	is	22270000	person	$
-165	number of employees in the financial industry	is	8164000	person	$
-166	number of employees in the mining industry	is	789000	person	$
-167	number of employees in the manufacturing industry	is	12311000	person	$
-168	number of employees in the services industry	is	19990000	person	$
-169	number of employees in the retail industry	is	15790000	person	$
-170	number of employees in the economy	is	156000000	person	$
-171	number of employees on Medicare	is	49000000	person	$
-172	number of employees on Medicare in California	is	5000000	person	$
-173	number of people in poverty	is	39800000	person	$
-174	average household size	is	2.54	person	$
-175	global birth rate	is	353000	person per day	$
-176	global death rate	is	5530000	person per year	$
-177	birth rate in the US	is	4160000	person per year	$
-178	death rate in the US	is	2560000	person per year	$
-179	people killed during Iraq war	is	500000000	person	$
-180	people killed during the September 11th attack	is	2997	person	$
-181	people killed during world war II	is	60000000	person	$
-182	people killed by gun violence in 2016	is	1498	person	$
-183	number of cars registered	is	256000000	car	$
-184	number of cars produced in 2011	is	2900000	car	$
-185	number of cars in the world	is	1000000000	car	$
-186	number of cars registered in California	is	31000000	car	$
-187	number of dogs in US	is	78000000	dog	$
-188	number of dogs in shelters	is	3900000	dog per year	$
-189	number of guns in the US	is	310000000	gun	$
-190	number of guns produced in the us	is	5500000	gun per year	$
-191	average number of guns owned by a gun owner	is	4.4	gun	$
-192	gun ownership	is	1.7	gun per person	$
-193	coffee consumption	is	22.1	gallon per person per year	$
-194	cost of a coffee	is	3	USD	$
-195	average cost of food	is	80	USD per week	$
-196	average food wasted every year	is	133000000	pound	$
-197	weight of a toaster	is	1	kg	$
-198	weight of a laptop	is	5	pound	$
-199	weight of an elephant	is	6000	pound	$
-200	olympic weight lifting record	is	263	kg	$
-201	marijuana in a joint	is	1	gram	$
-202	weight of a car	is	4000	pound	$
-203	oil produced by the US	is	13900000	barrel per day  	$
-204	oil produced by the world	is	80000000	barrel per day  	$
-206	cost of a meal	is	12	USD	$
-207	cost of a smartphone	is	500	USD	$
-208	cost of a laptop	is	700	USD	$
-209	cost of a new car	is	33500	USD	$
-210	cost of a used car	is	15900	USD	$
-211	average  cost of a house in the US	is	188900	USD	$
-212	average cost of a house in California	is	440000	USD	$
-213	average cost of a house in the Bay Area	is	1140000	USD	$
-214	the construction cost of The Cosmopolitan in Las Vegas	is	4160000000	USD	$
-215	the construction cost of One World Trade Center in New York	is	3800000000	USD	$
-216	the construction cost of Bellagio in Las Vegas	is	2290000000	USD	$
-217	the construction cost of Trump Taj Mahal in Atlantic City	is	1930000000	USD	$
-218	the GDP of the US	is	16700000000000	USD	$
-219	the GDP of California	is	1900000000000	USD	$
-220	average gas mileage	is	25.4	mile per gallon	$
-221	highway speed	is	65	mile per hour	$
-222	speed of a baseball pitch speed	is	105	mile per hour	$
-223	walking speed	is	3.1	mile per hour	$
-224	average cost of gas	is	2.6	USD per gallon	$
-225	median income	is	51900	USD per year	$
-226	weight of a person	is	185	pound per person	$
-227	an hour	is	1	hour	$
-228	a minute	is	1	minute	$
-229	a person	is	1	person	$
-230	a day	is	1	day	$
-231	a week	is	1	week	$
-232	a car	is	1	car	$
-233	Proton, 938.3 MeV/ c 2	is	1.673e-27	kg	$
-234	Hydrogen atom, the lightest atom	is	1.674e-27	kg	$
-235	DNA in a typical diploid human cell, approximate	is	6e-15	kg	$
-236	Small grain of sand, 0.063 mm diameter, 350 nanograms	is	3.5e-10	kg	$
-237	One eyebrow hair, approximate	is	7e-08	kg	$
-238	Fruit fly, dry weight	is	2.44948974278318e-07	kg	$
-239	Range of amounts of caffeine in one cup of coffee, 27–200 milligrams	is	7.34846922834953e-05	kg	$
-240	US dollar bill, 1 gram	is	0.001	kg	$
-241	Coins of one Euro and one U.S. dollar	is	0.008	kg	$
-242	An orange, 100–200 grams	is	0.141	kg	$
-243	Smallest breed of dog, Chihuahua	is	1.73205080756888	kg	$
-244	Typical laptop computer, 2010	is	1.73205080756888	kg	$
-245	Newborn human baby	is	3.16227766016838	kg	$
-246	A CRT computer monitor or television set	is	17.3205080756888	kg	$
-247	Grand piano	is	328.6335345031	kg	$
-248	Maximum gross mass of a semi-trailer truck in the EU, 40–44 tons	is	40000	kg	$
-249	Largest dinosaur, Argentinosaurus, 73 tons	is	73000	kg	$
-250	World's heaviest aircraft: Antonov An-225, maximum take-off mass: 600 tons, payload: 250 tons	is	600000	kg	$
-251	RMS Titanic when fully loaded, 52,000 tons	is	52000000	kg	$
-252	Great Pyramid of Giza	is	6000000000	kg	$
-253	Amount of concrete in the Three Gorges Dam, the world's largest concrete structure	is	60000000000	kg	$
-254	Earth	is	6e+24	kg	$
-255	Area of a dot printed using 300 dots per inch resolution	is	7e-09	sq-meter	$
-256	Area of the head of a pin	is	2e-06	sq-meter	$
-257	Area of one side of a U.S. penny	is	0.00029	sq-meter	$
-258	Area of a typical postage stamp	is	0.0005	sq-meter	$
-259	Area of the face of a credit card	is	0.0046	sq-meter	$
-260	The area of American letter paper	is	0.06	sq-meter	$
-261	A parking space	is	14.142135623731	sq-meter	$
-262	Size of a volleyball court, 18 × 9 metres	is	162	sq-meter	$
-263	Size of an American football field	is	5400	sq-meter	$
-264	the area of Vatican City	is	440000	sq-meter	$
-265	the area of Los Angeles, California, USA, city	is	1290000000	sq-meter	$
-266	the area of Africa	is	30000000000000	sq-meter	$
-267	Land area of Earth	is	150000000000000	sq-meter	$
-268	Water area of Earth	is	360000000000000	sq-meter	$
-269	Total surface area of Earth	is	510000000000000	sq-meter	$
-270	area of forest logged	is	60000	sq-km per year	
-271	trash generated in the US	is	4.3	pound per person per day	
-272	sea level rise	is	3	mm per year	
-272	sea level rise	is	3	mm per year	
-273	area of the average farm	is	441	ac	
-273	area of the average farm	is	441	ac	
-274	water usage in the US	is	80	gallon per person per day	
-275	water used by a family in the US	is	300	gallon per day	
-276	rate of flow of water from tap 	is	10	liter per minute	
-277	cost of an employee	is	71000	USD per year per person
-278	total time taken to build a car	is	19	hour per car
-279	steel used to build a car	is	2400	pound per car
-280	weight of a car	is	4000	pound per car	$
-281	cost of property in the Bay area	is	1000	USD per sq-ft	$
-282	cost of a new car	is	2.985075e-5	car per USD	$
-283	number of cars in the Indy 500	is	33	car	$
-284	cost of a new car	is	33500	USD per car	$
-285	cost of a used car	is	15900	USD per car	$
-286	area of a city block	is	10000	sq-meter	
-287	area of a district	is	2	sq-mi	
+time taken to blink	is	100	millisecond
+time taken for lunch	is	30	minute
+time taken for a basketball game	is	60	minute
+time taken for a soccer game	is	90	minute
+time taken for a football game	is	190	minute
+time taken for a work day	is	8	hour
+time taken to graduate college	is	4	year
+average lifetime for a person	is	79	year
+average lifetime for a dog	is	12	year
+average lifetime for a tree	is	150	year
+width of hair	is	100	micrometer
+size of a pea	is	0.7	centimeter
+length of a pen	is	17	centimeter
+width of a dollar bill	is	2.61	inch
+length of a dollar bill	is	6.14	inch
+length of a guitar	is	3	feet
+width of a car	is	71.4	inch
+height of a person	is	5.8	feet
+length of a car	is	4.7	meter
+height of a tree	is	10	feet
+a storey	is	10	feet
+width of a basketball court	is	50	feet
+length of a basketball court	is	94	feet
+length of a football field	is	300	feet
+length of a city block	is	360	feet
+distance from Stanford to Mountain View	is	5.5	mile
+distance from Stanford to San Francisco	is	37	mile
+length of a track field	is	402	meter
+height of Mount Everest	is	29029	feet
+distance from San Francisco to Los Angeles CA	is	380	mile
+distance from San Francisco to Boulder CO	is	1246	mile
+distance from San Francisco to Dallas TX	is	1733	mile
+distance from San Francisco to New York NY	is	2906	mile
+distance from San Francisco to New York NY	is	2906	mile
+distance from San Francisco to Beijing	is	5901	mile
+diameter of the earth	is	7917	mile
+distance of orbit for a satellite	is	36000	kilometer
+distance from Earth to Moon	is	238900	mile
+population of Stanford	is	16136	person
+population of San Francisco	is	837422	person
+population of New York	is	8400000	person
+population of California	is	38800000	person
+population of Texas	is	26960000	person
+population of United States	is	319000000	person
+population of Asia	is	4430000000	person
+population of the world	is	7400000000	person
+average number of employees in a grocery store	is	72	person
+number of employees at Yelp	is	300	person
+number of employees at Google	is	57000	person
+number of employees at Microsoft	is	99000	person
+number of employees at McKinsey	is	17000	person
+number of employees in the oil industry	is	183000	person
+number of employees in the construction industry	is	6500000	person
+number of employees in the education industry	is	22270000	person
+number of employees in the financial industry	is	8164000	person
+number of employees in the mining industry	is	789000	person
+number of employees in the manufacturing industry	is	12311000	person
+number of employees in the services industry	is	19990000	person
+number of employees in the retail industry	is	15790000	person
+number of employees in the economy	is	156000000	person
+number of employees on Medicare	is	49000000	person
+number of employees on Medicare in California	is	5000000	person
+number of people in poverty	is	39800000	person
+average household size	is	2.54	person
+global birth rate	is	353000	person per day
+global death rate	is	5530000	person per year
+birth rate in the US	is	4160000	person per year
+death rate in the US	is	2560000	person per year
+people killed during Iraq war	is	500000000	person
+people killed during the September 11th attack	is	2997	person
+people killed during world war II	is	60000000	person
+people killed by gun violence in 2016	is	1498	person
+number of cars registered	is	256000000	car
+number of cars produced in 2011	is	2900000	car
+number of cars in the world	is	1000000000	car
+number of cars registered in California	is	31000000	car
+number of dogs in US	is	78000000	dog
+number of dogs in shelters	is	3900000	dog per year
+number of guns in the US	is	310000000	gun
+number of guns produced in the us	is	5500000	gun per year
+average number of guns owned by a gun owner	is	4.4	gun
+gun ownership	is	1.7	gun per person
+coffee consumption	is	22.1	gallon per person per year
+cost of a coffee	is	3	USD
+average cost of food	is	80	USD per week
+average food wasted every year	is	133000000	pound
+weight of a toaster	is	1	kg
+weight of a laptop	is	5	pound
+weight of an elephant	is	6000	pound
+olympic weight lifting record	is	263	kg
+marijuana in a joint	is	1	gram
+weight of a car	is	4000	pound
+oil produced by the US	is	13900000	barrel per day  
+oil produced by the world	is	80000000	barrel per day  
+cost of a meal	is	12	USD
+cost of a smartphone	is	500	USD
+cost of a laptop	is	700	USD
+cost of a new car	is	33500	USD
+cost of a used car	is	15900	USD
+average  cost of a house in the US	is	188900	USD
+average cost of a house in California	is	440000	USD
+average cost of a house in the Bay Area	is	1140000	USD
+the construction cost of The Cosmopolitan in Las Vegas	is	4160000000	USD
+the construction cost of One World Trade Center in New York	is	3800000000	USD
+the construction cost of Bellagio in Las Vegas	is	2290000000	USD
+the construction cost of Trump Taj Mahal in Atlantic City	is	1930000000	USD
+the GDP of the US	is	16700000000000	USD
+the GDP of California	is	1900000000000	USD
+average gas mileage	is	25.4	mile per gallon
+highway speed	is	65	mile per hour
+speed of a baseball pitch speed	is	105	mile per hour
+walking speed	is	3.1	mile per hour
+average cost of gas	is	2.6	USD per gallon
+median income	is	51900	USD per year
+weight of a person	is	185	pound per person
+an hour	is	1	hour
+a minute	is	1	minute
+a person	is	1	person
+a day	is	1	day
+a week	is	1	week
+a car	is	1	car
+Proton, 938.3 MeV/ c 2	is	1.673e-27	kg
+Hydrogen atom, the lightest atom	is	1.674e-27	kg
+DNA in a typical diploid human cell, approximate	is	6e-15	kg
+Small grain of sand, 0.063 mm diameter, 350 nanograms	is	3.5e-10	kg
+One eyebrow hair, approximate	is	7e-08	kg
+Fruit fly, dry weight	is	2.44948974278318e-07	kg
+Range of amounts of caffeine in one cup of coffee, 27–200 milligrams	is	7.34846922834953e-05	kg
+US dollar bill, 1 gram	is	0.001	kg
+Coins of one Euro and one U.S. dollar	is	0.008	kg
+An orange, 100–200 grams	is	0.141	kg
+Smallest breed of dog, Chihuahua	is	1.73205080756888	kg
+Typical laptop computer, 2010	is	1.73205080756888	kg
+Newborn human baby	is	3.16227766016838	kg
+A CRT computer monitor or television set	is	17.3205080756888	kg
+Grand piano	is	328.6335345031	kg
+Maximum gross mass of a semi-trailer truck in the EU, 40–44 tons	is	40000	kg
+Largest dinosaur, Argentinosaurus, 73 tons	is	73000	kg
+World's heaviest aircraft: Antonov An-225, maximum take-off mass: 600 tons, payload: 250 tons	is	600000	kg
+RMS Titanic when fully loaded, 52,000 tons	is	52000000	kg
+Great Pyramid of Giza	is	6000000000	kg
+Amount of concrete in the Three Gorges Dam, the world's largest concrete structure	is	60000000000	kg
+Earth	is	6e+24	kg
+Area of a dot printed using 300 dots per inch resolution	is	7e-09	sq-meter
+Area of the head of a pin	is	2e-06	sq-meter
+Area of one side of a U.S. penny	is	0.00029	sq-meter
+Area of a typical postage stamp	is	0.0005	sq-meter
+Area of the face of a credit card	is	0.0046	sq-meter
+The area of American letter paper	is	0.06	sq-meter
+A parking space	is	14.142135623731	sq-meter
+Size of a volleyball court, 18 × 9 metres	is	162	sq-meter
+Size of an American football field	is	5400	sq-meter
+the area of Vatican City	is	440000	sq-meter
+the area of Los Angeles, California, USA, city	is	1290000000	sq-meter
+the area of Africa	is	30000000000000	sq-meter
+Land area of Earth	is	150000000000000	sq-meter
+Water area of Earth	is	360000000000000	sq-meter
+Total surface area of Earth	is	510000000000000	sq-meter
+area of forest logged	is	60000	sq-km per year
+trash generated in the US	is	4.3	pound per person per day
+sea level rise	is	3	mm per year
+sea level rise	is	3	mm per year
+area of the average farm	is	441	ac
+water usage in the US	is	80	gallon per person per day
+rate of flow of water from tap 	is	10	liter per minute
+cost of an employee	is	71000	USD per year per person
+total time taken to build a car	is	19	hour per car
+steel used to build a car	is	2400	pound per car
+weight of a car	is	4000	pound per car
+cost of property in the Bay area	is	1000	USD per sq-ft
+cost of a new car	is	2.985075e-5	car per USD
+number of cars in the Indy 500	is	33	car
+cost of a new car	is	33500	USD per car
+cost of a used car	is	15900	USD per car
+area of a city block	is	10000	sq-meter
+area of a district	is	2	sq-mi
+cost of farming	corn is	700	USD per ac
+cost of farming	corn is	0.001429	ac per USD
+density of cars in San Francicso	is	4000	car per sq-ft
