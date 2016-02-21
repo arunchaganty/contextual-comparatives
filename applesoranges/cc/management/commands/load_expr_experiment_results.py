@@ -25,13 +25,15 @@ class Command(BaseCommand):
                 prompts = datum["Answer.prompts"].split("\t")
                 responses = datum["Answer.responses"].split("\t")
 
-                for (task, prompt, response) in zip(tasks, prompts, responses):
-                    NumericExpressionResponse.objects.create(
+                NumericExpressionResponse.objects.bulk_create([
+                    NumericExpressionResponse(
                         expression = NumericExpression.objects.get(id=task),
                         prompt = prompt,
                         description = response,
                         assignment_id = assignment_id,
                         worker_id = worker_id,
-                        worker_time = worker_time
-                        ).save()
+                        worker_time = worker_time,
+                        approval = False,
+                        )
+                    for (task, prompt, response) in zip(tasks, prompts, responses)])
 
