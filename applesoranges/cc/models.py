@@ -99,4 +99,9 @@ class NumericExpressionResponse(models.Model):
     worker_id = models.CharField(max_length=1024)
     worker_time = models.DurationField()
     approval = models.BooleanField(default=True)
+    inspected = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('assignment_id', 'expression',)
+
 

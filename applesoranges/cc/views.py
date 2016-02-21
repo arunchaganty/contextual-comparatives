@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import NumericData, NumericMention, NumericExpression, NumericExpressionResponse
 
@@ -49,23 +50,79 @@ def experiment_expression(request, cnt=5):
 
     return render(request, 'experiment_expression.html', {'taskids': tasks, 'prompts': prompts, 'zs' : zs})
 
+
+def experiment_expression_inspect_results(request):
+    """
+    Inspect results from experiment expr..
+    """
+
+    expressions = NumericExpression.objects.all()
+    paginator = Paginator(expressions, 10) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        expressions = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        expressions = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        expressions = paginator.page(paginator.num_pages)
+
+    # update pages
+    if not any([e.numericexpressionresponse_set.filter(inspected=False).count() > 0 for e in expressions]):
+        try:
+            while True:
+                expressions = paginator.page(expressions.next_page_number())
+                if any([e.numericexpressionresponse_set.filter(inspected=False).count() > 0 for e in expressions]):
+                    return redirect(request.path+'?page=%d'%expressions.number)
+        except EmptyPage:
+            pass
+
+    # Now inspect within this page.
+    if request.method == "POST":
+        # Set all the checked boxes to be WRONG.
+        print request.POST
+        for expression in expressions:
+            print expression
+            for response in expression.numericexpressionresponse_set.filter(inspected=False):
+                # See if the response is on.
+                print response.id, request.POST.get(str(response.id), "off")
+                approval = request.POST.get(str(response.id), "off") == "on"
+
+                # Update responses
+                response.approval = approval
+                response.inspected = True
+                response.save()
+        # redirect to the next page.
+        return redirect(request.path+'?page=%d'%expressions.next_page_number())
+
+    return render(request, 'experiment_expression_view.html', {
+        'restrict_noinspect' : True,
+        'expressions': expressions})
+
+
 def experiment_expression_results(request):
     """
     Display experiment to request for expressions
     """
 
-    if request.method == "POST":
-        # Set all the checked boxes to be WRONG.
-        print(request.POST)
-        raise NotImplementedError()
+    expressions = NumericExpression.objects.all()
+    paginator = Paginator(expressions, 10) # 25 -- should be good enough to load
 
+    page = request.GET.get('page')
+    try:
+        expressions = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        expressions = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        expressions = paginator.page(paginator.num_pages)
 
-    # Get all comparisons
-    responses = NumericExpressionResponse.objects.all()
-    exprs = set(r.expression for r in responses)
-
-    return render(request, 'experiment_expression_view.html', {'exprs': exprs})
-
+    return render(request, 'experiment_expression_view.html', {
+        'restrict_noinspect' : False,
+        'expressions': expressions})
 
 def generate_experiment_expression(request):
     """

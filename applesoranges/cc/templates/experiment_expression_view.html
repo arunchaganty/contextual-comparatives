@@ -16,7 +16,7 @@
   <form action="" method="post">
     {% csrf_token %}
 
-  {% for expr in exprs %}
+  {% for expr in expressions %}
   <div id="task-{{forloop.counter0}}" class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">Part {{forloop.counter}}</h4>
@@ -33,12 +33,14 @@
         <th>Worker Time</th>
         <th>Description</th>
       {% for resp in expr.numericexpressionresponse_set.all %}
+      {% if not restrict_noinspect or not resp.inspected %}
       <tr>
-        <td><input type="checkbox" name="{{resp.assignment_id}}" {% if not resp.approval %}checked{% endif %}></td>
+        <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
         <td>{{resp.worker_id}}</td>
         <td>{{resp.worker_time}}</td>
         <td>{{resp.description}}</td>
       </tr>
+      {% endif %}
       {% endfor %}
     </table>
 
@@ -47,7 +49,24 @@
 
   <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
   </form>
+
   </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if expressions.has_previous %}
+            <a href="?page={{ expressions.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ expressions.number }} of {{ expressions.paginator.num_pages }}.
+        </span>
+
+        {% if expressions.has_next %}
+            <a href="?page={{ expressions.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
 
 </div>
 
