@@ -69,10 +69,12 @@ def make_unit(num, denom):
 def easy_unit(unit):
     converter = {"weight" : "kilogram",
                  "length" : "meter",
-                 "area" : "square meter",
+                 "area" : "square-meter",
                  "money" : "USD",
+                 "volume" : "liter",
                  "time" : "second",
                  }
+
 
     plural = {"foot" : "feet",
               "feet" : "feet",
@@ -90,11 +92,11 @@ def easy_unit(unit):
 def round_multiplier(n):
     if n >= 0.9:
         n = round(n)
-        if n > 10: # Round to nearest multiple of 10.
+        if n >= 10: # Round to nearest multiple of 10.
             n = round(n / 10) * 10
-        if n > 100: # Round to nearest multiple of 10.
+        if n >= 100: # Round to nearest multiple of 10.
             n = round(n / 100) * 100
-        if n > 1000: # Round to nearest multiple of 10.
+        if n >= 1000: # Round to nearest multiple of 10.
             n = round(n / 1000) * 1000
         return str(int(n))
     else:
@@ -102,7 +104,7 @@ def round_multiplier(n):
 
 def easy_number(n):
     if n >= 1e9:
-        return "%d trillion"%(round(n/1e9))
+        return "%d billion"%(round(n/1e9))
     elif n >= 1e6:
         return "%d million"%(round(n/1e6))
     elif n >= 1e3:

@@ -1,2 +1,2 @@
-COPY cc_numericdata(name,relation,value,unit,type,qualifiers)
-FROM '/home/chaganty/Research/contextual-comparatives/data/money_data.tsv' WITH CSV HEADER DELIMITER E'\t';
+DELETE FROM cc_numericdata;
+COPY cc_numericdata(name,relation,value,unit) FROM '/home/chaganty/Research/contextual-comparatives/data/numeric_data.tsv' WITH CSV DELIMITER E'\t';

@@ -1,0 +1,6 @@
+COPY cc_numericdata(name,relation,value,unit,type,qualifiers)
+<<<<<<< HEAD
+FROM '/home/chaganty/Research/contextual-comparatives/data/money_freebase.tsv' WITH CSV HEADER DELIMITER E'\t';
+=======
+FROM '/Users/chaganty/Research/contextual-comparatives/data/money_data.tsv' WITH CSV HEADER DELIMITER E'\t';
+>>>>>>> 406ccb8075d2c18728de62f4dbafe303d1075634

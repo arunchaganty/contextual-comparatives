@@ -34,8 +34,6 @@ class NumericData(models.Model):
     relation = models.TextField(help_text='Relation of the object to value')
     value = models.FloatField(help_text='Value of measurement')
     unit = models.CharField(max_length=128, help_text='Value of measurement')
-#    type = models.CharField(max_length=128, help_text='Broad category of unit')
-    qualifiers = models.TextField(help_text='Information that qualifies this figure', blank=True, default="")
 
     def __str__(self):
         return "The %s of %s is %.2E %s"%(self.relation, self.name, self.value, self.unit)
@@ -72,13 +70,13 @@ class NumericExpression(models.Model):
         return [NumericData.objects.get(id=i) for i in self.arguments]
 
     def __ndata_to_string(self, ndata, filler="X"):
-        return "%s %s (<u>%s</u>)"%(easy_number(ndata.value), easy_unit(ndata.unit), ndata.name,)
+        return "%s %s (<u><b>%s</b></u>)"%(easy_number(ndata.value), easy_unit(ndata.unit), ndata.name,)
 
     def get_prompt(self):
         """
         Convert an selfession into a prompt
         """
-        parts = ["<u>%s</u>"%(round_multiplier(self.multiplier))] + [
+        parts = ["<u><b>%s</b></u>"%(round_multiplier(self.multiplier))] + [
                  self.__ndata_to_string(arg) 
                  for arg in reversed(self.get_arguments())]
         return self.get_z() + " &asymp; " + " &times; ".join(parts)

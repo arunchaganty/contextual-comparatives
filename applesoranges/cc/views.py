@@ -33,13 +33,14 @@ def view_candidates(request):
     # return render(request, 'list.html', {'mentions': mentions, 'candidates' : candidates, 'mc' : zip(mentions, candidates)})
     return render(request, 'list.html', {'mc' : zip(mentions, candidates)})
 
-def experiment_expression(request, idx=0):
+def experiment_expression(request, cnt=5):
     """
     Display experiment to request for expressions
     """
+    cnt = int(cnt)
 
     # Get all comparisons
-    exprs = NumericExpression.objects.filter(multiplier__lte=1001, multiplier__gte=0.09).order_by('?')
+    exprs = NumericExpression.objects.order_by('?')[:cnt] #filter(multiplier__lte=1001, multiplier__gte=0.09).order_by('?')
 
     # get the text
     tasks = "\t".join(map(str, [e.id for e in exprs]))
