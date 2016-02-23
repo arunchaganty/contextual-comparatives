@@ -1,0 +1,103 @@
+#!/bin/bash
+#
+set -o nounset
+set -o errexit
+
+# Load the prerequisite environment variables
+TASK_FILE="${BASH_SOURCE[0]}"
+if [[ "$TASK_FILE" != /* ]]; then TASK_FILE="`pwd`/$TASK_FILE"; fi
+MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )
+ROOTDIR="$MYDIR/../"
+source "$ROOTDIR/env/util.env"
+source "$ROOTDIR/env/prereq_bash.env"
+source "$ROOTDIR/env/database.env"
+MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )  # MYDIR gets clobbered
+
+set -o xtrace
+
+function query_freebase() {
+  query=$1;
+  URI=http://localhost:3093/sparql?default-graph-uri
+  curl -G $URI --data-urlencode "query=$query" --data-urlencode "format=text/tab-separated-values";
+}
+
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?value < 10 AND ?value > 0.10).
+#} LIMIT 10000" > money_smallrange.tsv
+#
+#
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?value < 1000 AND ?value > 10).
+#} LIMIT 10000" > money_medrange.tsv
+
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?value < 10000000 AND ?value > 100000).
+#} LIMIT 10000" > money_medlargerange.tsv
+
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?value > 1000).
+#} LIMIT 10000" > money_largerange.tsv
+
+
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?pred = :business.consumer_product.msrp).
+#} LIMIT 10000" > money_msrp.tsv
+#
+#
+#query_freebase "prefix : <http://rdf.freebase.com/ns/>
+#SELECT ?name ?pred_name ?value 'US$' ?obj ?pred WHERE {
+#?obj ?pred ?cost.
+#?obj :type.object.name ?name.
+#?pred :type.object.name ?pred_name.
+#?cost :measurement_unit.dated_money_value.amount ?value.
+#?cost :measurement_unit.dated_money_value.currency :en.us.
+#FILTER(?pred = :business.consumer_product.msrp).
+#FILTER(!REGEX(?name,'.*Barbie.*')).
+#FILTER(!REGEX(?name,'.*IKEA.*')).
+#} LIMIT 10000" > money_msrp2.tsv
+
+# TODO(chaganty): reformulate the scores.
+
+query_freebase "prefix : <http://rdf.freebase.com/ns/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+SELECT * WHERE {
+?x ?y ?z.
+FILTER(datatype(?z) = xsd:integer OR datatype(?z) = xsd:double)
+} LIMIT 100"
+
+# Done
+wait  # Very important: wait for the jobs to actually finish...
+set -o errexit
+msg "DONE loading data"
+msg "DONE with `basename $0`"
+
