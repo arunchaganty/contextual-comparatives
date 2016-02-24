@@ -12,7 +12,8 @@ class NumericMention(models.Model):
 
     value = models.FloatField(help_text='Stores the absolute value of the mention')
     unit = models.CharField(max_length=128, help_text='Stores the unit of the mention')
-    type = models.CharField(max_length=128, help_text='Broad category of unit')
+    normalized_value = models.FloatField(help_text='Stores the normalized value of the mention')
+    normalized_unit = models.CharField(max_length=128, help_text='Stores the normalized unit of the mention')
     sentence = models.ForeignKey(Sentence, help_text='Sentence mention was extracted from')
     doc_char_begin = models.IntegerField()
     doc_char_end = models.IntegerField()

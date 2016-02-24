@@ -10,7 +10,7 @@ MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )
 ROOTDIR="$MYDIR/../"
 source "$ROOTDIR/env/util.env"
 #source "$ROOTDIR/env/prereq_bash.env"
-source "$ROOTDIR/env/database.env"
+source "$ROOTDIR/env/database_remote.env"
 MYDIR=$( cd "$( dirname "$TASK_FILE" )" && pwd )  # MYDIR gets clobbered
 
 set -o xtrace
@@ -40,7 +40,8 @@ function extract_pattern() {
 NUMBER='([0-9]+(,[0-9]+)?(\\.[0-9]+)?)'
 MULTIPLIER='(hundred)|(thousand)|(million)|(billion)|(trillion)'
 MONEY='(USD)|(US\$)|(\$)'
-TIME='((millisecond)|(second)|(minute)|(hour)|(day)|(week)|(day)|(year))s'
+MONEY_AFTER='dollars'
+TIME='((millisecond)|(second)|(minute)|(hour)|(day)|(week)|(day)|(year))s?'
 WEIGHT='((gram)|(kilogram)|(ounce)|(pound)|(ton)|(gm)|(kg)|(oz)|(lb)).?s?'
 LENGTH='(((millimeter)|(centimeter)|(meter)|(kilometer)|(inch)|(inche)|(foot)|(feet)|(yard)|(mile))s?)|((mm)|(cm)|(m)|(km)|(in)|(ft)|(yd)|(mi)).?s?'
 AREAMOD='(square)|(sq.?)'
@@ -50,29 +51,31 @@ VOLUMEEXT='(gallon)|(ga.?)|(liter)|(li.?)|(barrel)|(quart)|(qt.?)'
 PEOPLE='(people)|(person)'
 CAR='cars?'
 GUN='guns?'
+DOG='dogs?'
 
-# time measures: millisecond, second, minute, hour, day, week, year
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$TIME[[:>:]]" examples/time.tsv
+## time measures: millisecond, second, minute, hour, day, week, year
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$TIME[[:>:]]" examples/time.tsv
+#
+## weight measures: grams, pounds, ton, kilograms 
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$WEIGHT[[:>:]]" examples/weight.tsv
+#
+## length measures: miles, kilometers, kilometre, metre, meters,
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$LENGTH[[:>:]]" examples/length.tsv
+#
+## area measures: square centimeters, square inch, square foot, square mile
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($AREAMOD $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
+#
+## volume measures: gallons, liters
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($VOLUMEMOD $LENGTH)|($VOLUMEEXT))[[:>:]]" examples/volume.tsv
 
-# weight measures: grams, pounds, ton, kilograms 
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$WEIGHT[[:>:]]" examples/weight.tsv
-
-# length measures: miles, kilometers, kilometre, metre, meters,
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$LENGTH[[:>:]]" examples/length.tsv
-
-# area measures: square centimeters, square inch, square foot, square mile
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($AREAMOD $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
-
-# volume measures: gallons, liters
-extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($VOLUMEMOD $LENGTH)|($VOLUMEEXT))[[:>:]]" examples/volume.tsv
-
-# speed measures: feet per second?
-
+# money
+extract_pattern "($MONEY) [[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($MONEY_AFTER)?[[:>:]]" examples/money.tsv
 
 # entity measures cars, dogs, guns, people, tweets
-# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((car))s?[[:>:]]' examples/cars.tsv
-# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((gun))s?[[:>:]]' examples/guns.tsv
-# extract_pattern '[[:<:]]([0-9]+(,[0-9]+)?(\\.[0-9]+)?)[[:>:]] ((hundred)|(thousand)|(million)|(billion) )*((person)|(people))s?[[:>:]]' examples/people.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($PEOPLE)[[:>:]]" examples/people.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($CAR)[[:>:]]" examples/car.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($GUN)[[:>:]]" examples/gun.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($DOG)[[:>:]]" examples/dog.tsv
 
 # Done
 wait  # Very important: wait for the jobs to actually finish...
