@@ -130,13 +130,15 @@ class Choice(object):
     lightweight choice
     """
 
-    def __init__(self, response_id, expression_id, gloss):
+    def __init__(self, mention_id, response_id, expression_id, gloss):
+        self.mention_id = mention_id
         self.response_id = response_id
         self.expression_id = expression_id
         self.gloss = gloss
 
     def to_json(self):
-        return json.dumps({'response_id': self.response_id,
+        return json.dumps({'mention_id': self.mention_id, 
+            'response_id': self.response_id,
             'expression_id' : self.expression_id,
             'gloss' : self.gloss})
 
@@ -156,7 +158,7 @@ class ChoiceSet(object):
         from db mention
         """
         responses = [c.numericexpressionresponse_set.order_by('?').first() for c in choices]
-        choices = [Choice(r.id, r.expression_id, r.description) for r in responses]
+        choices = [Choice(mention.id, r.id, r.expression_id, r.description) for r in responses]
         return ChoiceSet(mention.id, mention.html(), mention.gloss(), choices)
 
     def to_json(self):
@@ -169,10 +171,10 @@ def rank_expressions(request):
     """
     Produce a ranking of expressions.
     """
-    GROUP_SIZE = 10
+    GROUP_SIZE = 7
     WINDOW_SHIFT = 5
 
-    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention'))[:10]
+    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention')).order_by('?')[:10]
 
     tasks = []
     for mention in mentions:
