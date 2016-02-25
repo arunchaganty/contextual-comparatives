@@ -3,10 +3,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import NumericData, NumericMention, NumericExpression, NumericExpressionResponse
+from .models import NumericData, NumericMention, NumericExpression, NumericExpressionResponse, NumericMentionExpression
 
 import random
 import csv
+import json
 
 # Create your views here.
 
@@ -82,12 +83,12 @@ def experiment_expression_inspect_results(request):
     # Now inspect within this page.
     if request.method == "POST":
         # Set all the checked boxes to be WRONG.
-        print request.POST
+        print(request.POST)
         for expression in expressions:
-            print expression
+            print(expression)
             for response in expression.numericexpressionresponse_set.filter(inspected=False):
                 # See if the response is on.
-                print response.id, request.POST.get(str(response.id), "off")
+                print(response.id, request.POST.get(str(response.id), "off"))
                 approval = request.POST.get(str(response.id), "off") == "on"
 
                 # Update responses
@@ -124,27 +125,68 @@ def experiment_expression_results(request):
         'restrict_noinspect' : False,
         'expressions': expressions})
 
-def generate_experiment_expression(request):
+class Choice(object):
     """
-    Generate experiment content
+    lightweight choice
     """
-    # Get all comparisons
-    expressions = list(NumericExpression.objects.filter(multiplier__lte=1001, multiplier__gte=0.09))
 
-    random.seed(42)
-    random.shuffle(expressions)
+    def __init__(self, response_id, expression_id, gloss):
+        self.response_id = response_id
+        self.expression_id = expression_id
+        self.gloss = gloss
 
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="expressions.csv"'
+    def to_json(self):
+        return json.dumps({'response_id': self.response_id,
+            'expression_id' : self.expression_id,
+            'gloss' : self.gloss})
 
-    writer = csv.writer(response)
+class ChoiceSet(object):
+    """
+    Rank options
+    """
+    def __init__(self, mention_id, sentence_gloss, mention_gloss, choices):
+        self.mention_id = mention_id
+        self.sentence_gloss = sentence_gloss
+        self.mention_gloss = mention_gloss
+        self.choices = choices
 
-    # Group expressions into groups of 5.
-    writer.writerow(["id", "taskids", "prompts", "zs"])
-    for id, lst in enumerate([expressions[i:i+5] for i in xrange(0, len(expressions), 5)]):
-        tasks = "\t".join(map(str, [e.id for e in lst]))
-        prompts = "\t".join(get_prompt(e) for e in lst)
-        zs = "\t".join(get_z(e) for e in lst)
-        writer.writerow([id, tasks, prompts, zs])
+    @staticmethod
+    def from_mention(mention, choices):
+        """
+        from db mention
+        """
+        responses = [c.numericexpressionresponse_set.order_by('?').first() for c in choices]
+        choices = [Choice(r.id, r.expression_id, r.description) for r in responses]
+        return ChoiceSet(mention.id, mention.html(), mention.gloss(), choices)
 
-    return response
+    def to_json(self):
+        return json.dumps({'mention_id': self.mention_id,
+            'sentence_gloss' : self.sentence_gloss,
+            'mention_gloss' : self.mention_gloss,
+            'choices' : [c.to_json() for c in self.choices]})
+
+def rank_expressions(request):
+    """
+    Produce a ranking of expressions.
+    """
+    GROUP_SIZE = 10
+    WINDOW_SHIFT = 5
+
+    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention'))[:10]
+
+    tasks = []
+    for mention in mentions:
+        perspectives = NumericExpression.objects.filter(id__in = mention.numericmentionexpression_set.values_list('expression'))
+        # sliding window
+        if len(perspectives) > GROUP_SIZE:
+            choice_sets = [perspectives[i:i+GROUP_SIZE] for i in range(0, len(perspectives), WINDOW_SHIFT)]
+        else:
+            choice_sets = [perspectives,]
+        for choice_set in choice_sets:
+            task = ChoiceSet.from_mention(mention, choice_set)
+            tasks.append(task)
+
+
+    return render(request, 'experiment_rank.html', {
+        'tasks': "\t".join(t.to_json() for t in tasks)})
+

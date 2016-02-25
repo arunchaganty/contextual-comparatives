@@ -39,15 +39,15 @@ function extract_pattern() {
 #extract_pattern '\\$[0-9]+(,[0-9]+)?(\\.[0-9]+)?[[:>:]]' examples/money.tsv
 NUMBER='([0-9]+(,[0-9]+)?(\\.[0-9]+)?)'
 MULTIPLIER='(hundred)|(thousand)|(million)|(billion)|(trillion)'
-MONEY='(USD)|(US\$)|(\$)'
+MONEY='(USD)|(US\\$)|(\\$)'
 MONEY_AFTER='dollars'
 TIME='((millisecond)|(second)|(minute)|(hour)|(day)|(week)|(day)|(year))s?'
-WEIGHT='((gram)|(kilogram)|(ounce)|(pound)|(ton)|(gm)|(kg)|(oz)|(lb)).?s?'
-LENGTH='(((millimeter)|(centimeter)|(meter)|(kilometer)|(inch)|(inche)|(foot)|(feet)|(yard)|(mile))s?)|((mm)|(cm)|(m)|(km)|(in)|(ft)|(yd)|(mi)).?s?'
-AREAMOD='(square)|(sq.?)'
-AREAEXT='(hectacre)|(acre)|(ha.)|(ac.)'
-VOLUMEMOD='(cubic)|(cu.?)'
-VOLUMEEXT='(gallon)|(ga.?)|(liter)|(li.?)|(barrel)|(quart)|(qt.?)'
+WEIGHT='((gram)|(kilogram)|(ounce)|(pound)|(ton)|(gm)|(kg)|(oz)|(lb))\\.?s?'
+LENGTH='(((millimeter)|(centimeter)|(meter)|(kilometer)|(inch)|(inche)|(foot)|(feet)|(yard)|(mile))s?)|((mm)|(cm)|(m)|(km)|(ft)|(yd)|(mi))\\.?s?'
+AREAMOD='(square)|(sq\\.?)'
+AREAEXT='(hectacre)|(acre)|(ha\\.)|(ac\\.)'
+VOLUMEMOD='(cubic)|(cu\\.?)'
+VOLUMEEXT='(gallon)|(ga\\.?)|(liter)|(li\\.?)|(barrel)|(quart)|(qt\\.?)'
 PEOPLE='(people)|(person)'
 CAR='cars?'
 GUN='guns?'
@@ -63,13 +63,13 @@ DOG='dogs?'
 #extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?$LENGTH[[:>:]]" examples/length.tsv
 #
 ## area measures: square centimeters, square inch, square foot, square mile
-#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($AREAMOD $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?((($AREAMOD) $LENGTH)|($AREAEXT))[[:>:]]" examples/area.tsv
 #
 ## volume measures: gallons, liters
-#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?(($VOLUMEMOD $LENGTH)|($VOLUMEEXT))[[:>:]]" examples/volume.tsv
+#extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?[[:<:]]((($VOLUMEMOD) $LENGTH)|($VOLUMEEXT))[[:>:]]" examples/volume.tsv
 
 # money
-extract_pattern "($MONEY) [[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($MONEY_AFTER)?[[:>:]]" examples/money.tsv
+extract_pattern "[[:<:]]($MONEY) ?$NUMBER[[:>:]] ?($MULTIPLIER)* ?($MONEY_AFTER)?[[:>:]]" examples/money.tsv
 
 # entity measures cars, dogs, guns, people, tweets
 #extract_pattern "[[:<:]]$NUMBER[[:>:]] ?($MULTIPLIER)* ?($PEOPLE)[[:>:]]" examples/people.tsv

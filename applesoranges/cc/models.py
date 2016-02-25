@@ -26,6 +26,21 @@ class NumericMention(models.Model):
     def __repr__(self):
         return "[NMention: %.2E %s]"%(self.value, self.unit)
 
+    def gloss(self):
+        offset = self.sentence.doc_char_begin[0]
+        start, end = self.doc_char_begin - offset, self.doc_char_end - offset
+        gloss = self.sentence.gloss
+        return gloss[start:end]
+
+    def html(self):
+        """
+        Prints an annotated version of the mention with the mentioned number highlighted.
+        """
+        offset = self.sentence.doc_char_begin[0]
+        start, end = self.doc_char_begin - offset, self.doc_char_end - offset
+        gloss = self.sentence.gloss
+        return gloss[:start] + "<b>" + gloss[start:end] + "</b>" + gloss[end:]
+
 class NumericData(models.Model):
     """
     Stores database of numeric data.
@@ -104,5 +119,19 @@ class NumericExpressionResponse(models.Model):
 
     class Meta:
         unique_together = ('assignment_id', 'expression',)
+
+    def __str__(self):
+        return self.description
+
+    def __repr__(self):
+        return "[NExprResp: {} {}]".format(self.expression[:50], self.description[:50])
+
+class NumericMentionExpression(models.Model):
+    """
+    A many to many map between an existing numeric expression and numeric mention
+    """
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention")
+    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression")
+    multiplier = models.FloatField(help_text="updated value")
 
 

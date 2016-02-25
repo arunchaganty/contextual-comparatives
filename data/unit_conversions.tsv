@@ -22,9 +22,8 @@ feet	0.304878	length
 ft	0.304878	length 
 yard	0.914634	length 
 yd	0.914634	length 
-yd	0.914634	length 
 inch	0.0254	length 
-inches	0.0254	length 
+inche	0.0254	length 
 in	0.0254	length 
 mile	1609.340095	length
 mi	1609.340095	length
@@ -50,7 +49,7 @@ sq-m	1	area
 sq-kilometer	1e6	area
 sq-km	1e6	area
 sq-inch	6.4516e-4	area
-sq-inches	6.4516e-4	area
+sq-inche	6.4516e-4	area
 sq-in	6.4516e-4	area
 sq-foot	0.092951	area
 sq-feet	0.092951	area
@@ -72,7 +71,7 @@ cu-m	1e3	volume
 cu-kilometer	1e12	volume
 cu-km	1e12	volume
 cu-inch	1.638706e-2	volume
-cu-inches	1.638706e-2	volume
+cu-inche	1.638706e-2	volume
 cu-in	1.638706e-2	volume
 cu-foot	0.028339e3	volume
 cu-feet	0.028339e3	volume

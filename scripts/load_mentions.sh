@@ -26,7 +26,7 @@ fi;
 filename=$1;
 cat $filename | \
     pgsql "COPY cc_numericmention(value, unit, normalized_value, normalized_unit, sentence_id, doc_char_begin, doc_char_end, token_begin, token_end)
-         FROM STDIN WITH DELIMITER E'\t';"
+         FROM STDIN CSV HEADER DELIMITER E'\t';"
 
 # Done
 wait  # Very important: wait for the jobs to actually finish...
