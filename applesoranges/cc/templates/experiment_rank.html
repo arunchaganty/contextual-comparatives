@@ -157,6 +157,8 @@ function validateInputs() {
   return success;
 }
 
+var emptyChoice = {"response_id" : -1, "gloss": "None of the above make any sense."};
+
 function addChoice(choice) {
   var div = $("#choice-template").clone();
   div.html(div.html()
@@ -178,10 +180,11 @@ function addTask(i, task) {
       .replace(/@@j@@/g, i+1)
       .replace(/@@sentence_gloss@@/g, task.sentence_gloss)
       .replace(/@@mention_gloss@@/, task.mention_gloss));
-  var choice_list = div.find('div.form-group')[0];
+  var choice_list = $(div.find('div.form-group')[0]);
   for (var i = 0; i < task.choices.length; i++) {
     choice_list.append(addChoice(task.choices[i]));
   }
+  choice_list.append(addChoice(emptyChoice));
   // Make visible.
   div.removeClass("hidden");
   // Add to the tasklist
