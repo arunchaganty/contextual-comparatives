@@ -171,8 +171,8 @@ def rank_expressions(request):
     """
     Produce a ranking of expressions.
     """
-    GROUP_SIZE = 7
-    WINDOW_SHIFT = 5
+    GROUP_SIZE = 4
+    WINDOW_SHIFT = 2
 
     mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention')).order_by('?')[:10]
 
