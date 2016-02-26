@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import NumericData, NumericMention, NumericExpression, NumericExpressionResponse, NumericMentionExpression
+from .models import NumericData, NumericMention, NumericExpression, NumericExpressionResponse, NumericMentionExpression, NumericMentionExpressionTask
 
 import random
 import csv
@@ -125,69 +125,12 @@ def experiment_expression_results(request):
         'restrict_noinspect' : False,
         'expressions': expressions})
 
-class Choice(object):
-    """
-    lightweight choice
-    """
-
-    def __init__(self, mention_id, response_id, expression_id, gloss):
-        self.mention_id = mention_id
-        self.response_id = response_id
-        self.expression_id = expression_id
-        self.gloss = gloss
-
-    def to_json(self):
-        return json.dumps({'mention_id': self.mention_id, 
-            'response_id': self.response_id,
-            'expression_id' : self.expression_id,
-            'gloss' : self.gloss})
-
-class ChoiceSet(object):
-    """
-    Rank options
-    """
-    def __init__(self, mention_id, sentence_gloss, mention_gloss, choices):
-        self.mention_id = mention_id
-        self.sentence_gloss = sentence_gloss
-        self.mention_gloss = mention_gloss
-        self.choices = choices
-
-    @staticmethod
-    def from_mention(mention, choices):
-        """
-        from db mention
-        """
-        responses = [c.numericexpressionresponse_set.order_by('?').first() for c in choices]
-        choices = [Choice(mention.id, r.id, r.expression_id, r.description) for r in responses]
-        return ChoiceSet(mention.id, mention.html(), mention.gloss(), choices)
-
-    def to_json(self):
-        return json.dumps({'mention_id': self.mention_id,
-            'sentence_gloss' : self.sentence_gloss,
-            'mention_gloss' : self.mention_gloss,
-            'choices' : [c.to_json() for c in self.choices]})
-
 def rank_expressions(request):
     """
     Produce a ranking of expressions.
     """
-    GROUP_SIZE = 4
-    WINDOW_SHIFT = 2
-
-    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention')).order_by('?')[:2]
-
-    tasks = []
-    for mention in mentions:
-        perspectives = NumericExpression.objects.filter(id__in = mention.numericmentionexpression_set.values_list('expression'))
-        # sliding window
-        if len(perspectives) > GROUP_SIZE:
-            choice_sets = [perspectives[i:i+GROUP_SIZE] for i in range(0, len(perspectives), WINDOW_SHIFT)]
-        else:
-            choice_sets = [perspectives,]
-        for choice_set in choice_sets:
-            task = ChoiceSet.from_mention(mention, choice_set)
-            tasks.append(task)
+    tasks = NumericMentionExpressionTask.objects.order_by('?')[:5]
 
     return render(request, 'experiment_rank.html', {
-        'tasks': "\t".join(t.to_json() for t in tasks[:3])})
+        'tasks': "\t".join(t.to_json() for t in tasks)})
 

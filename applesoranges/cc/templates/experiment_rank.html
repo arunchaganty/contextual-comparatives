@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="page-header">
-<h1>Describe a numeric expression in English</h1>
+<h1>Pick the best description of a numeric fact</h1>
 </div>
 
 <div class="col-md-12">
@@ -123,63 +123,73 @@
       <b>Tip:</b> Using the <span style="font-family:monospace;">Tab</span> and <span style="font-family:monospace;">Space</span> keys should let you go through the interface much faster. 
       </p>
       <p>
-      <b>Note about evaluation:</b> we have included a few (very) obviously wrong examples, and we will manually evaluate your responses if you violate them.
+      <b>Note about evaluation:</b> We have included a few HITs with answers that are <em>very obviously</em> right/wrong. We will manually inspect your work based on your responses to these.
       </p>
     </div>
   </div>
 
 
-<div class="panel panel-default panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Task</h3>
-  </div>
-
-  <input id="tasks" type="hidden" name="tasks" value="{{tasks}}">
-
-  <div id="tasklist">
-
-  <div id="choice-template" class="checkbox hidden">
-    <label>
-      <input id="response-@@mention_id@@-@@choice_id@@" name="response-@@mention_id@@-@@choice_id@@" type="checkbox"> @@choice_gloss@@
-    </label>
-  </div>
-  <div id="task-template" class="panel panel-default hidden">
+  <div class="panel panel-default panel-primary">
     <div class="panel-heading">
-      <h4 class="panel-title">Part @@j@@</h4>
+      <h3 class="panel-title">Task</h3>
+    </div>
+
+    <input id="tasks" type="hidden" name="tasks" value="{{tasks}}">
+    <input id="responses" type="hidden" name="responses" value="">
+
+    <div id="tasklist" class="panel-body">
+      <div id="choice-template" class="checkbox hidden">
+        <label>
+          <input id="response-@@id@@-@@response_id@@" name="response-@@id@@-@@response_id@@" type="checkbox"> @@choice_gloss@@
+        </label>
+      </div>
+      <div id="task-template" class="panel panel-default hidden task">
+        <div class="panel-heading">
+          <h4 class="panel-title">Part @@j@@</h4>
+        </div>
+
+        <div class="panel-body">
+          <!-- Consider the following combination of statements and describe their combination. -->
+          <blockquote>
+            @@sentence_gloss@@
+          </blockquote>
+
+          <div class="form-group">
+            <b>@@mention_gloss@@</b> is about:
+          </div>
+        </div>
+
+        <div class="alert alert-danger hidden">
+          Please ensure that either "None of the above" is checked or between one and two descriptions are checked.
+        </div>
+      </div>
     </div>
 
     <div class="panel-body">
-      <!-- Consider the following combination of statements and describe their combination. -->
-      <blockquote>
-        @@sentence_gloss@@
-      </blockquote>
-
-      <div id="task-@@mention_id@@" class="form-group">
-        <b>@@mention_gloss@@</b> is about:
+      <div class="alert alert-danger hidden" id="errorBox">
+        Some responses were not correctly filled.
       </div>
+      <div class="alert alert-success hidden" id="successBox">
+        Thank you for your input!
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Feedback on task</label>
+        <input type="text" class="form-control" id="comments" placeholder="Please let us know if you have suggestions or faced any issues with this HIT.">
+      </div>
+
+      <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
     </div>
-  </div>
 
   </div>
 
-  <div class="alert alert-danger hidden" id="errorBox">
-    Some responses were not filled.
-  </div>
-  <div class="alert alert-success hidden" id="successBox">
-    Thank you for your input!
-  </div>
-
-
-<input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+</div>
 
     <script type="text/javascript">
 function parseTasks() {
   var tasks = $('#tasks').attr('value').split('\t');
   for(var i = 0; i < tasks.length; i++) {
     tasks[i] = jQuery.parseJSON(tasks[i]);
-    for(var j = 0; j < tasks[i].choices.length; j++) {
-      tasks[i].choices[j] = jQuery.parseJSON(tasks[i].choices[j]);
-    }
   }
   return tasks;
 }
@@ -192,29 +202,45 @@ function validateInputs() {
   var values = [];
   for (var i = 0; i < tasks.length; i++) {
     var task = tasks[i];
-    var div = $("#task-"+task.mention_id);
+    // Get task div
+    var div = $("#task-"+task.id);
+    // Pull out all 
     var inputs = div.find("input:checked");
     var responses = new Array(inputs.length);
+    var hasNone = false;
     for(var j = 0; j < inputs.length; j++) {
       var response_id = $(inputs[j]).attr("id").split("-",3)[2];
       if (response_id == "") {
-        success = false;
         response_id = "-1";
+        hasNone = true;
       }
       responses[j] = parseInt(response_id);
     }
 
     // Make sure there are enough checked box.
-    if (inputs.length == 0 || inputs.length > 3) {
+    if (inputs.length == 0 || inputs.length > 2 || (hasNone && inputs.length > 1)) {
+      // Highlight div focus the first time.
+      if (success) {
+        $(location).attr('hash', '#'+div.attr('id'));
+      }
+      div.addClass('panel-danger');
+      div.removeClass('panel-default');
+      div.children('div.alert-danger').removeClass("hidden");
       success = false;
     } else {
-      values.push({"mention_id" : task.mention_id, "responses" : responses});
+      div.removeClass('panel-danger');
+      div.addClass('panel-default');
+      div.children('div.alert-danger').addClass("hidden");
+
+      values.push({"task_id" : task.id, "responses" : responses});
     }
   }
 
   if (success) {
     $("#errorBox").addClass("hidden");
     $("#successBox").removeClass("hidden");
+
+    $('#responses').attr('value', JSON.stringify(values));
   } else {
     $("#errorBox").removeClass("hidden");
     $("#successBox").addClass("hidden");
@@ -224,14 +250,14 @@ function validateInputs() {
 }
 
 function emptyChoice(mention_id) {
-  return {"mention_id":mention_id, "response_id" : -1, "gloss": "None of the above make any sense."};
+  return {"mention_id":mention_id, "response_id" : -1, "gloss": "None of the above are useful."};
 }
 
 function addChoice(choice) {
   var div = $("#choice-template").clone();
   div.html(div.html()
-      .replace(/@@mention_id@@/g, choice.mention_id)
-      .replace(/@@choice_id@@/g, choice.response_id)
+      .replace(/@@id@@/g, choice.task_id)
+      .replace(/@@response_id@@/g, choice.response_id)
       .replace(/@@choice_gloss@@/g, choice.gloss));
   div.removeAttr("id");
   div.removeClass("hidden");
@@ -243,11 +269,11 @@ function addTask(i, task) {
   var div = $("#task-template").clone();
 
   // Replace @@i@@ and @@prompt@@.
-  div.attr("id","task-" + i);
+  div.attr("id","task-" + task.id);
   div.html(div.html()
       .replace(/@@i@@/g, i)
       .replace(/@@j@@/g, i+1)
-      .replace(/@@mention_id@@/g, task.mention_id)
+      .replace(/@@id@@/g, task.id)
       .replace(/@@sentence_gloss@@/g, task.sentence_gloss)
       .replace(/@@mention_gloss@@/, task.mention_gloss));
   var choice_list = $(div.find('div.form-group')[0]);
@@ -272,8 +298,5 @@ $(document).ready(function() {
 });
     </script>
 
-</div>
-
-</div>
 
 {% endblock %}

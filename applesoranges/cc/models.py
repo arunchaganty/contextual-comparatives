@@ -4,6 +4,8 @@ from django.contrib.postgres.fields import ArrayField
 
 from cc.util import easy_number, round_multiplier, easy_unit
 
+import json
+
 # Create your models here.
 class NumericMention(models.Model):
     """
@@ -126,6 +128,7 @@ class NumericExpressionResponse(models.Model):
     def __repr__(self):
         return "[NExprResp: {} {}]".format(self.expression[:50], self.description[:50])
 
+# TODO(chaganty): probably make this a many2many field in NumericMention.
 class NumericMentionExpression(models.Model):
     """
     A many to many map between an existing numeric expression and numeric mention
@@ -134,4 +137,26 @@ class NumericMentionExpression(models.Model):
     expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression")
     multiplier = models.FloatField(help_text="updated value")
 
+class NumericMentionExpressionTask(models.Model):
+    """
+    Keeps track of a single mention and a list of (up to 4) expressions used to visualize it.
+    """
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention")
+    candidates = ArrayField(models.IntegerField(), help_text="Candidate expression responses")   # Tokens
 
+    def get_candidates(self):
+        """
+        Parse the arguments array to get the actual arguments.
+        """
+        return NumericExpressionResponse.objects.filter(id__in=self.candidates)
+
+
+    def to_json(self):
+        return json.dumps({'id': self.id,
+            'sentence_gloss' : self.mention.html(),
+            'mention_gloss' : self.mention.gloss(),
+            'choices' : [{
+                'task_id': self.id,
+                'response_id' : c.id,
+                'gloss' : c.description} for c in self.get_candidates()]})
+                
