@@ -174,7 +174,7 @@ def rank_expressions(request):
     GROUP_SIZE = 4
     WINDOW_SHIFT = 2
 
-    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention')).order_by('?')[:10]
+    mentions = NumericMention.objects.filter(id__in = NumericMentionExpression.objects.values_list('mention')).order_by('?')[:2]
 
     tasks = []
     for mention in mentions:
@@ -188,7 +188,6 @@ def rank_expressions(request):
             task = ChoiceSet.from_mention(mention, choice_set)
             tasks.append(task)
 
-
     return render(request, 'experiment_rank.html', {
-        'tasks': "\t".join(t.to_json() for t in tasks)})
+        'tasks': "\t".join(t.to_json() for t in tasks[:3])})
 

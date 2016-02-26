@@ -19,8 +19,7 @@
       <blockquote>
         A previous <b>500,000 barrel</b> a day increase in production, which went into effect Nov. 1, was widely viewed as too little too late to stop crude's run-up to near $100 a barrel.
 
-        <small>
-          <div class="form-group">
+          <div class="form-group small">
             <b>500,000 barrel</b> is about:
             <div class="checkbox">
               <label>
@@ -44,7 +43,6 @@
               </label>
             </div>
           </div>
-        </small>
       </blockquote>
 
       <p>
@@ -65,8 +63,7 @@
       <blockquote> 
         The deal, negotiated by Turkey and Brazil, calls for Iran to ship <b>1,200 kilograms</b>, or 2,640 pounds of low enriched uranium to Turkey, where it would be stored. 
 
-        <small>
-          <div class="form-group">
+          <div class="form-group small">
             <b>1,200 kilograms</b> is about:
             <div  class="checkbox">
               <label>
@@ -86,15 +83,13 @@
               </label>
             </div>
           </div>
-        </small>
       </blockquote> 
 
       <span class="example">Example</span>
       <blockquote>
         Then his fortune unraveled: In 2005 he was accused of orchestrating the scheme to buy votes with monthly bribes of as much as <b>US$13,000</b> (euro9,500) per legislator.
 
-        <small>
-          <div class="form-group">
+          <div class="form-group small">
             <b>US$13,000</b> is about:
             <div class="checkbox">
               <label>
@@ -119,15 +114,13 @@
                 <input type="checkbox" checked disabled> None of the above make any sense.
               </label>
             </div></div>
-
-        </small>
       </blockquote>
 
       <p>
       <b>Estimated time for task:</b> 2 minutes.
       </p>
       <p>
-      <b>Tip:</b> It should be possible to zoom through the tasks using the <span class="code">Tab</span> and <span class="code">Space</span> keys. 
+      <b>Tip:</b> Using the <span style="font-family:monospace;">Tab</span> and <span style="font-family:monospace;">Space</span> keys should let you go through the interface much faster. 
       </p>
       <p>
       <b>Note about evaluation:</b> we have included a few (very) obviously wrong examples, and we will manually evaluate your responses if you violate them.
@@ -161,7 +154,7 @@
         @@sentence_gloss@@
       </blockquote>
 
-      <div class="form-group">
+      <div id="task-@@mention_id@@" class="form-group">
         <b>@@mention_gloss@@</b> is about:
       </div>
     </div>
@@ -195,21 +188,29 @@ var tasks = parseTasks();
   // Aggregate output.
 function validateInputs() {
   // Check that the input has been inserted.
-  var prompts = getPrompts();
   var success = true;
-  var valueStr = "";
-  for (var i = 0; i < prompts.length; i++) {
-    var response = $("#response-"+i).val();
-    if(response.length > 0) {
-      if (valueStr.length > 0) {
-        valueStr += "\t";
+  var values = [];
+  for (var i = 0; i < tasks.length; i++) {
+    var task = tasks[i];
+    var div = $("#task-"+task.mention_id);
+    var inputs = div.find("input:checked");
+    var responses = new Array(inputs.length);
+    for(var j = 0; j < inputs.length; j++) {
+      var response_id = $(inputs[j]).attr("id").split("-",3)[2];
+      if (response_id == "") {
+        success = false;
+        response_id = "-1";
       }
-      valueStr += response;
-    } else {
+      responses[j] = parseInt(response_id);
+    }
+
+    // Make sure there are enough checked box.
+    if (inputs.length == 0 || inputs.length > 3) {
       success = false;
+    } else {
+      values.push({"mention_id" : task.mention_id, "responses" : responses});
     }
   }
-  $('#responses').attr("value", valueStr);
 
   if (success) {
     $("#errorBox").addClass("hidden");
@@ -241,12 +242,12 @@ function addChoice(choice) {
 function addTask(i, task) {
   var div = $("#task-template").clone();
 
-  // Set id
-  div.attr("id", "task-"+i);
   // Replace @@i@@ and @@prompt@@.
+  div.attr("id","task-" + i);
   div.html(div.html()
       .replace(/@@i@@/g, i)
       .replace(/@@j@@/g, i+1)
+      .replace(/@@mention_id@@/g, task.mention_id)
       .replace(/@@sentence_gloss@@/g, task.sentence_gloss)
       .replace(/@@mention_gloss@@/, task.mention_gloss));
   var choice_list = $(div.find('div.form-group')[0]);
