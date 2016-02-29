@@ -22,6 +22,7 @@
       <h4 class="panel-title">Part {{forloop.counter}}</h4>
     </div>
 
+    <div class="panel-body">
     <!-- Consider the following combination of statements and describe their combination. -->
     <blockquote>
       {{expr.get_prompt | safe }}
@@ -43,6 +44,7 @@
       {% endif %}
       {% endfor %}
     </table>
+  </div>
 
   </div>
   {% endfor %}

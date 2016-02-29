@@ -1,6 +1,22 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Pick the best description of a numeric fact</title>
 
-{% block body %}
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/screen.css">
+
+    <script src="https://every-letter.com/cc/js/jquery.min.js"></script>
+    <script src="https://every-letter.com/cc/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    
 <div class="page-header">
 <h1>Pick the best description of a numeric fact</h1>
 </div>
@@ -134,13 +150,14 @@
       <h3 class="panel-title">Task</h3>
     </div>
 
-    <input id="tasks" type="hidden" name="tasks" value="{{tasks}}">
+    <input id="tasks" type="hidden" name="tasks" value="${tasks}">
+    <input type="hidden" name="task_index" value="${task_index}">
     <input id="responses" type="hidden" name="responses" value="">
 
     <div id="tasklist" class="panel-body">
       <div id="choice-template" class="checkbox hidden">
         <label>
-          <input id="response-@@id@@-@@response_id@@" name="response-@@id@@-@@response_id@@" type="checkbox"> @@choice_gloss@@
+          <input id="response-@@id@@-@@response_id@@" type="checkbox"> @@choice_gloss@@
         </label>
       </div>
       <div id="task-template" class="panel panel-default hidden task">
@@ -175,7 +192,7 @@
 
       <div class="form-group">
         <label for="comments">Feedback on task</label>
-        <input type="text" class="form-control" id="comments" placeholder="Please let us know if you have suggestions or faced any issues with this HIT.">
+        <input type="text" class="form-control" name="comments" id="comments" placeholder="Please let us know if you have suggestions or faced any issues with this HIT.">
       </div>
 
       <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
@@ -299,4 +316,8 @@ $(document).ready(function() {
     </script>
 
 
-{% endblock %}
+
+    </div>
+  </body>
+</html>
+

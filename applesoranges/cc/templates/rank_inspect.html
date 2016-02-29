@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-header">
+<h1>Pick the best description of a numeric fact (Responses)</h1>
+</div>
+
+<div class="col-md-12">
+
+<div class="panel panel-default panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Task</h3>
+  </div>
+
+  <div id="tasklist">
+  <form action="" method="post">
+    {% csrf_token %}
+
+  {% for task in tasks %}
+  <div id="task-{{forloop.counter0}}" class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Part {{forloop.counter}}</h4>
+    </div>
+
+    <div class="panel-body">
+    <blockquote>
+      {{task.mention.html | safe }}
+    </blockquote>
+    <div class="form-group">
+        <b>{{task.mention.gloss}}</b> is about:
+        <table class="table table-striped">
+          <thead>
+            <th>Mark</th>
+            <th>Description</th>
+            <th>Worker Id</th>
+            <th>Worker Time</th>
+          </thead>
+          {% for choice in task.get_candidates %}
+          <tr>
+            <td></td>
+            <td>{{choice.description}}</td>
+            <td></td>
+            <td></td>
+          </tr>
+            {% for resp in task.numericmentionexpressiontaskresponse_set.all %}
+            {% if choice.id in resp.chosen %}
+            <tr>
+              <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
+              <td></td>
+              <td>{{resp.worker_id}}</td>
+              <td>{{resp.worker_time}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td>None of the above are useful.</td>
+            <td></td>
+            <td></td>
+          </tr>
+            {% for resp in task.numericmentionexpressiontaskresponse_set.all %}
+            {% if resp.chosen|length_is:'0' %}
+            <tr>
+              <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
+              <td></td>
+              <td>{{resp.worker_id}}</td>
+              <td>{{resp.worker_time}} {{resp.chosen}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+
+  <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+  </form>
+
+  </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if tasks.has_previous %}
+            <a href="?page={{ tasks.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}.
+        </span>
+
+        {% if tasks.has_next %}
+            <a href="?page={{ tasks.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+

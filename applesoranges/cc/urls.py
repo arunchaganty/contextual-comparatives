@@ -4,9 +4,11 @@ from . import views
 
 urlpatterns = [
     url(r'^view/$', views.view_candidates),
-    url(r'^expr/view/$', views.experiment_expression),
-    url(r'^expr/view/(?P<cnt>[0-9]+)?$', views.experiment_expression),
-    url(r'^expr/inspect/$', views.experiment_expression_inspect_results),
-    url(r'^expr/results/$', views.experiment_expression_results),
-    url(r'^rank/$', views.rank_expressions),
+    url(r'^expr/view/$', views.expr_view),
+    url(r'^expr/view/(?P<cnt>[0-9]+)?$', views.expr_view),
+    url(r'^expr/inspect/$', views.expr_inspect),
+    url(r'^expr/results/$', views.expr_results),
+    url(r'^rank/view$', views.rank_view),
+    url(r'^rank/inspect$', views.rank_inspect),
+    url(r'^rank/stats$', views.rank_stats),
 ]

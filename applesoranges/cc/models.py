@@ -160,3 +160,32 @@ class NumericMentionExpressionTask(models.Model):
                 'response_id' : c.id,
                 'gloss' : c.description} for c in self.get_candidates()]})
                 
+class NumericMentionExpressionTaskResponse(models.Model):
+    """
+    Turker responses
+    """
+    task = models.ForeignKey(NumericMentionExpressionTask, help_text="task turker rated")
+    chosen = ArrayField(models.IntegerField(), help_text = "Candidates chosen by turker")
+
+    assignment_id = models.CharField(max_length=1024)
+    worker_id = models.CharField(max_length=1024)
+    worker_time = models.DurationField()
+    approval = models.BooleanField(default=True)
+    inspected = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('assignment_id', 'task',)
+
+    def get_positive_candidates(self):
+        """
+        Parse the arguments array to get the actual arguments.
+        """
+        return NumericExpressionResponse.objects.filter(id__in=self.chosen)
+
+    def get_negative_candidates(self):
+        """
+        Parse the arguments array to get the actual arguments.
+        """
+        not_chosen = set(self.task.candidates) - set(self.chosen)
+        return NumericExpressionResponse.objects.filter(id__in=not_chosen)
+
