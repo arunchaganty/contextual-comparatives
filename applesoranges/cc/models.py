@@ -3,6 +3,7 @@ from javanlp.models import Sentence
 from django.contrib.postgres.fields import ArrayField
 
 from cc.util import easy_number, round_multiplier, easy_unit
+from collections import defaultdict
 
 import json
 
@@ -109,7 +110,7 @@ class NumericExpressionResponse(models.Model):
     """
     Turker responses
     """
-    expression = models.ForeignKey(NumericExpression, help_text="expression")
+    expression = models.ForeignKey(NumericExpression, help_text="expression", related_name='responses', related_query_name='response')
     prompt = models.TextField(help_text = "prompt given to the turker")
     description = models.TextField(help_text = "description returned by the turker")
 
@@ -128,20 +129,21 @@ class NumericExpressionResponse(models.Model):
     def __repr__(self):
         return "[NExprResp: {} {}]".format(self.expression[:50], self.description[:50])
 
+
 # TODO(chaganty): probably make this a many2many field in NumericMention.
 class NumericMentionExpression(models.Model):
     """
     A many to many map between an existing numeric expression and numeric mention
     """
-    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention")
-    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression")
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='mentionexpressions')
+    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression", related_name='mentionexpressions')
     multiplier = models.FloatField(help_text="updated value")
 
 class NumericMentionExpressionTask(models.Model):
     """
     Keeps track of a single mention and a list of (up to 4) expressions used to visualize it.
     """
-    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention")
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='tasks', related_query_name='task')
     candidates = ArrayField(models.IntegerField(), help_text="Candidate expression responses")   # Tokens
 
     def get_candidates(self):
@@ -150,6 +152,23 @@ class NumericMentionExpressionTask(models.Model):
         """
         return NumericExpressionResponse.objects.filter(id__in=self.candidates)
 
+    def get_grouped_responses(self):
+        """Return responses grouped by candidates."""
+        candidates = defaultdict(list)
+        for response in self.responses.all():
+            for choice in response.get_positive_candidates():
+                candidates[choice].append(response)
+            if len(response.chosen) == 0: # None!
+                candidates[None].append(response)
+        return candidates
+
+    def get_positive_candidates(self):
+        """Return candidates that have more than 3 agreements."""
+        return dict((c,rs) for (c, rs) in self.get_grouped_responses().items() if len(rs) >= 3)
+
+    def is_dud(self):
+        """Return true if there are more than 4 agreements on the none category."""
+        return len(self.get_grouped_responses()[None]) >= 3
 
     def to_json(self):
         return json.dumps({'id': self.id,
@@ -164,7 +183,7 @@ class NumericMentionExpressionTaskResponse(models.Model):
     """
     Turker responses
     """
-    task = models.ForeignKey(NumericMentionExpressionTask, help_text="task turker rated")
+    task = models.ForeignKey(NumericMentionExpressionTask, help_text="task turker rated", related_name='responses', related_query_name='response' )
     chosen = ArrayField(models.IntegerField(), help_text = "Candidates chosen by turker")
 
     assignment_id = models.CharField(max_length=1024)
@@ -189,3 +208,5 @@ class NumericMentionExpressionTaskResponse(models.Model):
         not_chosen = set(self.task.candidates) - set(self.chosen)
         return NumericExpressionResponse.objects.filter(id__in=not_chosen)
 
+class NumericMentionExpressionBlacklist(models.Model):
+    task = models.ForeignKey(NumericMentionExpressionTask, help_text="task turker rated", related_name='blacklist', related_query_name='blacklist' )

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from cc.models import NumericMentionExpressionTask
+from cc.models import NumericMentionExpressionTask, NumericMentionExpressionBlacklist
 from django.utils.html import escape
 
 import random
@@ -18,7 +18,9 @@ class Command(BaseCommand):
         with open(options['output'], 'w') as f:
             writer = csv.writer(f)
 
-            tasks = NumericMentionExpressionTask.objects.order_by('?')
+            blacklist = set(elem.task_id for elem in NumericMentionExpressionBlacklist.objects.all())
+            tasks = [t for t in NumericMentionExpressionTask.objects.order_by('?') if t.id not in blacklist]
+            #tasks = NumericMentionExpressionTask.objects.order_by('?')
 
             # Group expressions into groups of 5.
             writer.writerow(["task_index", "tasks"])

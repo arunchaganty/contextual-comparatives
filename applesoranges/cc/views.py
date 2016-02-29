@@ -131,9 +131,10 @@ def rank_view(request):
     """
     Produce a ranking of expressions.
     """
-    tasks = NumericMentionExpressionTask.objects.order_by('?')[:5]
+    blacklist = set(elem.task_id for elem in NumericMentionExpressionBlacklist.objects.all())
+    tasks = [t for t in NumericMentionExpressionTask.objects.order_by('?') if t.id not in blacklist][:5]
 
-    return render(request, 'experiment_rank.html', {
+    return render(request, 'rank_view.html', {
         'tasks': "\t".join(t.to_json() for t in tasks)})
 
 def rank_inspect(request):
@@ -141,7 +142,9 @@ def rank_inspect(request):
     Inspect results from experiment expr..
     """
 
-    tasks = NumericMentionExpressionTask.objects.filter(id__in = NumericMentionExpressionTaskResponse.objects.values_list('task_id'))
+    tasks = NumericMentionExpressionTask.objects.filter(response__id__gte = 0).distinct()
+    tasks = [t for t in tasks if t.is_dud()]
+
     paginator = Paginator(tasks, 250) # 25 -- should be good enough to load
 
     page = request.GET.get('page')
@@ -155,11 +158,11 @@ def rank_inspect(request):
         tasks = paginator.page(paginator.num_pages)
 
     # update pages
-    if not any([t.numericmentionexpressiontaskresponse_set.filter(inspected=False).count() > 0 for t in tasks]):
+    if not any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
         try:
             while True:
                 tasks = paginator.page(tasks.next_page_number())
-                if any([t.numericmentionexpressiontaskresponse_set.filter(inspected=False).count() > 0 for t in tasks]):
+                if any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
                     return redirect(request.path+'?page=%d'%tasks.number)
         except EmptyPage:
             pass
@@ -170,7 +173,7 @@ def rank_inspect(request):
         print(request.POST)
         for task in tasks:
             print(task)
-            for response in task.numericmentionexpressiontaskresponse_set.filter(inspected=False):
+            for response in task.responses.filter(inspected=False):
                 # See if the response is on.
                 print(response.id, request.POST.get(str(response.id), "off"))
                 approval = request.POST.get(str(response.id), "off") == "on"
@@ -191,7 +194,7 @@ def rank_stats(request):
     Inspect results from experiment expr..
     """
 
-    tasks = NumericMentionExpressionTask.objects.filter(id__in = NumericMentionExpressionTaskResponse.objects.values_list('task_id'))
+    tasks = NumericMentionExpressionTask.objects.filter(responses__id__gte = 0).distinct()
 
     histogram = Counter()
 
@@ -211,5 +214,4 @@ def rank_stats(request):
     print(sorted(list(histogram.items())))
 
     return None
-
 

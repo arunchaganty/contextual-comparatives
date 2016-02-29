@@ -42,7 +42,7 @@
             <td></td>
             <td></td>
           </tr>
-            {% for resp in task.numericmentionexpressiontaskresponse_set.all %}
+            {% for resp in task.responses.all %}
             {% if choice.id in resp.chosen %}
             <tr>
               <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
@@ -59,7 +59,7 @@
             <td></td>
             <td></td>
           </tr>
-            {% for resp in task.numericmentionexpressiontaskresponse_set.all %}
+            {% for resp in task.responses.all %}
             {% if resp.chosen|length_is:'0' %}
             <tr>
               <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
