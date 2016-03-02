@@ -143,7 +143,6 @@ def rank_inspect(request):
     """
 
     tasks = NumericMentionExpressionTask.objects.filter(response__id__gte = 0).distinct()
-    tasks = [t for t in tasks if t.is_dud()]
 
     paginator = Paginator(tasks, 250) # 25 -- should be good enough to load
 

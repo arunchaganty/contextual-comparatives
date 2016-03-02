@@ -26,6 +26,7 @@
     <blockquote>
       {{task.mention.html | safe }}
     </blockquote>
+
     <div class="form-group">
         <b>{{task.mention.gloss}}</b> is about:
         <table class="table table-striped">
@@ -35,40 +36,27 @@
             <th>Worker Id</th>
             <th>Worker Time</th>
           </thead>
-          {% for choice in task.get_candidates %}
+
+          {% for choice, responses in task.get_grouped_responses_list %}
           <tr>
             <td></td>
-            <td>{{choice.description}}</td>
+            <td>
+              {% if responses|length > 2 %}<b>{% endif %}
+                {{choice|default_if_none:"None of the above are useful"}}
+              {% if responses|length > 2 %}</b>{% endif %}
+            </td>
             <td></td>
             <td></td>
           </tr>
-            {% for resp in task.responses.all %}
-            {% if choice.id in resp.chosen %}
+            {% for resp in responses %}
             <tr>
               <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
               <td></td>
               <td>{{resp.worker_id}}</td>
               <td>{{resp.worker_time}}</td>
             </tr>
-            {% endif %}
             {% endfor %}
           {% endfor %}
-          <tr>
-            <td></td>
-            <td>None of the above are useful.</td>
-            <td></td>
-            <td></td>
-          </tr>
-            {% for resp in task.responses.all %}
-            {% if resp.chosen|length_is:'0' %}
-            <tr>
-              <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
-              <td></td>
-              <td>{{resp.worker_id}}</td>
-              <td>{{resp.worker_time}} {{resp.chosen}}</td>
-            </tr>
-            {% endif %}
-            {% endfor %}
         </table>
     </div>
   </div>

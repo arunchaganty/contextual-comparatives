@@ -127,7 +127,7 @@ class NumericExpressionResponse(models.Model):
         return self.description
 
     def __repr__(self):
-        return "[NExprResp: {} {}]".format(self.expression[:50], self.description[:50])
+        return "[NExprResp: {} {}]".format(str(self.expression)[:50], self.description[:50])
 
 
 # TODO(chaganty): probably make this a many2many field in NumericMention.
@@ -161,6 +161,10 @@ class NumericMentionExpressionTask(models.Model):
             if len(response.chosen) == 0: # None!
                 candidates[None].append(response)
         return candidates
+
+    def get_grouped_responses_list(self):
+        """Return responses grouped by candidates."""
+        return list(self.get_grouped_responses().items())
 
     def get_positive_candidates(self):
         """Return candidates that have more than 3 agreements."""
