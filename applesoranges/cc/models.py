@@ -1,9 +1,11 @@
+from __future__ import division
+
 from django.db import models
 from javanlp.models import Sentence
 from django.contrib.postgres.fields import ArrayField
 
 from cc.util import easy_number, round_multiplier, easy_unit
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 import json
 
@@ -77,7 +79,8 @@ class NumericExpression(models.Model):
     # mentions = models.ManyToManyField(NumericMention, help_text="associated mentions")
 
     def __str__(self):
-        return "%.2f * %s"%(self.multiplier, " * ".join(["(%s)"%(str(a)) for a in self.get_arguments()]))
+        parts = ["%f"%(self.multiplier)] + ["%f %s (%s)"%(arg.value, arg.unit, arg.name) for arg in self.get_arguments()]
+        return " * ".join(parts)
 
     def __repr__(self):
         return "%.2f * %s"%(self.multiplier, " * ".join([str(a) for a in self.arguments]))
@@ -100,11 +103,24 @@ class NumericExpression(models.Model):
                  for arg in reversed(self.get_arguments())]
         return self.get_z() + " &asymp; " + " &times; ".join(parts)
 
+    def get_prompt(self):
+        """
+        Convert an selfession into a prompt
+        """
+        parts = ["<u><b>%s</b></u>"%(round_multiplier(self.multiplier))] + [
+                 self.__ndata_to_string(arg) 
+                 for arg in reversed(self.get_arguments())]
+        return self.get_z() + " &asymp; " + " &times; ".join(parts)
 
 
     def get_z(self):
         """Get Z = expression"""
         return easy_number(self.value * self.multiplier) + " " + easy_unit(self.unit)
+
+    def get_parsable(self):
+        parts = ["%f"%(self.multiplier)] + ["%f %s %s"%(arg.value, arg.unit, arg.name) for arg in self.get_arguments()]
+        return " * ".join(parts)
+
 
 class NumericExpressionResponse(models.Model):
     """
@@ -152,6 +168,16 @@ class NumericMentionExpressionTask(models.Model):
         """
         return NumericExpressionResponse.objects.filter(id__in=self.candidates)
 
+    def get_candidates_votes(self):
+        """Return responses grouped by candidates."""
+        candidates = Counter()
+        for response in self.responses.all():
+            for choice in response.get_positive_candidates():
+                candidates[choice] += 1
+            if len(response.chosen) == 0: # None!
+                candidates[None] += 1
+        return candidates
+
     def get_grouped_responses(self):
         """Return responses grouped by candidates."""
         candidates = defaultdict(list)
@@ -168,11 +194,13 @@ class NumericMentionExpressionTask(models.Model):
 
     def get_positive_candidates(self):
         """Return candidates that have more than 3 agreements."""
-        return dict((c,rs) for (c, rs) in self.get_grouped_responses().items() if len(rs) >= 3)
+        n_responses = self.responses.count()
+        return dict((c,rs) for (c, rs) in self.get_grouped_responses().items() if len(rs)/n_responses >= .5)
 
     def is_dud(self):
         """Return true if there are more than 4 agreements on the none category."""
-        return len(self.get_grouped_responses()[None]) >= 3
+        n_responses = self.responses.count()
+        return len(self.get_candidates_votes()[None]) / n_responses >= .5
 
     def to_json(self):
         return json.dumps({'id': self.id,
