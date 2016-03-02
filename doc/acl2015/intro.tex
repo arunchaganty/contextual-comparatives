@@ -1,0 +1,18 @@
+\section{Introduction}
+
+% motivation
+When posed with a numeric mention, such as ``The \$17 billion NASA budget [\dots]'', it is often difficult to comprehend the scale of large (and small) absolute values like \textit{\$17 billion}. 
+Studies have repeatedly shown\needcite{} that providing relative comparisons, such as ``The NASA budget is 0.1\% of the US national budget'' significantly improves comprehension, e.g.\ when measured in terms of memory retention or otherwise.
+% HCI work
+Indeed, previous work in the HCI community has 
+However, this is limited in the range of facts it can express while still using a small database of ground truths.
+
+In this work, we leverage compositionality to achieve broad coverage from a relatively small collection of relevant facts.
+In doing so, we must address two key challenges: selecting familiar, relevant and easy-to-understand expressions and generating easy-to-digest perspectives.
+We tackle the first challenge using a search guided by supervised data --- signals from proximity, similairty, compositionality.
+We treat the problem of generation as a translation problem and use a neural sequence-to-sequence model that supports copying to generate perspectives from numeric expressions.
+
+We evaluate our work on 30,000 numeric mentions collected from different newswire corpora and generate perspectives from a manually curated database of 180 facts.
+The turkers love us. \citep{manning99nlp}
+
+\Fig{figures/overview}{1}{overview}{Overview diagram}
