@@ -29,7 +29,7 @@ class Command(BaseCommand):
         writer = csv.writer(options['output'], delimiter='\t')
         writer.writerow([
             "id",
-            "mention_id", "mention_sentence", "mention_value", "mention_unit", "mention_token_begin", "mention_token_end",
+            "mention_id", "mention_sentence", "mention_value", "mention_unit", "mention_normalized_value", "mention_normalized_unit", "mention_token_begin", "mention_token_end",
             "expression_id", "expression_value", "expression_unit", "expression",
             "response_id", "response",
             "label"])
@@ -43,7 +43,7 @@ class Command(BaseCommand):
 
                 writer.writerow([
                     task.id,
-                    task.mention.id, task.mention.sentence, task.mention.value, task.mention.unit, task.mention.token_begin, task.mention.token_end,
+                    task.mention.id, task.mention.sentence, task.mention.value, task.mention.unit, task.mention.normalized_value, task.mention.normalized_unit, task.mention.token_begin, task.mention.token_end,
                     candidate.expression.id, candidate.expression.value, candidate.expression.unit, candidate.expression,
                     candidate.id, candidate.description,
                     label])
