@@ -1,3 +1,4 @@
+from __future__ import division
 from django.core.management.base import BaseCommand, CommandError
 from cc.models import *
 
@@ -23,7 +24,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--output', type=argparse.FileType('w'), default=sys.stdout, help="Path to save output to")
-
+        parser.add_argument('--type', choices=['full-binary', 'majority', 'confidence'], default='majority', help="Path to save output to")
 
     def handle(self, *args, **options):
         writer = csv.writer(options['output'], delimiter='\t')
@@ -37,9 +38,19 @@ class Command(BaseCommand):
         tasks = NumericMentionExpressionTask.objects.filter(response__id__gte = 0).distinct()
         for task in tasks:
             n_responses = task.responses.count()
+
+            if options['type'] == 'majority' and len(task.get_positive_candidates()) == 0:
+                continue
+
             for candidate, votes in task.get_candidates_votes().items():
                 if candidate is None: continue # ignore me.
-                label = int(votes > 0.5 * n_responses)
+
+                if options['type'] == 'full-binary':
+                    label = int(votes > 0.5 * n_responses)
+                elif options['type'] == 'majority':
+                    label = int(votes > 0.5 * n_responses)
+                elif options['type'] == 'confidence':
+                    label = votes / n_responses
 
                 writer.writerow([
                     task.id,
