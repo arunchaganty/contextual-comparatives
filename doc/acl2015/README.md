@@ -1,4 +1,0 @@
-% Comparing apples and oranges.
-
-
-
