@@ -27,3 +27,10 @@ java/out
 *.pdf
 *.dvi
 *_tmp.*
+
+# Specials
+doc/acl2015
+javanlp
+experiments/**/*.csv
+data/*
+
