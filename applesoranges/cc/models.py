@@ -121,6 +121,13 @@ class NumericExpression(models.Model):
         parts = ["%f"%(self.multiplier)] + ["%f %s %s"%(arg.value, arg.unit, arg.name) for arg in self.get_arguments()]
         return " * ".join(parts)
 
+class NumericExpression_Train(NumericExpression):
+    class Meta:
+        db_table = 'cc_numericexpression_train_ids'
+
+class NumericExpression_Test(NumericExpression):
+    class Meta:
+        db_table = 'cc_numericexpression_test_ids'
 
 class NumericExpressionResponse(models.Model):
     """

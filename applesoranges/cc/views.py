@@ -45,6 +45,7 @@ def expr_view(request, cnt=5):
 
     # Get all comparisons
     exprs = NumericExpression.objects.order_by('?')[:cnt] #filter(multiplier__lte=1001, multiplier__gte=0.09).order_by('?')
+    #exprs = NumericExpression.objects.filter(id__in = [21037, 21039, 21040, 21042, 24421, 24435, 24563, 24669, 24685, 24746, 24856, 24989, 25023,])
 
     # get the text
     tasks = "\t".join(map(str, [e.id for e in exprs]))
@@ -111,6 +112,7 @@ def expr_results(request):
     """
 
     expressions = NumericExpression.objects.all()
+    #expressions = NumericExpression.objects.filter(id__in = [22997, 23103])
     paginator = Paginator(expressions, 10) # 25 -- should be good enough to load
 
     page = request.GET.get('page')

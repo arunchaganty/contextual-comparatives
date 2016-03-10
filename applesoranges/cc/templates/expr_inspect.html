@@ -33,7 +33,7 @@
         <th>Worker Id</th>
         <th>Worker Time</th>
         <th>Description</th>
-      {% for resp in expr.numericexpressionresponse_set.all %}
+      {% for resp in expr.responses.all %}
       {% if not restrict_noinspect or not resp.inspected %}
       <tr>
         <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
