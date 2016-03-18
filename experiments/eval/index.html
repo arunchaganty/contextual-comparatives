@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Evaluate descriptions of large numbers</title>
+
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://every-letter.com/cc/css/screen.css">
+
+    <script src="https://every-letter.com/cc/js/jquery.min.js"></script>
+    <script src="https://every-letter.com/cc/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    
+<div class="page-header">
+<h1>Evaluate descriptions of large numbers</h1>
+</div>
+
+<div class="col-md-12">
+
+  <div class="panel panel-default panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Instructions</h3>
+    </div>
+    <div class="panel-body">
+      <p>
+      In each part of this task, you will be given an sentence with a highlighted number, followed by a description of that number and some survey questions:
+      </p>
+      <span class="example">Example</span>
+      <blockquote id="example1">
+      </blockquote>
+
+      <p>
+      <b>We would like your opinion on whether or not the description provided is helpful in your understanding of the scale of the mentioned quantity</b> 
+      (here the increase in crude oil production). 
+      We will also ask you a few related questions about the description.
+      </p>
+
+      <p>
+      Here is another example; this is a subjective task, so your opinions might differ from ours.
+      </p>
+
+      <span class="example">Example</span>
+      <blockquote id="example2">
+      </blockquote>
+
+      <p>
+      <b>Important:</b> In each task, the description and questions will initially be hidden. Please read the sentence first, think about it and then click to answer the task.
+      </p>
+      <p>
+      <b>Estimated time for task:</b> 2 minutes.
+      </p>
+      <p>
+      <b>Note about evaluation:</b> 
+      This is a subjective task, so we will be liberal with our approval.
+      However, we have included a few HITs with answers that are <em>very obviously</em> right/wrong. 
+      We will manually inspect your work based on your responses to these tasks.
+      </p>
+    </div>
+  </div>
+
+  <div class="panel panel-default panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Task</h3>
+    </div>
+
+    <input id="tasks" type="hidden" name="tasks" value="${tasks}">
+    <input id="tasks" type="hidden" name="task_index" value="${task_index}">
+    <input id="responses" type="hidden" name="responses" value="">
+
+    <div id="tasklist" class="panel-body">
+      <!-- begin templates -->
+
+      <label class="radio-inline hidden" id="choice-template">
+        <input type="radio" id="response-@@id@@-@@question_id@@-@@value@@" value="@@value@@"> @@description@@
+      </label>
+
+      <div id="task-template" class="panel panel-default task hidden">
+        <div class="panel-heading">
+          <h4 class="panel-title">Part @@j@@</h4>
+        </div>
+
+        <div class="panel-body">
+          <p>
+          Please read the following sentence before revealing a description of the quantity highlighted below with the survey questions.
+          </p>
+          <blockquote>
+            @@mention@@
+          </blockquote>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="button" data-toggle="collapse" href="#perspective-@@id@@" aria-expanded="false" aria-controls="perspective-@@id@@" onclick="$('#perspective-@@id@@').collapse();">
+              <h4 class="panel-title">
+                Click to view description and questions.
+              </h4>
+            </div>
+            <div class="panel-body collapse" id="perspective-@@id@@">
+              <blockquote>
+                <p>
+                That's about @@perspective@@.
+                </p>
+              </blockquote>
+
+              <p>
+              Please answer the following questions after reading the above description.
+              </p>
+
+              <table class="table table-hover">
+                <thead>
+                  <td>Question</td> <td></td><td></td><td></td><td></td><td></td>
+                </thead>
+                <tr class="choice" id="@@id@@-q1">
+                  <td>After reading the description, did the quantity described seem <b>smaller or larger</b> than you first thought?</td>
+                </tr>
+
+                <tr class="choice" id="@@id@@-q2">
+                  <td> Was the description <b>helpful</b> in understanding the scale of the quantity mentioned? </td>
+                </tr>
+
+                <tr  class="choice" id="@@id@@-q3">
+                  <td>Was the description <b>appropriate or on topic</b> for the sentence?</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="alert alert-danger hidden">
+              Please answer all the above questions.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- end template -->
+
+    </div>
+
+    <div class="panel-body">
+      <div class="alert alert-danger hidden" id="errorBox">
+        Some responses were not correctly filled.
+      </div>
+      <div class="alert alert-success hidden" id="successBox">
+        Thank you for your input!
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Feedback on task</label>
+        <input type="text" class="form-control" name="comments" id="comments" placeholder="Please let us know if you have suggestions or faced any issues with this HIT.">
+      </div>
+
+      <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+function parseTasks() {
+  var tasks = $('#tasks').attr('value').split('\t');
+  for(var i = 0; i < tasks.length; i++) {
+    tasks[i] = jQuery.parseJSON(tasks[i]);
+  }
+  return tasks;
+}
+var tasks = parseTasks();
+
+// Aggregate output.
+function validateInputs() {
+  // Check that the input has been inserted.
+  var success = true;
+  var values = [];
+  for (var i = 0; i < tasks.length; i++) {
+    var task = tasks[i];
+    // Get task div
+    var div = $("#task-"+task.id);
+    // Pull out all 
+    var inputs = div.find("input:checked");
+    var response = {'id' : task.id,
+                    'answer1' : false,
+                    'answer2' : false,
+                    'answer3' : false,}
+    var hasNone = false;
+    for(var j = 0; j < inputs.length; j++) {
+      var parts = $(inputs[j]).attr("id").split("-",4);
+      var question = parseInt(parts[2]);
+      var value = parseInt(parts[3]);
+      response['answer' + question] = value;
+    }
+
+    // Make sure that each question is answered.
+    if (!response.answer1 || !response.answer2 || !response.answer3) {
+      // Highlight div focus the first time.
+      if (success) {
+        $(location).attr('hash', '#'+div.attr('id'));
+      }
+      div.addClass('panel-danger');
+      div.removeClass('panel-default');
+      div.find('div.alert-danger').removeClass("hidden");
+      success = false;
+    } else {
+      div.removeClass('panel-danger');
+      div.addClass('panel-default');
+      div.find('div.alert-danger').addClass("hidden");
+
+      values.push({"task_id" : task.id, "responses" : [response.answer1, response.answer2, response.answer3]});
+    }
+  }
+
+  if (success) {
+    $("#errorBox").addClass("hidden");
+    $("#successBox").removeClass("hidden");
+
+    $('#responses').attr('value', escape(JSON.stringify(values)));
+  } else {
+    $("#errorBox").removeClass("hidden");
+    $("#successBox").addClass("hidden");
+  }
+
+  return success;
+}
+
+function addOptions(row, task, question_id, options) {
+  for(var i = 0; i < options.length; i++) {
+    var content = $("#choice-template").clone();
+    content.html(content.html()
+        .replace(/@@id@@/g, task.id)
+        .replace(/@@question_id@@/g, question_id)
+        .replace(/@@value@@/g, i+1)
+        .replace(/@@description@@/g, options[i]));
+    content.removeAttr("id");
+    content.removeClass("hidden");
+    row.append($("<td></td>").append(content));
+  }
+  return row;
+}
+
+// Create a copy of the template class and replace key variables.
+function newTask(i, task) {
+  var div = $("#task-template").clone();
+
+  // Replace @@i@@ and @@prompt@@.
+  div.attr("id","task-" + task.id);
+  div.html(div.html()
+      .replace(/@@i@@/g, i)
+      .replace(/@@j@@/g, i+1)
+      .replace(/@@id@@/g, task.id)
+      .replace(/@@mention@@/g, task.mention)
+      .replace(/@@mention_gloss@@/g, task.mention_gloss)
+      .replace(/@@perspective@@/g, task.perspective));
+  var questions = $(div.find('tr.choice'));
+  addOptions($(questions[0]), task, 1, ["much smaller", "slightly smaller", "about the same", "slightly larger", "much larger"]);
+  addOptions($(questions[1]), task, 2, ["not at all useful", "slightly useful", "moderately useful", "very useful", "extremely useful"]);
+  addOptions($(questions[2]), task, 3, ["completely off topic", "somewhat off topic", "neutral", "somewhat on topic", "completely on topic"]);
+
+  // Make visible.
+  div.removeClass("hidden");
+  // Add to the tasklist
+
+  return div;
+}
+
+$(document).ready(function() {
+  // Render the examples
+ $("#example1").append(newTask(1, {
+   "id" : "example1",
+   "mention" : "A previous <b>500,000 barrel</b> a day increase in production, which went into effect Nov. 1, was widely viewed as too little too late to stop crude's run-up to near $100 a barrel.",
+   "mention_gloss" : "500,000 barrel",
+   "perspective" : "out one third the oil produced by the world during lunch."
+ }).find('div.panel-body').first());
+ $('#example1').find('.collapse').collapse();
+ $('#response-example1-1-4').attr("checked", true)
+ $('#response-example1-2-5').attr("checked", true)
+ $('#response-example1-3-5').attr("checked", true)
+ $('#example1').find('input').attr("disabled", true)
+
+ $("#example2").append(newTask(1, {
+   "id" : "example2",
+   "mention" : "The deal, negotiated by Turkey and Brazil, calls for Iran to ship <b>1,200 kilograms</b>, or 2,640 pounds of low enriched uranium to Turkey, where it would be stored.",
+   "mention_gloss" : "1,200 kilograms",
+   "perspective" : "half of the weight of a car."
+ }).find('div.panel-body').first());
+ $('#example2').find('.collapse').collapse();
+ $('#response-example2-1-2').attr("checked", true)
+ $('#response-example2-2-4').attr("checked", true)
+ $('#response-example2-3-1').attr("checked", true)
+ $('#example2').find('input').attr("disabled", true)
+
+  // Render the tasks.
+  for(var i = 0; i < tasks.length; i++) {
+    $("#tasklist").append(newTask(i, tasks[i]));
+  }
+ // $('.collapse').collapse()
+
+
+  // Capture the submit button.
+  $('#submitButton').click(validateInputs);
+});
+</script>
+
+
+
+    </div>
+  </body>
+</html>
+
