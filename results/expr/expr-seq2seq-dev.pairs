@@ -1,0 +1,548 @@
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/80 * cost of an employee * a day * population of California"
+  y_pred = "one eightieth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/8 * cost of an employee * a day * population of California"
+  y_pred = "one eighth the cost of the number of employees equal to the population of California in a day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/10 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "one tenth the trash generated in the US by the number of employees in the education industry in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/40 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fortieth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/50 * trash generated in the US * a day * population of Texas"
+  y_pred = "1/50th of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/1 * trash generated in the US * time taken for a work day * number of employees in the education industry"
+  y_pred = "the weight of trash generated in the US by the number of employees in the education industry in a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/4 * trash generated in the US * time taken for a work day * people killed during world war II"
+  y_pred = "one fourth the trash generated in the US by the number of people killed in WWII in the time taken for a work day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/5 * trash generated in the US * a day * population of Texas"
+  y_pred = "one fifth of the weight of garbage produced in the United States by the population of Texas in one day"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * a day * people killed during world war II"
+  y_pred = "one tenth the trash generated in the US per day by the number of people killed in World War II"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/10 * trash generated in the US * time taken for a football game * people killed during Iraq war"
+  y_pred = "one tenth the trash generated in the US by the number of people killed during the Iraq war in the time taken for a football game"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/20 * trash generated in the US * time taken to graduate college * number of employees at Google"
+  y_pred = "1/20th the trash generated in the US by the number of employees at Google in the time taken to graduate college"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * a week * number of employees in the services industry"
+  y_pred = "1/30 of the trash generated by employees in the services industry in a week"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/30 * trash generated in the US * time taken to graduate college * number of employees at Microsoft"
+  y_pred = "1/30 the trash generated by Microsoft employees in the time it takes to graduate college"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "1/40 * trash generated in the US * an hour * population of Asia"
+  y_pred = "one fortieth the trash generated in the US by the population of Asia in an hour"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "9 * coffee consumption * a week * average number of employees in a grocery store"
+  y_pred = "nine times the weekly coffee consumption of the average number of employees in a grocery store"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/80 * coffee consumption * time taken to graduate college * number of employees in the education industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the education industry in the time taken to graduate college"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "1/20 * coffee consumption * a day * population of the world"
+  y_pred = "1/20th of the coffee consumption of the world's population of a day"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "3 * coffee consumption * an hour * number of people in poverty"
+  y_pred = "three times the coffee consumption in an hour by the number of people in poverty"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "1/7 * coffee consumption * time taken for a football game * number of employees in the education industry"
+  y_pred = "1/7th the amount of coffee consumed by the employees in the education industry during a football game"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "4 * coffee consumption * time taken for lunch * number of employees on Medicare"
+  y_pred = "4 times the amount of coffee consumed by the number of workers who receive Medicare benefits in the time it takes to have lunch"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * time taken for a work day * number of people in poverty"
+  y_pred = "one third of the coffee consumption of the number of people in poverty in the time taken for a work day"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * coffee consumption * a week * number of employees in the oil industry"
+  y_pred = "one third of the amount of coffee consumed by every person employed by the oil industry in one week"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/3 * oil produced by the world * time taken for lunch"
+  y_pred = "1/3 the amount of oil produced worldwide in the time it takes to have lunch"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/80 * coffee consumption * average lifetime for a tree * number of employees in the construction industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the construction industry in the average lifetime of a tree"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/5 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "one fifth of the amount of coffee consumed by the entire workforce of the construction industry in a single work day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "1/10 * coffee consumption * a day * population of Asia"
+  y_pred = "one tenth the coffee consumption of the population of Asia in a day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "6 * coffee consumption * time taken for a work day * number of employees in the education industry"
+  y_pred = "six times the coffee consumption of the number of employees in the education industry in the time taken for a work day"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/2 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "one half the coffee consumption of the people killed by gun violence in 2016 over the lifetime of a tree"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * coffee consumption * time taken for a football game * population of the world"
+  y_pred = "1/20th of the amount of coffee consumed by the entire world in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "1/20 * oil produced by the world * time taken for a football game"
+  y_pred = "1/20th of the amount of oil produced worldwide in the time it takes to play a football game"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "20 * coffee consumption * time taken for a work day * number of employees in the construction industry"
+  y_pred = "twenty times the amount of coffee consumed by the employees in the construction industry in a work day"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "50 * coffee consumption * average lifetime for a tree * people killed by gun violence in 2016"
+  y_pred = "50 times the coffee consumption of the number of people killed by gun violence in 2016 in the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * average lifetime for a tree * a person"
+  y_pred = "8 times the coffee consumption of a person over the average lifetime of a tree"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "8 * coffee consumption * a minute * population of the world"
+  y_pred = "8 times the coffee consumption of every person on earth in a minute"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "1/90 * oil produced by the world * a week"
+  y_pred = "1/90th the hourly oil production of the world"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "5 * coffee consumption * time taken to blink * number of employees in the financial industry"
+  y_pred = "5 times the coffee consumption by the number of employees in the financial industry in the time taken to blink"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/20 * coffee consumption * time taken for a basketball game * number of employees in the retail industry"
+  y_pred = "1/20th of the amount of coffee consumed by the entire workforce of the retail industry in the time it takes to play a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/80 * coffee consumption * time taken for a basketball game * number of employees in the financial industry"
+  y_pred = "one eightieth the coffee consumption of the number of employees in the financial industry in the time taken for a basketball game"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "1/4 * coffee consumption * a minute * number of employees in the education industry"
+  y_pred = "one fourth the coffee consumption of education industry employees in a minute"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "30 * coffee consumption * time taken for lunch * population of the world"
+  y_pred = "30 times the amount of coffee consumed by the entire world in the time it takes to have lunch"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "1/2 * coffee consumption * time taken for a basketball game * population of Stanford"
+  y_pred = "one half the amount of coffee consumed by the population of Stanford in the time taken for a basketball game"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "10 * coffee consumption * an hour * number of employees in the financial industry"
+  y_pred = "10 times the coffee consumption in an hour by the number of employees in the financial industry"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
+  x      = "1/3 * coffee consumption * a week * population of Stanford"
+  y_pred = "one third of the amount of coffee consumed by the population of Stanford in a week"
