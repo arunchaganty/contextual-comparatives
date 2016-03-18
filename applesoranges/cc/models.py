@@ -91,27 +91,36 @@ class NumericExpression(models.Model):
         """
         return [NumericData.objects.get(id=i) for i in self.arguments]
 
-    def __ndata_to_string(self, ndata, filler="X"):
+    def __ndata_to_html(self, ndata, filler="X"):
         return "%s %s (<u><b>%s</b></u>)"%(easy_number(ndata.value), easy_unit(ndata.unit), ndata.name,)
 
-    def get_prompt(self):
-        """
-        Convert an selfession into a prompt
-        """
-        parts = ["<u><b>%s</b></u>"%(round_multiplier(self.multiplier))] + [
-                 self.__ndata_to_string(arg) 
-                 for arg in reversed(self.get_arguments())]
-        return self.get_z() + " &asymp; " + " &times; ".join(parts)
+    def __ndata_to_string(self, ndata, filler="X"):
+        return "%s %s (%s)"%(easy_number(ndata.value), easy_unit(ndata.unit), ndata.name,)
 
     def get_prompt(self):
         """
         Convert an selfession into a prompt
         """
         parts = ["<u><b>%s</b></u>"%(round_multiplier(self.multiplier))] + [
-                 self.__ndata_to_string(arg) 
+                 self.__ndata_to_html(arg) 
                  for arg in reversed(self.get_arguments())]
         return self.get_z() + " &asymp; " + " &times; ".join(parts)
 
+    def get_easy_prompt(self):
+        """
+        Convert an selfession into a prompt
+        """
+        parts = ["%s"%(round_multiplier(self.multiplier))] + [
+                 self.__ndata_to_string(arg) 
+                 for arg in reversed(self.get_arguments())]
+        return " * ".join(parts)
+
+    def get_easy_prompt_no_units(self):
+        """
+        Convert an selfession into a prompt
+        """
+        parts = ["%s"%(round_multiplier(self.multiplier))] + ["%s"%(arg.name) for arg in reversed(self.get_arguments())]
+        return " * ".join(parts)
 
     def get_z(self):
         """Get Z = expression"""
@@ -120,6 +129,30 @@ class NumericExpression(models.Model):
     def get_parsable(self):
         parts = ["%f"%(self.multiplier)] + ["%f %s %s"%(arg.value, arg.unit, arg.name) for arg in self.get_arguments()]
         return " * ".join(parts)
+
+    def perspective(self):
+        """
+        Baseline perspective:
+        Generate a natural language description of a expr.
+        If multiplier > 1: prepend "multipler times the "
+        If multiplier < 1: prepend "multipler of the "
+        If multiplier == 1: prepend "the "
+        """
+        output = ""
+
+        # say the multiplier
+        multiplier = round_multiplier(self.multiplier)
+        if multiplier == "1/1" or multiplier == "1":
+            pass
+        elif "/" in multiplier:
+            output += multiplier + " of "
+        else:
+            output += multiplier + " times "
+        output += "the "
+
+        # append descriptions of each expression to the output
+        output += " for ".join(arg.name for arg in reversed(self.get_arguments()))
+        return output
 
 class NumericExpression_Train(NumericExpression):
     class Meta:
@@ -153,14 +186,6 @@ class NumericExpressionResponse(models.Model):
         return "[NExprResp: {} {}]".format(str(self.expression)[:50], self.description[:50])
 
 
-# TODO(chaganty): probably make this a many2many field in NumericMention.
-class NumericMentionExpression(models.Model):
-    """
-    A many to many map between an existing numeric expression and numeric mention
-    """
-    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='mentionexpressions')
-    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression", related_name='mentionexpressions')
-    multiplier = models.FloatField(help_text="updated value")
 
 class NumericMentionExpressionTask(models.Model):
     """
@@ -249,3 +274,47 @@ class NumericMentionExpressionTaskResponse(models.Model):
 
 class NumericMentionExpressionBlacklist(models.Model):
     task = models.ForeignKey(NumericMentionExpressionTask, help_text="task turker rated", related_name='blacklist', related_query_name='blacklist' )
+
+# TODO(chaganty): probably make this a many2many field in NumericMention.
+class NumericMentionExpression(models.Model):
+    """
+    A many to many map between an existing numeric expression and numeric mention
+    """
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='mentionexpressions')
+    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression", related_name='mentionexpressions')
+    multiplier = models.FloatField(help_text="updated value")
+
+class NumericPerspectiveTask(models.Model):
+    """
+    A task that is a mention, expression and perspective, annotated with a system label.
+    """
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='perspective_tasks')
+    expression = models.ForeignKey(NumericExpression, help_text="linked numeric expression", related_name='perspective_tasks')
+    perspective = models.TextField(help_text="Actual perspective")
+    system = models.TextField(help_text="System that generated the perspective")
+    score = models.FloatField(help_text="Score assigned by system")
+
+    def to_json(self):
+        return json.dumps({'id' : self.id, 'mention': self.mention.html(), 'mention_gloss': self.mention.gloss(), 'perspective': self.perspective, 'system' : self.system})
+
+
+
+class NumericPerspectiveTaskResponse(models.Model):
+    """
+    A turk response.
+    """
+    task = models.ForeignKey(NumericPerspectiveTask, help_text="Pointer to perspective task", related_name="responses")
+    framing = models.IntegerField(help_text="For the question: 'is this number smaller or larger than you thought?'")
+    usefulness = models.IntegerField(help_text="For the question: 'how useful was the description in helping appreciate the quantity?'")
+    relevance = models.IntegerField(help_text="For the question: 'how relevant were the facts described?'")
+    familiarity = models.IntegerField(help_text="For the question: 'how familiar were the facts described?'")
+
+    assignment_id = models.CharField(max_length=1024)
+    worker_id = models.CharField(max_length=1024)
+    worker_time = models.DurationField()
+    approval = models.BooleanField(default=True)
+    inspected = models.BooleanField(default=False)
+    comments = models.TextField()
+
+    class Meta:
+        unique_together = ('assignment_id', 'task',)

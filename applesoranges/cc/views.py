@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.utils.html import escape
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from collections import Counter
@@ -144,7 +145,7 @@ def rank_inspect(request):
     Inspect results from experiment expr..
     """
 
-    tasks = NumericMentionExpressionTask.objects.filter(response__id__gte = 0).distinct()
+    tasks = NumericMentionExpressionTask.objects.filter(mention__unit = 'barrel').filter(response__id__gte = 0).distinct()
 
     paginator = Paginator(tasks, 250) # 25 -- should be good enough to load
 
@@ -215,4 +216,26 @@ def rank_stats(request):
     print(sorted(list(histogram.items())))
 
     return None
+
+def eval_view(request):
+    """
+    Inspect results from experiment expr..
+    """
+    tasks = []
+    # Get a bag of 450 tasks
+    random.seed(42)
+    mention_ids = NumericPerspectiveTask.objects.all().values_list('mention_id')
+
+    tasks = []
+    for unit in ["person", "area", "time", "weight", "length", "gun", "car", "volume", "money",]:
+        mentions = list(NumericMention.objects.filter(id__in = mention_ids, normalized_unit = unit).order_by('id'))
+        random.shuffle(mentions)
+        mentions = mentions[:25]
+        tasks +=  NumericPerspectiveTask.objects.filter(system='generation', mention__in = mentions)
+        # first 50.
+
+    tasks_str = escape("\t".join(t.to_json() for t in tasks))
+    return render(request, 'eval_view.html', {
+        'tasks': tasks_str})
+
 

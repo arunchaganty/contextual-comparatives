@@ -1,0 +1,131 @@
+              <!--
+              <div class="panel-group" id="{{task.id}}-accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="{{task.id}}-q1">
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#{{task.id}}-accordion" href="#{{task.id}}-a1" aria-expanded="true" aria-controls="{{task.id}}-a1">
+                      Question 1
+                    </h4>
+                  </div>
+                  <div id="{{task.id}}-a1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{task.id}}-q1">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="scale-{{task.id}}" class="col-sm-3 control-label">After reading the description, did <i>{{task.mention.gloss}}</i> seem smaller or larger than you thought?</label>
+                        <div class="col-sm-8">
+                          <label class="radio-inline">
+                          <input type="radio" name="{{task.id}}-q1" id="inlineRadio1" value="option1"> much smaller
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio2" value="option1"> slightly smaller
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio3" value="option1"> about the same
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio4" value="option1"> slightly larger
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio5" value="option1"> much larger
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="{{task.id}}-q2">
+                    <h4 class="panel-title"  role="button" data-toggle="collapse" data-parent="#{{task.id}}-accordion" href="#{{task.id}}-a2" aria-expanded="true" aria-controls="{{task.id}}-a2">
+                      Question 2
+                    </h4>
+                  </div>
+                  <div id="{{task.id}}-a2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{task.id}}-q2">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="usefulness-{{task.id}}" class="col-sm-3 control-label">Was the description useful in understanding the scale of the quantity mentioned?</label>
+                        <div class="col-sm-8">
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio1" value="option1"> not at all useful
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio2" value="option1"> slightly useful
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio3" value="option1"> moderately useful
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio4" value="option1"> very useful
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio5" value="option1"> extremely useful
+                          </label>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="{{task.id}}-q3">
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#{{task.id}}-accordion" href="#{{task.id}}-a3" aria-expanded="true" aria-controls="{{task.id}}-a3">
+                      Question 3
+                    </h4>
+                  </div>
+                  <div id="{{task.id}}-a3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{task.id}}-q3">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="relevance-{{task.id}}" class="col-sm-3 control-label">Was the description relevant to the passage?</label>
+                        <div class="col-sm-8">
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio1" value="option1"> not at all relevant
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio2" value="option1"> slightly relevant
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio3" value="option1"> moderately relevant
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio4" value="option1"> very relevant
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio5" value="option1"> extremely relevant
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="{{task.id}}-q4">
+                    <h4 class="panel-title" role="button" data-toggle="collapse" data-parent="#{{task.id}}-accordion" href="#{{task.id}}-a4" aria-expanded="true" aria-controls="{{task.id}}-a4">
+                      Question 4
+                    </h4>
+                  </div>
+                  <div id="{{task.id}}-a4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{task.id}}-q4">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="relevance-{{task.id}}" class="col-sm-4 control-label">Were you familiar with the concepts mentioned in the description?</label>
+                        <div class="col-sm-8">
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio1" value="option1"> not at all familiar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio2" value="option1"> slightly familiar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio4" value="option1"> moderately familiar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio4" value="option1"> very familiar
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="{{task.id}}-q1" id="inlineRadio5" value="option1"> extremely familiar
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              -->

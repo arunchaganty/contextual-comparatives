@@ -21,4 +21,14 @@ class Migration(migrations.Migration):
             },
             bases=('cc.numericexpression',),
         ),
+        migrations.CreateModel(
+            name='NumericExpression_Test',
+            fields=[
+                ('numericexpression_ptr', models.OneToOneField(primary_key=True, to='cc.NumericExpression', parent_link=True, auto_created=True, serialize=False)),
+            ],
+            options={
+                'db_table': 'cc_numericexpression_test_ids',
+            },
+            bases=('cc.numericexpression',),
+        ),
     ]
