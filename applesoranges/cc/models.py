@@ -7,7 +7,9 @@ from django.contrib.postgres.fields import ArrayField
 from cc.util import easy_number, round_multiplier, easy_unit
 from collections import defaultdict, Counter
 
+import datetime
 import json
+import ipdb
 
 # Create your models here.
 class NumericMention(models.Model):
@@ -297,7 +299,20 @@ class NumericPerspectiveTask(models.Model):
     def to_json(self):
         return json.dumps({'id' : self.id, 'mention': self.mention.html(), 'mention_gloss': self.mention.gloss(), 'perspective': self.perspective, 'system' : self.system})
 
+    def framing(self):
+        answers = [i for i, in self.responses.filter(approval = True).values_list('framing')]
+        if len(answers) == 0: return 0
+        return sum(answers)/len(answers)
 
+    def helpfulness(self):
+        answers = [i for i, in self.responses.filter(approval = True).values_list('helpfulness')]
+        if len(answers) == 0: return 0
+        return sum(answers)/len(answers)
+
+    def relevance(self):
+        answers = [i for i, in self.responses.filter(approval = True).values_list('relevance')]
+        if len(answers) == 0: return 0
+        return sum(answers)/len(answers)
 
 class NumericPerspectiveTaskResponse(models.Model):
     """
@@ -305,9 +320,8 @@ class NumericPerspectiveTaskResponse(models.Model):
     """
     task = models.ForeignKey(NumericPerspectiveTask, help_text="Pointer to perspective task", related_name="responses")
     framing = models.IntegerField(help_text="For the question: 'is this number smaller or larger than you thought?'")
-    usefulness = models.IntegerField(help_text="For the question: 'how useful was the description in helping appreciate the quantity?'")
+    helpfulness = models.IntegerField(help_text="For the question: 'how useful was the description in helping appreciate the quantity?'")
     relevance = models.IntegerField(help_text="For the question: 'how relevant were the facts described?'")
-    familiarity = models.IntegerField(help_text="For the question: 'how familiar were the facts described?'")
 
     assignment_id = models.CharField(max_length=1024)
     worker_id = models.CharField(max_length=1024)
@@ -318,3 +332,12 @@ class NumericPerspectiveTaskResponse(models.Model):
 
     class Meta:
         unique_together = ('assignment_id', 'task',)
+
+    def is_questionable(self):
+        err = 0.
+        err += abs(self.framing - self.task.framing())
+        err += abs(self.helpfulness - self.task.helpfulness())
+        err += abs(self.relevance - self.task.relevance())
+        return err > 3
+
+

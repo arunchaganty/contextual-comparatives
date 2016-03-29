@@ -4,10 +4,11 @@ from django.http import HttpResponse
 from django.utils.html import escape
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from collections import Counter
+from collections import Counter, defaultdict
 
 from .models import *
 
+import datetime
 import random
 import csv
 import json
@@ -239,3 +240,114 @@ def eval_view(request):
         'tasks': tasks_str})
 
 
+def eval_inspect(request):
+    """
+    Inspect results from experiment expr..
+    """
+
+    tasks = NumericPerspectiveTaskResponse.objects.filter(worker_time__gt= datetime.timedelta(seconds = 60)).values_list('task_id')
+    tasks = NumericPerspectiveTask.objects.filter(id__in = tasks)
+    paginator = Paginator(tasks, 25) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        tasks = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        tasks = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        tasks = paginator.page(paginator.num_pages)
+
+    # update pages
+    if not any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
+        try:
+            while True:
+                tasks = paginator.page(tasks.next_page_number())
+                if any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
+                    return redirect(request.path+'?page=%d'%tasks.number)
+        except EmptyPage:
+            pass
+
+    # Now inspect within this page.
+    if request.method == "POST":
+        # Set all the checked boxes to be WRONG.
+        print(request.POST)
+        for task in tasks:
+            print(task)
+            for response in task.responses.filter(inspected=False):
+                # See if the response is on.
+                print(response.id, request.POST.get(str(response.id), "off"))
+                approval = request.POST.get(str(response.id), "off") == "on"
+
+                # Update responses
+                response.approval = approval
+                response.inspected = True
+                response.save()
+        # redirect to the next page.
+        return redirect(request.path+'?page=%d'%tasks.next_page_number())
+
+    return render(request, 'eval_inspect.html', {
+        'restrict_noinspect' : True,
+        'tasks': tasks})
+
+def eval_inspect_by_worker(request):
+    """
+    Inspect results from experiment expr..
+    """
+
+    workers = defaultdict(list)
+#    for task in NumericPerspectiveTaskResponse.objects.filter(worker_time__gt= datetime.timedelta(seconds = 1000)):
+    for task in NumericPerspectiveTaskResponse.objects.filter(worker_id__in = ('ATADQXPHL10Y8', 'A13NKDUD6JU094')):
+        workers[task.worker_id].append(task)
+    paginator = Paginator(list(workers.items()), 25) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        workers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        workers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        workers = paginator.page(paginator.num_pages)
+
+    #paginator = Paginator(tasks, 25) # 25 -- should be good enough to load
+
+    #page = request.GET.get('page')
+    #try:
+    #    tasks = paginator.page(page)
+    #except PageNotAnInteger:
+    #    # If page is not an integer, deliver first page.
+    #    tasks = paginator.page(1)
+    #except EmptyPage:
+    #    # If page is out of range (e.g. 9999), deliver last page of results.
+    #    tasks = paginator.page(paginator.num_pages)
+    print(len(workers))
+
+    return render(request, 'eval_inspect_by_worker.html', {
+        'restrict_noinspect' : True,
+        'workers': workers})
+
+def eval_inspect_by_mention(request):
+    """
+    Inspect results from experiment expr..
+    """
+    tasks = NumericPerspectiveTaskResponse.objects.all().values_list('task_id')
+    tasks = NumericPerspectiveTask.objects.filter(id__in = tasks)
+    mentions = NumericMention.objects.filter(id__in = tasks.values_list('mention_id'))
+
+    paginator = Paginator(mentions,10) #
+
+    page = request.GET.get('page')
+    try:
+        workers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        workers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        workers = paginator.page(paginator.num_pages)
+
+    return render(request, 'eval_inspect_by_mention.html', {
+        'mentions': mentions})

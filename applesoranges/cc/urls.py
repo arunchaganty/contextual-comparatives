@@ -12,4 +12,7 @@ urlpatterns = [
     url(r'^rank/inspect/$', views.rank_inspect),
     url(r'^rank/stats/$', views.rank_stats),
     url(r'^eval/view/$', views.eval_view),
+    url(r'^eval/inspect/$', views.eval_inspect),
+    url(r'^eval/workers/$', views.eval_inspect_by_worker),
+    url(r'^eval/mentions/$', views.eval_inspect_by_mention),
 ]
