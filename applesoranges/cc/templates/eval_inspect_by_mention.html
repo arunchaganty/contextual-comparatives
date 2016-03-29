@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-header">
+<h1>Evaluate</h1>
+</div>
+
+<div class="col-md-12">
+
+<div class="panel panel-default panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Task</h3>
+  </div>
+
+  <div id="tasklist">
+  <form action="" method="post">
+    {% csrf_token %}
+
+  {% for mention in mentions %}
+  <div id="task-{{forloop.counter0}}" class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Mention {{mention.id}}</h4>
+    </div>
+
+    <div class="panel-body">
+    <blockquote>
+      {{mention.html | safe }}
+    </blockquote>
+
+    <div class="form-group">
+      <table class="table table-striped">
+        <thead>
+          <th>System</th>
+          <th>Perspective</th>
+          <th>Framing</th>
+          <th>Helpful</th>
+          <th>Relevance</th>
+          <th>Score</th>
+        </thead>
+
+        {% for perspective in mention.perspective_tasks.all %}
+        <tr>
+          <td>{{perspective.system}}</td>
+          <td>{{perspective.perspective}}</td>
+          <td>{{perspective.framing | floatformat:-2 }}</td>
+          <td>{{perspective.helpfulness | floatformat:-2 }}</td>
+          <td>{{perspective.relevance | floatformat:-2 }}</td>
+          <td>{{perspective.score | floatformat:-2}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+
+  <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+  </form>
+
+  </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if tasks.has_previous %}
+            <a href="?page={{ tasks.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}.
+        </span>
+
+        {% if tasks.has_next %}
+            <a href="?page={{ tasks.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+

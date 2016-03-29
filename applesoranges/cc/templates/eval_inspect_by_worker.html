@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-header">
+<h1>Evaluate</h1>
+</div>
+
+<div class="col-md-12">
+
+<div class="panel panel-default panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Task</h3>
+  </div>
+
+  <div id="tasklist">
+  <form action="" method="post">
+    {% csrf_token %}
+
+  {% for worker, responses in workers %}
+  <div id="task-{{forloop.counter0}}" class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Worker {{worker}}</h4>
+    </div>
+
+    <div class="form-group">
+        <table class="table table-striped">
+          <thead>
+            <th>Mark</th>
+            <th>Mention</th>
+            <th>Perspective</th>
+            <th>Worker F/H/R</th>
+            <th>Average F/H/R</th>
+            <th>Worker Time</th>
+          </thead>
+
+          {% for resp in responses %}
+          <tr {%if resp.is_questionable %} class="alert alert-danger" {% endif %}>
+            <td><input type="checkbox" name="{{resp.id}}" {% if resp.approval %}checked{% endif %}></td>
+            <td>{{resp.task.mention.html | safe}}</td>
+            <td>{{resp.task.perspective}}</td>
+            <td>{{resp.framing}}  / {{resp.helpfulness}} / {{resp.relevance}} </td>
+            <td>{{resp.task.framing}}  / {{resp.task.helpfulness}} / {{resp.task.relevance}} </td>
+            <td>{{resp.worker_time}}</td>
+          </tr>
+          {% endfor %}
+
+        </table>
+    </div>
+  </div>
+  {% endfor %}
+
+  <input name="submit" class="btn btn-primary" type="submit" id="submitButton" value="Submit" />
+  </form>
+
+  </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if workers.has_previous %}
+            <a href="?page={{ workers.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ workers.number }} of {{ workers.paginator.num_pages }}.
+        </span>
+
+        {% if workers.has_next %}
+            <a href="?page={{ workers.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+
