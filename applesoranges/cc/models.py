@@ -340,4 +340,44 @@ class NumericPerspectiveTaskResponse(models.Model):
         err += abs(self.relevance - self.task.relevance())
         return err > 3
 
+class NumericPerspectiveRatingTask(models.Model):
+    """A task that compares N perspectives (+neither) for a mention"""
+    mention = models.ForeignKey(NumericMention, help_text="linked numeric mention", related_name='perspective_rating_tasks')
+    expressions = ArrayField(models.IntegerField(), help_text="linked numeric expressions")
+    perspectives = ArrayField(models.TextField(), help_text="Actual perspective")
+    systems = ArrayField(models.TextField(), help_text="System that generated the perspective")
+    scores = ArrayField(models.FloatField(), help_text="Score assigned by system")
+
+    def to_json(self):
+        return json.dumps({'id' : self.id, 'mention': self.mention.html(), 'mention_gloss': self.mention.gloss(), 'perspectives': list(self.perspectives), 'systems' : list(self.systems), 'scores' : list(self.scores)})
+
+    def best_system(self):
+        """
+        Return the best system for this model.
+        """
+        answers = Counter(i for i, in self.responses.filter(approval = True).values_list('preference'))
+        # If 'neither' is the maximum count, return None.
+        if len(answers) > 0:
+            best_system, = answers.most_common(1)
+            if best_system > 0:
+                return self.systems[best_system]
+        else:
+            return None
+
+class NumericPerspectiveRatingTaskResponse(models.Model):
+    """
+    A turk response.
+    """
+    task = models.ForeignKey(NumericPerspectiveRatingTask, help_text="Pointer to perspective rating task", related_name="responses")
+    winner = models.IntegerField(help_text="Which system's response was best. ('-1' for none)")
+
+    assignment_id = models.CharField(max_length=1024)
+    worker_id = models.CharField(max_length=1024)
+    worker_time = models.DurationField()
+    approval = models.BooleanField(default=True)
+    inspected = models.BooleanField(default=False)
+    comments = models.TextField()
+
+    class Meta:
+        unique_together = ('assignment_id', 'task',)
 
