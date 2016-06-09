@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source pull-dependencies.lib
+
+
+ensure_dir lib
+
+download lib http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip
+if [ ! -e lib/stanford-corenlp-full-2015-04-20 ]; then
+    cd lib;
+    unzip stanford-corenlp-full-2015-04-20.zip
+    cd ..;
+fi;
