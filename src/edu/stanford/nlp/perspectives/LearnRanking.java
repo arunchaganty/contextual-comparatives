@@ -1,6 +1,6 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util.WordEmbedding;
+import edu.stanford.nlp.perspectives.Util.WordEmbedding;
 import edu.stanford.nlp.classify.*;
 import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.ling.Datum;
@@ -142,7 +142,7 @@ public class LearnRanking implements Runnable {
       outputFeatures(features);
 
     // Create a classifier with these features.
-    Counter<Pair<String, Boolean>> classifierFeatures = new ClassicCounter<>(
+    Counter<Pair<String, Boolean>> classifierFeatures = Util.<Pair<String, Boolean>>createClassicCounter(
     features.entrySet().stream().flatMap(f ->
         Stream.of(
             Pair.makePair(Pair.makePair(f.getKey(),true), f.getValue()),

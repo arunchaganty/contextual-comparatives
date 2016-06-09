@@ -351,3 +351,168 @@ def eval_inspect_by_mention(request):
 
     return render(request, 'eval_inspect_by_mention.html', {
         'mentions': mentions})
+
+
+def rate_view(request):
+    """
+    Inspect results from experiment expr..
+    """
+    tasks = []
+    # Get a bag of 450 tasks
+    random.seed(42)
+
+    tasks = []
+    for unit in ["person", "area", "time", "weight", "length", "gun", "car", "volume", "money",]:
+        tasks_ = list(NumericPerspectiveRatingTask.objects.filter(mention__normalized_unit = unit).order_by('id'))
+        random.shuffle(tasks_)
+        tasks_ = tasks_[:25]
+        tasks +=  tasks_
+
+    tasks_str = escape("\t".join(t.to_json() for t in tasks[:10]))
+    return render(request, 'rate_view.html', {
+        'tasks': tasks_str})
+
+def rate_mark(request):
+    """
+    Mark results from experiment expr..
+    """
+
+    tasks = NumericPerspectiveRatingTaskResponse.objects.all().values_list('task_id')
+    tasks = NumericPerspectiveRatingTask.objects.filter(id__in = tasks, error_analysis__iregex = "other")
+    paginator = Paginator(tasks, 25) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        tasks = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        tasks = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        tasks = paginator.page(paginator.num_pages)
+
+    # Now inspect within this page.
+    if request.method == "POST":
+        for task in tasks:
+            error = request.POST.get(str(task.id) + "-error", "")
+            task.error_analysis  = error
+            task.save()
+        # redirect to the next page.
+        return redirect(request.path+'?page=%d'%tasks.next_page_number())
+
+    return render(request, 'rate_mark.html', {
+        'restrict_noinspect' : True,
+        'tasks': tasks})
+
+
+def rate_inspect(request):
+    """
+    Inspect results from experiment expr..
+    """
+
+    tasks = NumericPerspectiveRatingTaskResponse.objects.all().values_list('task_id')
+    tasks = NumericPerspectiveRatingTask.objects.filter(id__in = tasks)
+    paginator = Paginator(tasks, 25) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        tasks = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        tasks = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        tasks = paginator.page(paginator.num_pages)
+
+    # update pages
+    if not any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
+        try:
+            while True:
+                tasks = paginator.page(tasks.next_page_number())
+                if any([t.responses.filter(inspected=False).count() > 0 for t in tasks]):
+                    return redirect(request.path+'?page=%d'%tasks.number)
+        except EmptyPage:
+            pass
+
+    # Now inspect within this page.
+    if request.method == "POST":
+        # Set all the checked boxes to be WRONG.
+        print(request.POST)
+        for task in tasks:
+            print(task)
+            for response in task.responses.filter(inspected=False):
+                # See if the response is on.
+                print(response.id, request.POST.get(str(response.id), "off"))
+                approval = request.POST.get(str(response.id), "off") == "on"
+
+                # Update responses
+                response.approval = approval
+                response.inspected = True
+                response.save()
+        # redirect to the next page.
+        return redirect(request.path+'?page=%d'%tasks.next_page_number())
+
+    return render(request, 'rate_inspect.html', {
+        'restrict_noinspect' : True,
+        'tasks': tasks})
+
+def rate_inspect_by_worker(request):
+    """
+    Inspect results from experiment expr..
+    """
+
+    workers = defaultdict(list)
+#    for task in NumericPerspectiveRatingTaskResponse.objects.filter(worker_time__gt= datetime.timedelta(seconds = 1000)):
+    for task in NumericPerspectiveRatingTaskResponse.objects.filter(worker_id__in = ('ATADQXPHL10Y8', 'A13NKDUD6JU094')):
+        workers[task.worker_id].append(task)
+    paginator = Paginator(list(workers.items()), 25) # 25 -- should be good enough to load
+
+    page = request.GET.get('page')
+    try:
+        workers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        workers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        workers = paginator.page(paginator.num_pages)
+
+    #paginator = Paginator(tasks, 25) # 25 -- should be good enough to load
+
+    #page = request.GET.get('page')
+    #try:
+    #    tasks = paginator.page(page)
+    #except PageNotAnInteger:
+    #    # If page is not an integer, deliver first page.
+    #    tasks = paginator.page(1)
+    #except EmptyPage:
+    #    # If page is out of range (e.g. 9999), deliver last page of results.
+    #    tasks = paginator.page(paginator.num_pages)
+    print(len(workers))
+
+    return render(request, 'rate_inspect_by_worker.html', {
+        'restrict_noinspect' : True,
+        'workers': workers})
+
+def rate_inspect_by_mention(request):
+    """
+    Inspect results from experiment expr..
+    """
+    tasks = NumericPerspectiveRatingTaskResponse.objects.all().values_list('task_id')
+    tasks = NumericPerspectiveRatingTask.objects.filter(id__in = tasks)
+    mentions = NumericMention.objects.filter(id__in = tasks.values_list('mention_id'))
+
+    paginator = Paginator(mentions,10) #
+
+    page = request.GET.get('page')
+    try:
+        workers = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        workers = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        workers = paginator.page(paginator.num_pages)
+
+    return render(request, 'rate_inspect_by_mention.html', {
+        'mentions': mentions})

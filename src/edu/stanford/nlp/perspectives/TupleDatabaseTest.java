@@ -1,6 +1,6 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util;
+import edu.stanford.nlp.perspectives.Util;
 import edu.stanford.nlp.io.IOUtils;
 import org.junit.Test;
 

@@ -1,10 +1,8 @@
 package edu.stanford.nlp.perspectives;
 
-    import edu.stanford.nlp.arguments.Util;
-import edu.stanford.nlp.perspectives.NumericTuple.Unit;
+    import edu.stanford.nlp.perspectives.NumericTuple.Unit;
 import edu.stanford.nlp.io.RecordIterator;
 import edu.stanford.nlp.io.RuntimeIOException;
-import edu.stanford.nlp.kbp.common.PostgresIOUtils;
     import edu.stanford.nlp.util.ArgumentParser;
     import edu.stanford.nlp.util.StringUtils;
 
@@ -77,7 +75,7 @@ public class GenerateComparisons implements Runnable {
     // output: multiplier, {data_id_1}, value, unit
     return String.format("%f\t%s\t%f\t%s\n",
           multiplier,
-          PostgresIOUtils.writeArray(ids),
+          Util.writeArray(ids),
           expr.value,
           expr.unit);
   }

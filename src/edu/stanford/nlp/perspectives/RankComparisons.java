@@ -1,12 +1,11 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util;
-import edu.stanford.nlp.arguments.Util.WordEmbedding;
+import edu.stanford.nlp.perspectives.Util;
+import edu.stanford.nlp.perspectives.Util.WordEmbedding;
 import edu.stanford.nlp.classify.LinearClassifier;
 import edu.stanford.nlp.classify.LinearRegressor;
 import edu.stanford.nlp.io.RecordIterator;
 import edu.stanford.nlp.io.RuntimeIOException;
-import edu.stanford.nlp.kbp.common.PostgresIOUtils;
 import edu.stanford.nlp.simple.Sentence;
 import edu.stanford.nlp.util.ArgumentParser;
 import edu.stanford.nlp.util.Pair;
@@ -213,7 +212,7 @@ public class RankComparisons implements Runnable {
         // output: multiplier, {data_id_1}, value, unit
         outputWriter.append(String.join("\t", Integer.toString(me.mention.id.orElse(-1)),
             Double.toString(me.expression_multiplier),
-            PostgresIOUtils.writeArray(ids),
+            Util.writeArray(ids),
             Double.toString(me.expression_value),
             me.expression_unit.toString(),
             String.format("%.4f", score))).append('\n');

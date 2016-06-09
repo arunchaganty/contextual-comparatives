@@ -354,15 +354,27 @@ class NumericPerspectiveRatingTask(models.Model):
     def best_system(self):
         """
         Return the best system for this model.
+        A None corresponds to an abstain vote.
+        A Both corresponds to vote for both.
         """
-        answers = Counter(i for i, in self.responses.filter(approval = True).values_list('preference'))
-        # If 'neither' is the maximum count, return None.
-        if len(answers) > 0:
-            best_system, = answers.most_common(1)
-            if best_system > 0:
-                return self.systems[best_system]
-        else:
-            return None
+        answers = Counter()
+        for winner, in self.responses.values_list('winner'):
+            answers["count"] += 1
+            if winner == -1: # this is like an abstain
+                pass
+            elif winner == len(self.systems):
+                for i in range(len(self.systems)):
+                    answers[i] += 1
+            else:
+                answers[winner] += 1
+        # Count up votes and ask for majority!
+        total = answers["count"]
+        if total == 0:
+            ipdb.set_trace()
+        winners = [self.systems[i] for i in range(len(self.systems)) if answers[i] > 0 and answers[i]/total >= 0.5]
+        return winners
+
+    error_analysis = models.TextField(default="")
 
 class NumericPerspectiveRatingTaskResponse(models.Model):
     """
@@ -377,6 +389,14 @@ class NumericPerspectiveRatingTaskResponse(models.Model):
     approval = models.BooleanField(default=True)
     inspected = models.BooleanField(default=False)
     comments = models.TextField()
+
+    def winner_system(self):
+        if self.winner < 0:
+            return "None"
+        elif self.winner == len(self.task.systems):
+            return "Both"
+        else:
+            return self.task.systems[self.winner]
 
     class Meta:
         unique_together = ('assignment_id', 'task',)

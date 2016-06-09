@@ -1,9 +1,9 @@
 package edu.stanford.nlp.perspectives;
 
 import edu.stanford.nlp.perspectives.NumericTuple.Unit;
+import edu.stanford.nlp.perspectives.Util.Either;
 
 import java.util.Optional;
-import static edu.stanford.nlp.arguments.Util.*;
 
 import static edu.stanford.nlp.perspectives.Expr.*;
 

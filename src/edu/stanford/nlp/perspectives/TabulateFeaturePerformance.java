@@ -1,6 +1,6 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util.WordEmbedding;
+import edu.stanford.nlp.perspectives.Util.WordEmbedding;
 import edu.stanford.nlp.classify.*;
 import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.ling.Datum;
@@ -57,7 +57,7 @@ public class TabulateFeaturePerformance implements Runnable {
     try {
       learner.embeddings = (LearnRanking.embFile.length() > 0) ? WordEmbedding.loadFromFile(LearnRanking.embFile) : WordEmbedding.empty();
 //      learnerC.embeddings = learner.embeddings;
-      LearnRankingConfidence.balanceDataset = LearnRanking.balanceDataset;
+//      LearnRankingConfidence.balanceDataset = LearnRanking.balanceDataset;
 
       rawDataset = NumericMentionExpression.readFromTSV(LearnRanking.input);
       rawDataset1 = rawDataset.stream().filter(e -> e.expression.arguments().size() == 1).collect(Collectors.toList());

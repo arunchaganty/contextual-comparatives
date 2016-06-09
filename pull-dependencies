@@ -11,3 +11,4 @@ if [ ! -e lib/stanford-corenlp-full-2015-04-20 ]; then
     unzip stanford-corenlp-full-2015-04-20.zip
     cd ..;
 fi;
+download lib http://central.maven.org/maven2/junit/junit/4.11/junit-4.11.jar

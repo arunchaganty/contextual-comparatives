@@ -1,7 +1,6 @@
 package edu.stanford.nlp.perspectives;
 
 import edu.stanford.nlp.graph.DirectedMultiGraph;
-import edu.stanford.nlp.kbp.common.CollectionUtils;
 import edu.stanford.nlp.util.Triple;
 
 import java.util.*;
@@ -86,7 +85,7 @@ public class TupleDatabase extends DirectedMultiGraph<Unit, NumericTuple> {
     for( Unit vertex : this.getAllVertices() ) {
       sb.append( String.format("%s [label = \"%s : %d\", penwidth=%f];\n", vertex.hashCode(), vertex.toString(), tuples.getOrDefault(vertex, Collections.emptyList()).size(), tuples.getOrDefault(vertex, Collections.emptyList()).size() * 0.5) );
     }
-    for( Triple<Unit, Unit, List<NumericTuple>> triple : CollectionUtils.groupedEdges(this) ) {
+    for( Triple<Unit, Unit, List<NumericTuple>> triple : Util.groupedEdges(this) ) {
       sb.append( String.format( "%s -> %s [label=\"%d\"]; \n", triple.first.hashCode(), triple.second.hashCode(), triple.third.size()));
     }
     sb.append("}\n");

@@ -1,8 +1,5 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util;
-import edu.stanford.nlp.authordisambig.util.StopWords;
-import edu.stanford.nlp.ling.Datum;
 import edu.stanford.nlp.ling.RVFDatum;
 import edu.stanford.nlp.simple.Sentence;
 import edu.stanford.nlp.stats.ClassicCounter;

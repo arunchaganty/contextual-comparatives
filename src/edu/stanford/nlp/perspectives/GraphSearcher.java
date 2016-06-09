@@ -1,7 +1,7 @@
 package edu.stanford.nlp.perspectives;
 
-import edu.stanford.nlp.arguments.Util;
-import edu.stanford.nlp.arguments.Util.*;
+import edu.stanford.nlp.perspectives.Util;
+import edu.stanford.nlp.perspectives.Util.*;
 import edu.stanford.nlp.stats.ClassicCounter;
 import edu.stanford.nlp.stats.Counter;
 import edu.stanford.nlp.util.ArgumentParser;
@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static edu.stanford.nlp.arguments.Util.*;
+import static edu.stanford.nlp.perspectives.Util.*;
 import static edu.stanford.nlp.perspectives.NumericTuple.*;
 import static edu.stanford.nlp.util.logging.Redwood.Util.endTrack;
 import static edu.stanford.nlp.util.logging.Redwood.Util.startTrack;

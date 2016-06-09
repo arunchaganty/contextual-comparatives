@@ -8,3 +8,7 @@ color: #959595;
 text-transform: uppercase;
 letter-spacing: 1px;
 }
+
+div.choicebox {
+  padding-left: 20px;
+}

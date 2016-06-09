@@ -15,4 +15,9 @@ urlpatterns = [
     url(r'^eval/inspect/$', views.eval_inspect),
     url(r'^eval/workers/$', views.eval_inspect_by_worker),
     url(r'^eval/mentions/$', views.eval_inspect_by_mention),
+    url(r'^rate/view/$', views.rate_view),
+    url(r'^rate/inspect/$', views.rate_inspect),
+    url(r'^rate/mark/$', views.rate_mark),
+    url(r'^rate/workers/$', views.rate_inspect_by_worker),
+    url(r'^rate/mentions/$', views.rate_inspect_by_mention),
 ]
