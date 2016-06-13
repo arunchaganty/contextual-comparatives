@@ -1,0 +1,42 @@
+#!/bin/bash
+# vim:ft=sh 
+# Library to handle dependencies.
+
+BLUE="\033[1;34m"
+YELLOW="\033[1;311m"
+RED="\033[1;31m"
+CLOSE="\033[0m"
+
+function info() {
+  echo -e "$BLUE$1$CLOSE";
+}
+function warn() {
+  echo -e "$YELLOW$1$CLOSE";
+}
+function error() {
+  echo -e "$RED$1$CLOSE";
+}
+function fatal() {
+  error $1;
+  exit 1;
+}
+
+function ensure_dir() {
+  if [ ! -e $1 ]; then
+    mkdir -p $1;
+  fi;
+}
+
+# Download file into lib (if not downloaded already).
+function assert_exists() {
+  if [ ! -e $1 ]; then
+    fatal "Looking for $1, but it doesn't exist."
+  fi;
+}
+
+function assert() {
+  if [ ! $1 ]; then
+    fatal "Assertion failed: $2";
+  fi;
+}
+

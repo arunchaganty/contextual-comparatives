@@ -2,18 +2,7 @@
 # vim:ft=sh 
 # Library to handle dependencies.
 
-BLUE="\033[1;34m"
-CLOSE="\033[0m"
-
-function info() {
-  echo -e "$BLUE$1$CLOSE";
-}
-
-function ensure_dir() {
-  if [ ! -e $1 ]; then
-    mkdir -p $1;
-  fi;
-}
+source util.lib
 
 # Download file into lib (if not downloaded already).
 function download() {
