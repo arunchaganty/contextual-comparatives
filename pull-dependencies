@@ -5,10 +5,12 @@ source pull-dependencies.lib
 
 ensure_dir lib
 
-download lib http://nlp.stanford.edu/software/stanford-corenlp-full-2015-04-20.zip
-if [ ! -e lib/stanford-corenlp-full-2015-04-20 ]; then
+download lib http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip
+if [ ! -e lib/stanford-corenlp-full-2015-12-09 ]; then
     cd lib;
-    unzip stanford-corenlp-full-2015-04-20.zip
+    unzip stanford-corenlp-full-2015-12-09.zip
     cd ..;
 fi;
 download lib http://central.maven.org/maven2/junit/junit/4.11/junit-4.11.jar
+download lib http://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-junit/2.0.0.0/hamcrest-junit-2.0.0.0.jar
+download lib http://search.maven.org/remotecontent?filepath=org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar

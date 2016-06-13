@@ -11,6 +11,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static edu.stanford.nlp.util.logging.Redwood.Util.logf;
+
 /**
  * Represents a numeric tuple (s, p, v, u):
  *    - subject, predicate, value unit.

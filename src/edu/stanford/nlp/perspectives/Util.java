@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 import static edu.stanford.nlp.perspectives.NumericTuple.Unit;
 import static edu.stanford.nlp.util.TSVSentenceIterator.SentenceField;
 import static edu.stanford.nlp.util.TSVSentenceIterator.toSentence;
+import static edu.stanford.nlp.util.logging.Redwood.Util.log;
 
 /**
  * Various utility routines.
@@ -79,6 +80,7 @@ public class Util {
     }
     public static WordEmbedding empty() {return new WordEmbedding(0, Collections.emptyMap());}
     public static WordEmbedding loadFromFile(BufferedReader input) throws IOException {
+      log("Reading word embeddings...");
       String line = input.readLine();
       Optional<Integer> dim = Optional.empty();
 
@@ -108,6 +110,7 @@ public class Util {
         line = input.readLine();
       }
       assert dim.isPresent();
+      log("Done.");
       return new WordEmbedding(dim.get(), embedding);
     }
     public static WordEmbedding loadFromFile(String filename) {

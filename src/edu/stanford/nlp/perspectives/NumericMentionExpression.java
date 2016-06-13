@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static edu.stanford.nlp.perspectives.NumericTuple.*;
+import static edu.stanford.nlp.util.logging.Redwood.Util.log;
+import static edu.stanford.nlp.util.logging.Redwood.Util.logf;
 
 /**
  * Stores a mention + expression (for future featurization)
@@ -89,6 +91,7 @@ public class NumericMentionExpression {
       values.add(new NumericMentionExpression(id, mention_id, mention_sentence, mention_value, mention_unit, mention_normalized_value, mention_normalized_unit, mention_token_begin, mention_token_end, expression_id, expression_value, expression_unit, expression_multiplier, expression, response_id, response, Optional.of(label)));
     }
 
+    log("Done.");
     return values;
   }
 

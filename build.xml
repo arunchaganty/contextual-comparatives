@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="contextual-comparatives" default="all">
+  
+  
+  <property file="contextual-comparatives.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="lib/ant-javafx.jar"/>
+      <include name="lib/dt.jar"/>
+      <include name="lib/javafx-mx.jar"/>
+      <include name="lib/jconsole.jar"/>
+      <include name="lib/packager.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="lib/tools.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.javanlp-core.classpath">
+    <pathelement location="${basedir}/CoreNLP/javanlp-core.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/AppleJavaExtensions.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/ant-contrib-1.0b3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/appbundler-1.0.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/commons-lang3-3.1.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/commons-logging.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/ejml-0.23.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/javacc.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/javax.json.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/javax.servlet.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/jflex-1.5.1.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/joda-time.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/jollyday-0.4.7.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/junit.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/log4j-1.2.16.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/lucene-analyzers-common-4.10.3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/lucene-core-4.10.3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/lucene-demo-4.10.3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/lucene-queries-4.10.3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/lucene-queryparser-4.10.3.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/protobuf.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/slf4j-api.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/slf4j-simple.jar"/>
+    <pathelement location="${basedir}/CoreNLP/lib/xom-1.2.10.jar"/>
+  </path>
+  
+  <path id="library.junit-4.11.classpath">
+    <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/lib/junit-4.11.jar"/>
+  </path>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module contextual-comparatives -->
+  
+  <dirname property="module.contextual-comparatives.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.contextual-comparatives" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.contextual-comparatives" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.contextual-comparatives" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.contextual-comparatives" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="contextual-comparatives.output.dir" value="${module.contextual-comparatives.basedir}/out/production/contextual-comparatives"/>
+  <property name="contextual-comparatives.testoutput.dir" value="${module.contextual-comparatives.basedir}/out/test/contextual-comparatives"/>
+  
+  <path id="contextual-comparatives.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="contextual-comparatives.module.production.classpath">
+    <path refid="${module.jdk.classpath.contextual-comparatives}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.javanlp-core.classpath"/>
+  </path>
+  
+  <path id="contextual-comparatives.runtime.production.module.classpath">
+    <pathelement location="${contextual-comparatives.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.javanlp-core.classpath"/>
+  </path>
+  
+  <path id="contextual-comparatives.module.classpath">
+    <path refid="${module.jdk.classpath.contextual-comparatives}"/>
+    <pathelement location="${contextual-comparatives.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.javanlp-core.classpath"/>
+  </path>
+  
+  <path id="contextual-comparatives.runtime.module.classpath">
+    <pathelement location="${contextual-comparatives.testoutput.dir}"/>
+    <pathelement location="${contextual-comparatives.output.dir}"/>
+    <path refid="library.junit-4.11.classpath"/>
+    <path refid="library.javanlp-core.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.contextual-comparatives">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.contextual-comparatives">
+    <patternset refid="excluded.from.module.contextual-comparatives"/>
+  </patternset>
+  
+  <path id="contextual-comparatives.module.sourcepath">
+    <dirset dir="${module.contextual-comparatives.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.contextual-comparatives" depends="compile.module.contextual-comparatives.production,compile.module.contextual-comparatives.tests" description="Compile module contextual-comparatives"/>
+  
+  <target name="compile.module.contextual-comparatives.production" description="Compile module contextual-comparatives; production classes">
+    <mkdir dir="${contextual-comparatives.output.dir}"/>
+    <javac destdir="${contextual-comparatives.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.contextual-comparatives}/javac">
+      <compilerarg line="${compiler.args.contextual-comparatives}"/>
+      <bootclasspath refid="contextual-comparatives.module.bootclasspath"/>
+      <classpath refid="contextual-comparatives.module.production.classpath"/>
+      <src refid="contextual-comparatives.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.contextual-comparatives"/>
+    </javac>
+    
+    <copy todir="${contextual-comparatives.output.dir}">
+      <fileset dir="${module.contextual-comparatives.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.contextual-comparatives.tests" depends="compile.module.contextual-comparatives.production" description="compile module contextual-comparatives; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.contextual-comparatives" description="cleanup module">
+    <delete dir="${contextual-comparatives.output.dir}"/>
+    <delete dir="${contextual-comparatives.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.contextual-comparatives" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.contextual-comparatives" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+
+  <target name="run" depends="compile.module.contextual-comparatives" description="Run a Java module">
+    <java classname="${exec}" fork="true">
+      <jvmarg line="-ea -Xmx4G" />
+      <classpath refid="contextual-comparatives.runtime.module.classpath"/>
+      <arg line="${args}"/>
+    </java>
+  </target>
+
+</project>

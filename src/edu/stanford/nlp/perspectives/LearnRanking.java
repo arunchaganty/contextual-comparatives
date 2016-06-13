@@ -4,7 +4,6 @@ import edu.stanford.nlp.perspectives.Util.WordEmbedding;
 import edu.stanford.nlp.classify.*;
 import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.ling.Datum;
-import edu.stanford.nlp.ling.RVFDatum;
 import edu.stanford.nlp.stats.ClassicCounter;
 import edu.stanford.nlp.stats.Counter;
 import edu.stanford.nlp.stats.Counters;
@@ -39,13 +38,16 @@ public class LearnRanking implements Runnable {
   @ArgumentParser.Option(name="outputFeatures", gloss="Output features")
   public static boolean outputFeatures = false;
 
+  @ArgumentParser.Option(name="outputFeatureExplanations", gloss="Output feature explanations on the predictions")
+  public static boolean outputFeatureExplanations = false;
+
   @ArgumentParser.Option(name="balance", gloss="Balance dataset")
   public static boolean balanceDataset = false;
 
   @ArgumentParser.Option(name="output", gloss="Save serialized model")
   public static String output = "";
 
-  @ArgumentParser.Option(name="outputPredictions", gloss="Save serialized model")
+  @ArgumentParser.Option(name="outputPredictions", gloss="Save output predictions")
   public static OutputStream outputPredictionsStream = System.out;
 
   public OutputStreamWriter outputPredictions;
@@ -243,7 +245,8 @@ public class LearnRanking implements Runnable {
     LinearClassifier<Boolean, String> classifier = run(factory, f, rawDataset);
     if (!Objects.equals(output, ""))
       LinearClassifier.writeClassifier(classifier, output);
-    explainFeatures(classifier, f, rawDataset);
+    if (outputFeatureExplanations)
+      explainFeatures(classifier, f, rawDataset);
 
     try {
       printOutput(classifier, f, rawDataset);
