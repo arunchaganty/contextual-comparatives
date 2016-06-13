@@ -130,6 +130,7 @@
     <pathelement location="${basedir}/lib/CoreNLP/liblocal/junit-quickcheck-generators.jar" />
     <pathelement location="${basedir}/lib/CoreNLP/liblocal/junit-theories.jar" />
     <pathelement location="${basedir}/lib/CoreNLP/liblocal/ognl.jar" />
+    <pathelement location="${basedir}/lib/guava-19.0.jar" />
   </path>
   
   <!-- Modules -->
