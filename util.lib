@@ -17,13 +17,13 @@ function error() {
   echo -e "$RED$1$CLOSE";
 }
 function fatal() {
-  error $1;
+  error "$1";
   exit 1;
 }
 
 function ensure_dir() {
   if [ ! -e $1 ]; then
-    mkdir -p $1;
+    mkdir -p "$1";
   fi;
 }
 

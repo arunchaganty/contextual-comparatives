@@ -14,3 +14,6 @@ cd ..;
 
 # Guava: an additional dependency.
 download lib http://search.maven.org/remotecontent?filepath=com/google/guava/guava/19.0/guava-19.0.jar
+
+# nn-semparse (Stanford's NLP package)
+gitClone https://github.com/arunchaganty/nn-semparse nn
