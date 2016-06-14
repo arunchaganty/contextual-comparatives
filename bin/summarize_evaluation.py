@@ -9,7 +9,6 @@ from __future__ import division
 import csv
 import sys
 from collections import Counter
-import ipdb
 
 def do_command(args):
     reader = csv.reader(args.input, delimiter="\t")
