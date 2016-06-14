@@ -3,13 +3,11 @@ package edu.stanford.nlp.perspectives;
 import edu.stanford.nlp.perspectives.Expr.Operation;
 import edu.stanford.nlp.simple.Sentence;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static edu.stanford.nlp.util.logging.Redwood.Util.logf;
 
@@ -147,6 +145,38 @@ public class NumericTuple {
       return builder.toString().trim();
     }
 
+    static Map<String, String> converter = new HashMap<String, String>() {{
+      put("weight", "kilogram");
+      put("length" , "meter");
+      put("area" , "square-meter");
+      put("money" , "USD");
+      put("volume" , "liter");
+      put("time" , "second");
+    }};
+
+    static Map<String, String> plurals = new HashMap<String, String>() {{
+      put("foot" , "feet");
+      put("feet" , "feet");
+      put("USD" , "USD");
+      put("person" , "people");
+    }};
+
+
+    public String toHumanString() {
+      return String.join(" ",
+          Stream.concat(
+              numerator.stream()
+                  .map(u -> converter.getOrDefault(u,u))
+                  .map(u -> plurals.getOrDefault(u,u + "s"))
+                  .sorted(),
+              denominator.stream()
+                  .map(u -> converter.getOrDefault(u,u))
+                  .map(u -> "per " + u)
+                  .sorted()
+          ).collect(Collectors.toList())
+      );
+    }
+
     @Override
     public int hashCode() {
       return toString().hashCode();
@@ -208,6 +238,10 @@ public class NumericTuple {
       return String.format("%d: %s %s %.2e %s", id.get(), subj, pred, val, unit);
     else
       return String.format("%s %s %.2e %s", subj, pred, val, unit);
+  }
+
+  public String toHumanString() {
+    return Util.humanReadableNumber(val) + " " + unit.toHumanString() + " (" + this.subj + ")";
   }
 
   public NumericTuple add(final NumericTuple other) {

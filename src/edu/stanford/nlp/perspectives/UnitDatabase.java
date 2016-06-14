@@ -5,6 +5,7 @@ import edu.stanford.nlp.io.RuntimeIOException;
 import edu.stanford.nlp.util.Pair;
 
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -65,6 +66,9 @@ public class UnitDatabase extends HashSet<UnitTuple> {
     } catch (FileNotFoundException e) {
       throw new RuntimeIOException(e);
     }
+    List<String> header = rit.next();
+    assert header.equals(Arrays.asList("unit", "conversion", "fundamental_unit"));
+
     while(rit.hasNext()) {
       List<String> entries = rit.next();
       UnitTuple tuple = new UnitTuple(

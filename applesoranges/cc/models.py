@@ -357,24 +357,31 @@ class NumericPerspectiveRatingTask(models.Model):
         A None corresponds to an abstain vote.
         A Both corresponds to vote for both.
         """
-        answers = Counter()
-        for winner, in self.responses.values_list('winner'):
-            answers["count"] += 1
-            if winner == -1: # this is like an abstain
-                pass
-            elif winner == len(self.systems):
-                for i in range(len(self.systems)):
-                    answers[i] += 1
-            else:
-                answers[winner] += 1
-        # Count up votes and ask for majority!
-        total = answers["count"]
-        if total == 0:
-            ipdb.set_trace()
-        winners = [self.systems[i] for i in range(len(self.systems)) if answers[i] > 0 and answers[i]/total >= 0.5]
+        n_votes = self.responses.count()
+        winners = []
+        for system in self.systems:
+            votes = self.get_votes(system)
+            if votes >= n_votes/2:
+                winners.append(system)
         return winners
 
     error_analysis = models.TextField(default="")
+
+    def get_votes(self, system):
+        if system is "none":
+            return self.responses.filter(winner = -1).count()
+        try:
+            idx = self.systems.index(system)
+            return self.responses.filter(winner = idx).count() + self.responses.filter(winner = len(self.systems)).count()
+        except ValueError:
+            return 0
+
+    def get_perspective(self, system):
+        try:
+            idx = self.systems.index(system)
+            return self.perspectives[idx]
+        except ValueError:
+            return None
 
 class NumericPerspectiveRatingTaskResponse(models.Model):
     """

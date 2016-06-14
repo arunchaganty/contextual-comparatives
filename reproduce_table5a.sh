@@ -34,3 +34,5 @@ for features in ${FEATURES[@]}; do
 done;
 
 info "Table 5a ready!"
+echo "=== Table 5(a)"
+cat table5a.tsv

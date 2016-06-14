@@ -1,4 +1,4 @@
-unit	converstion	fundamental_unit
+unit	conversion	fundamental_unit
 minute	1	time
 second	0.016667	time
 millisecond	1.666667e-5	time

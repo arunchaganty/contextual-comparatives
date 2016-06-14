@@ -13,6 +13,7 @@ import edu.stanford.nlp.util.TSVSentenceIterator;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -86,6 +87,8 @@ public class RankComparisons implements Runnable {
     } catch (FileNotFoundException e) {
       throw new RuntimeIOException(e);
     }
+    List<String> header = rit.next();
+    assert header.equals(Arrays.asList("id", "fact", "relation", "value", "unit"));
     while(rit.hasNext()) {
       List<String> entries = rit.next();
       NumericTuple tuple = new NumericTuple(
@@ -204,13 +207,14 @@ public class RankComparisons implements Runnable {
 
     if (outputIds) {
       // Output the mentions
-      outputWriter.append(String.join("\t", "mention_id", "multiplier", "arguments", "value", "unit", "score")).append('\n');
+      outputWriter.append(String.join("\t", "mention_id", "expression", "multiplier", "arguments", "value", "unit", "score")).append('\n');
       for (Pair<NumericMentionExpression, Double> pair : lst) {
         NumericMentionExpression me = pair.first;
         double score = pair.second;
         List<Integer> ids = me.expression.arguments().stream().map(a -> a.id.orElse(-1)).collect(Collectors.toList());
         // output: multiplier, {data_id_1}, value, unit
-        outputWriter.append(String.join("\t", Integer.toString(me.mention.id.orElse(-1)),
+        outputWriter.append(String.join("\t", Integer.toString(me.mention.id.orElse(2)),
+            me.toHumanString(),
             Double.toString(me.expression_multiplier),
             Util.writeArray(ids),
             Double.toString(me.expression_value),

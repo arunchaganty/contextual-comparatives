@@ -37,4 +37,5 @@ echo "Baseline	$(cut -f2 $WORK_DIR/baseline_train.bleu)	$(cut -f2 $WORK_DIR/base
 echo "RNN	$(cut -f2 $WORK_DIR/rnn_train.bleu)	$(cut -f2 $WORK_DIR/rnn_test.bleu)	" >> table5b.tsv
 
 info "Table 5b ready!"
+echo "=== Table 5(b)"
 cat table5b.tsv

@@ -13,9 +13,13 @@ class Command(BaseCommand):
     """Takes mturk repsonse CSV from [source], and loads into database."""
 
     def add_arguments(self, parser):
-        pass
+        import argparse, sys
+        parser.add_argument('--output', type=argparse.FileType('w'), default=sys.stdout, help="File to write out mentions, generations, and evaluations")
 
     def handle(self, *args, **options):
+        writer = csv.writer(options['output'], delimiter="\t")
+        writer.writerow(['id', 'baseline_perspective', 'generation_perspective', 'baseline_votes', 'generation_votes', 'none_votes', 'n_votes', 'error_analysis'])
+
         tasks = NumericPerspectiveRatingTaskResponse.objects.all().values_list('task_id')
         tasks = NumericPerspectiveRatingTask.objects.filter(id__in = tasks).prefetch_related('responses')
 
@@ -24,6 +28,17 @@ class Command(BaseCommand):
         counter_explain = Counter()
         for task in tasks:
             if "generation" not in task.systems: continue
+
+            writer.writerow([
+                task.mention_id,
+                task.get_perspective("baseline"),
+                task.get_perspective("generation"),
+                task.get_votes("baseline"),
+                task.get_votes("generation"),
+                task.get_votes("none"),
+                task.responses.count(),
+                task.error_analysis])
+
             winners = task.best_system()
             if len(winners) > 0:
                 counter.update(task.best_system())

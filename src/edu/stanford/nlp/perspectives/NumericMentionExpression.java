@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static edu.stanford.nlp.perspectives.NumericTuple.*;
 import static edu.stanford.nlp.util.logging.Redwood.Util.log;
@@ -99,5 +100,9 @@ public class NumericMentionExpression {
     return new NumericMentionExpression(0,
         mention.id.orElse(0), mention.sentence.get(), mention.value, mention.unit, mention.normalized_value, mention.normalized_unit, mention.token_begin, mention.token_end,
         0, expr.value, expr.unit, mention.value / expr.value, expr, 0, new Sentence(expr.toString()), Optional.empty());
+  }
+
+  public String toHumanString() {
+    return expression.toHumanString(expression_multiplier);
   }
 }

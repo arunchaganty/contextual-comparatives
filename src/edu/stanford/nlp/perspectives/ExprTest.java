@@ -15,6 +15,7 @@ public class ExprTest {
     Assert.assertEquals(NumericTuple.of("number of employees in the services industry", "is", 19990000.000000, "person"), expr.leftArg.get().leftArg.get().tupleArg.get());
     Assert.assertEquals(NumericTuple.of("a day", "is", 1.000000, "day"), expr.leftArg.get().rightArg.get().tupleArg.get());
     Assert.assertEquals(NumericTuple.of("cost of an employee", "is", 71000.000000, "USD per year per person"), expr.rightArg.get().tupleArg.get());
+    Assert.assertEquals("20 million people (number of employees in the services industry) * 1 days (a day) * 71 thousand USD per person per year (cost of an employee)", expr.toHumanString());
   }
 
   @Test
@@ -26,5 +27,6 @@ public class ExprTest {
     Assert.assertEquals(NumericTuple.of("number of employees in the services industry", "is", 19990000.000000, "person"), expr.leftArg.get().leftArg.get().tupleArg.get());
     Assert.assertEquals(NumericTuple.of("a day", "is", 1.000000, "day"), expr.leftArg.get().rightArg.get().tupleArg.get());
     Assert.assertEquals(NumericTuple.of("cost of an employee", "is", 71000.000000, "USD per year per person"), expr.rightArg.get().tupleArg.get());
+    Assert.assertEquals("1/4 * 20 million people (number of employees in the services industry) * 1 days (a day) * 71 thousand USD per person per year (cost of an employee)", expr.toHumanString(multiplier));
   }
 }

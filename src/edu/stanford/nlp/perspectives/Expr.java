@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Represents a (full) expression tree.
@@ -75,6 +76,7 @@ public class Expr {
         return String.format("(%s %s %s)", leftArg.get(), op, rightArg.get());
     }
   }
+
 
   public NumericTuple evaluate() {
     switch (op) {
@@ -188,5 +190,13 @@ public class Expr {
     }
 
     return Pair.makePair(multiplier,ret.get());
+  }
+
+  public String toHumanString() {
+    return String.join(" * ", arguments().stream() .map(NumericTuple::toHumanString) .collect(Collectors.toList()) );
+  }
+
+  public String toHumanString(double multiplier) {
+    return Util.roundMultiplier(multiplier) + " * " + toHumanString();
   }
 }

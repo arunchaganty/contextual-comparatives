@@ -18,6 +18,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static edu.stanford.nlp.perspectives.NumericTuple.Unit;
 import static edu.stanford.nlp.util.TSVSentenceIterator.SentenceField;
@@ -314,7 +315,7 @@ public class Util {
 
   public static List<NumericMention> readMentions(String filename) throws FileNotFoundException {
     List<NumericMention> mentions = new ArrayList<>();
-    RecordIterator rit = new RecordIterator(filename, 10 + fields.size(), true, "\t");
+    RecordIterator rit = new RecordIterator(filename, "\t");
 
     List<String> header = Arrays.asList("id	value	unit	normalized_value	normalized_unit	sentence_id	doc_char_begin	doc_char_end	token_begin	token_end	id	doc_id	sentence_index	gloss	words	lemmas	pos_tags	ner_tags	doc_char_begin	doc_char_end	dependencies".split("\\s+"));
     List<String> header_ = rit.next();
@@ -386,5 +387,41 @@ public class Util {
       c.incrementCount(entry.getKey(), entry.getValue());
     }
     return c;
+  }
+
+  public static String roundMultiplier(double n) {
+    if (n >= 0.9) {
+      n = Math.round(n);
+      if (n >= 10) { // Round to nearest multiple of 10.
+        n = Math.round(n / 10) * 10;
+      }
+      if (n >= 100) { // Round to nearest multiple of 10.
+        n = Math.round(n / 100) * 100;
+      }
+      if (n >= 1000) { // Round to nearest multiple of 10.;
+        n = Math.round(n / 1000) * 1000;
+      }
+      return Integer.toString((int)n);
+    } else {
+      String base = roundMultiplier(1. / n);
+      if (base.equals("1")) return base;
+      else return "1/" + base;
+    }
+  }
+
+  public static String humanReadableNumber(double n) {
+    if (n >= 1e9) {
+      return String.format("%d billion", (Math.round(n / 1e9)));
+    } else if (n >= 1e6) {
+      return String.format("%d million", (Math.round(n / 1e6)));
+    } else if (n >= 1e3) {
+      return String.format("%d thousand", (Math.round(n / 1e3)));
+    } else if (n >= 1) {
+      return String.format("%d", (Math.round(n)));
+    } else if (n > 0.01) {
+      return String.format("%.2f", (n));
+    } else {  // Cheating.
+      return "0.001";
+    }
   }
 }
